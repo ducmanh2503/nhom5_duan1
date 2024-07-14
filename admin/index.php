@@ -1,16 +1,23 @@
+
 <?php
+
+
     if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap'){
         include "header.php";
     }
+    include "../model/pdo.php";
+    include "../model/danhmuc.php";
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
         switch($act){
             case "list_danhmuc":
+                $list_category=load_all_category();
                 include "danhmuc/list.php";
                 break;
 
             case "add_danhmuc":
+               
                 include "danhmuc/add.php";
                 break;
 
