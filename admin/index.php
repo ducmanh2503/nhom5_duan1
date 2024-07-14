@@ -15,6 +15,14 @@
             case "update_danhmuc":
                 include "danhmuc/update.php";
                 break;
+                
+            case "add_sanpham":
+                include "sanpham/add.php";
+                break;
+
+            case "list_sanpham":
+                include "sanpham/list.php";
+                break;
 
             default:
                 include "home.php";
