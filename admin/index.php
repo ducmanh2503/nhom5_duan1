@@ -24,6 +24,10 @@
                 include "sanpham/list.php";
                 break;
 
+            case "update_sanpham":
+                include "sanpham/update.php";
+                break;
+
             default:
                 include "home.php";
                 break;

@@ -10,6 +10,17 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                aria-expanded="false"><i class="fab fa-product-hunt"></i><span class="hide-menu">Danh Mục </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="index.php?act=add_danhmuc" class="sidebar-link"><i class="fas fa-plus"></i><span
+                                            class="hide-menu"> Thêm Danh Mục
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="index.php?act=list_danhmuc" class="sidebar-link"><i class="far fa-list-alt"></i><span
+                                            class="hide-menu"> Danh Sách Danh Mục
+                                        </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false"><i class="fab fa-product-hunt"></i><span class="hide-menu">Sản Phẩm </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="index.php?act=add_sanpham" class="sidebar-link"><i class="fas fa-plus"></i><span
