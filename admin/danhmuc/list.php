@@ -46,12 +46,11 @@
               <tr>
                 <th scope="row">3</th>
                 <td>Larry</td>
-                <td><a href="#"><button class="btn btn-warning active">Đang
-                                                    Bán</button></a>
-                                            <a href="#"><button class="btn btn-danger">Ngưng bán</button></a>
-                                        </td>
-                                        <td><a href="index.php?act=update_danhmuc"><i class="fas fa-edit btn btn-info"></i></a>
-                                        </td>
+                <td>
+                  <a href="#"><button class="btn btn-warning active">Đang Bán</button></a>
+                  <a href="#"><button class="btn btn-danger">Ngưng bán</button></a>
+                </td>
+                <td><a href="index.php?act=update_danhmuc"><i class="fas fa-edit btn btn-info"></i></a></td>
               </tr>
             </tbody>
           </table>
