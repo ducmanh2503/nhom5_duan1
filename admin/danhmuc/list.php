@@ -7,7 +7,7 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Danh mục sản phẩm</h4>
+        <h4 class="page-title">Danh Mục</h4>
         <div class="ml-auto text-right">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
-
+          <h4 class="card-title" style="margin: 12px 12px">Danh Sách Danh Mục</h4>
           <table class="table">
             <thead>
               <tr>
@@ -44,32 +44,17 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td><a href=""><input type="button" value="Thay đổi"></a></td>
-                <td><a href="index.php?act=update_danhmuc"><input type="button" value="Sửa"></a></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td><a href=""><input type="button" value="Thay đổi"></a></td>
-                <td><a href="index.php?act=update_danhmuc"><input type="button" value="Sửa"></a></td>
-              </tr>
-              <tr>
                 <th scope="row">3</th>
                 <td>Larry</td>
-                <td><a href=""><input type="button" value="Thay đổi"></a></td>
-                <td><a href="index.php?act=update_danhmuc"><input type="button" value="Sửa"></a></td>
+                <td><a href="#"><button class="btn btn-warning active">Đang
+                                                    Bán</button></a>
+                                            <a href="#"><button class="btn btn-danger">Ngưng bán</button></a>
+                                        </td>
+                                        <td><a href="index.php?act=update_danhmuc"><i class="fas fa-edit btn btn-info"></i></a>
+                                        </td>
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div style="display: flex; justify-content: center; align-items: center; ">
-          <a href="index.php?act=add_danhmuc" style="text-decoration: none;">
-            <input type="button" value="Thêm mới"
-              style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; cursor: pointer; font-size: 16px; border-radius: 5px;">
-          </a>
         </div>
 
       </div>
