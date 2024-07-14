@@ -1,5 +1,7 @@
 <?php
-    include "header.php";
+    if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap'){
+        include "header.php";
+    }
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -26,6 +28,14 @@
 
             case "update_sanpham":
                 include "sanpham/update.php";
+                break;
+
+            case "dangky":
+                include "user/dangky.php";
+                break;
+
+            case "dangnhap":
+                include "user/dangnhap.php";
                 break;
 
             default:
