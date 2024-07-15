@@ -7,6 +7,7 @@
     }
     include "../model/pdo.php";
     include "../model/danhmuc.php";
+    include "../model/sanpham.php";
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -30,6 +31,7 @@
                 break;
 
             case "list_sanpham":
+                $list_product = load_all_product();
                 include "sanpham/list.php";
                 break;
 

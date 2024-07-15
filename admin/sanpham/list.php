@@ -46,6 +46,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php 
+                                        foreach ($list_product as $product) {
+                                            
+                                    ?>
+                                    <tr>
+                                        <td>Laptop asus</td>
+                                        <td>123.jpg</td>
+                                        <td>Sản phẩm mới của thương hiệu nhà Asus</td>
+                                        <td>25000000đ</td>
+                                        <td>Đen</td>
+                                        <td><a href="#"><button class="btn btn-warning active">Đang
+                                                    Bán</button></a>
+                                            <a href="#"><button class="btn btn-danger">Ngưng bán</button></a>
+                                        </td>
+                                        <td><a href="index.php?act=update_sanpham"><i class="fas fa-edit btn btn-info"></i></a>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
                                     <tr>
                                         <td>Laptop asus</td>
                                         <td>123.jpg</td>
@@ -60,17 +78,6 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Tên Sản Phẩm</th>
-                                        <th>Ảnh</th>
-                                        <th>Mô Tả</th>
-                                        <th>Giá</th>
-                                        <th>Màu Sắc</th>
-                                        <th>Trạng Thái</th>
-                                        <th>Chức Năng</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
 
