@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2024 at 11:50 AM
+-- Generation Time: Jul 15, 2024 at 12:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,6 +49,14 @@ CREATE TABLE `category` (
   `category_status` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `category_name`, `category_status`) VALUES
+(1, 'Màn Hình', 0),
+(2, 'Loa', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +67,15 @@ CREATE TABLE `color` (
   `id` int(15) NOT NULL,
   `color_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `color`
+--
+
+INSERT INTO `color` (`id`, `color_name`) VALUES
+(1, 'Đen'),
+(2, 'Trắng'),
+(3, 'Hồng');
 
 -- --------------------------------------------------------
 
@@ -141,8 +158,8 @@ CREATE TABLE `product` (
   `product_price` int(20) NOT NULL,
   `product_image` varchar(100) NOT NULL,
   `product_describe` text NOT NULL,
-  `product_status` tinyint(10) NOT NULL DEFAULT 0,
-  `inventory_id` int(15) NOT NULL,
+  `statusProduct_id` int(15) NOT NULL DEFAULT 0,
+  `inventory_id` int(15) DEFAULT NULL,
   `category_id` int(15) NOT NULL,
   `color_id` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -157,6 +174,25 @@ CREATE TABLE `role` (
   `id` int(15) NOT NULL,
   `role_name` varchar(100) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(15) NOT NULL,
+  `name_status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `name_status`) VALUES
+(1, 'Đang Bán'),
+(2, 'Ngừng Bán');
 
 --
 -- Indexes for dumped tables
@@ -223,12 +259,19 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lk_product_inventory` (`inventory_id`),
   ADD KEY `lk_product_category` (`category_id`),
-  ADD KEY `lk_product_color` (`color_id`);
+  ADD KEY `lk_product_color` (`color_id`),
+  ADD KEY `lk_product_productStatus` (`statusProduct_id`);
 
 --
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -245,13 +288,13 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -288,6 +331,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `role`
   MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -331,7 +380,8 @@ ALTER TABLE `order_details`
 ALTER TABLE `product`
   ADD CONSTRAINT `lk_product_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
   ADD CONSTRAINT `lk_product_color` FOREIGN KEY (`color_id`) REFERENCES `color` (`id`),
-  ADD CONSTRAINT `lk_product_inventory` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`);
+  ADD CONSTRAINT `lk_product_inventory` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`),
+  ADD CONSTRAINT `lk_product_productStatus` FOREIGN KEY (`statusProduct_id`) REFERENCES `status` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

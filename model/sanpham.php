@@ -4,6 +4,11 @@
         $list_product = pdo_query($sql);
         return $list_product;
     }
+
+    function add_product() {
+        $sql = "INSERT INTO product (product_name, product_price, product_image, product_describe, product_status, inventory_id, category_id, color_id ) VALUES ('$product_name', '$product_price', '$product_image', '$product_describe', '$product_status', '$inventory_id', '$category_id', '$color_id')";
+        pdo_excute($sql);
+    }
 ?>
 
 <!-- function loadall_sanpham($kyw, $ma_danhmuc) {

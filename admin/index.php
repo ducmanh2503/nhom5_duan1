@@ -8,6 +8,7 @@
     include "../model/pdo.php";
     include "../model/danhmuc.php";
     include "../model/sanpham.php";
+    include "../model/trangthai.php";
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -27,6 +28,8 @@
                 break;
                 
             case "add_sanpham":
+                $list_category = load_all_category();
+                $list_status = load_all_status();
                 include "sanpham/add.php";
                 break;
 
