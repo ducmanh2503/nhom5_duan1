@@ -30,18 +30,18 @@
                 break;
 
             case "edit_danhmuc":
-                if(isset($_GET['id']) && ($_GET['id']>0)){
-                    $category=load_one_category($_GET['id']);
+                if(isset($_GET['category_id']) && ($_GET['category_id']>0)){
+                    $category=load_one_category($_GET['category_id']);
                 }
                 include "danhmuc/update.php";
                 break;
 
             case "update_danhmuc":
                 if(isset($_POST['btn-update']) && ($_POST['btn-update'])){
-                    $id = $_POST['id'];
+                    $category_id = $_POST['category_id'];
                     $category_name = $_POST['category_name'];
                     $status = $_POST['status'];
-                    update_category($id,$category_name,$status);
+                    update_category($category_id,$category_name,$status);
                     $thongbao="Cập nhật thành công";
                 }
                 $list_category=load_all_category();
