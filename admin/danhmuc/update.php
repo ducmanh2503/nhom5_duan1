@@ -34,26 +34,45 @@
             <div class="card-body wizard-content">
                 <h4 class="card-title">Cập Nhật Danh Mục</h4>
                 <h6 class="card-subtitle"></h6>
-                <form id="example-form" action="#" class="m-t-40">
+                <form id="example-form" action="index.php?act=update_danhmuc" method="post" class="m-t-40">
                     <div>
 
                         <section>
-                            <label for="userName">Mã danh mục</label>
-                            <input id="userName" name="userName" type="text" class="required form-control" disabled>
-                            <label for="password">Tên danh mục</label>
-                            <input id="password" name="password" type="text" class="required form-control">
-                            <label for="confirm">Trạng thái</label>
-                            <input id="confirm" name="confirm" type="text" class="required form-control">
+
+                            <label for="category_name">Tên danh mục</label>
+                            <input id="category_name" name="category_name" type="text"
+                                value="<?php echo $category['category_name'] ?>" class="required form-control">
+                            <label for="status">Trạng thái</label>
+                            <select id="status" name="status" class="form-control">
+                                <?php
+
+                                    $status_options = array("active" => "Hoạt động", "inactive" => "Ngưng hoạt động");
+
+
+                                    foreach ($status_options as $key => $value) {
+
+                                        $selected = ($key == $category['status']) ? 'selected' : '';
+
+                                        echo '<option value="' . $key . '" ' . $selected . '>' . $value . '</option>';
+                                    }
+                                ?>
+                            </select>
 
                         </section>
-
-                    </div>
-                    <div class="border-top" style="text-align: center;">
-                        <div class="card-body">
-                            <button type="button" class="btn btn-warning">Cập Nhật</button>
+                        <div class="border-top" style="text-align: center;">
+                            <div class="card-body">
+                                <input type="hidden" name="id" value="<?php echo $category['id'] ?>">
+                                <input type="submit" class="btn btn-warning" value="Cập Nhật" id="btn_update"
+                                    name="btn-update">
+                            </div>
                         </div>
+
                     </div>
 
+                    <?php
+                        if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
+                            
+                    ?>
 
 
                 </form>

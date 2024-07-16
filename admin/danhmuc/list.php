@@ -49,17 +49,15 @@
             
 
               foreach($list_category as $category){
-
+                $status_text = ($category['status'] == 'active') ? 'Hoạt động' : 'Ngưng hoạt động';
             ?>
               <tr>
               <th scope="row"><?php echo $category['id']?>
               </th>
               <td><?php echo $category['category_name']?></td>
-              <td><a href="#"><button class="btn btn-warning active">Đang
-                    Bán</button></a>
-                <a href="#"><button class="btn btn-danger">Ngưng bán</button></a>
+              <td><input type="submit" class="btn btn-success" value="<?php echo $status_text ?>"></td>
               </td>
-              <td><a href="index.php?act=update_danhmuc"><i class="fas fa-edit btn btn-info"></i></a>
+              <td><a href="index.php?act=edit_danhmuc&id=<?php echo $category['id'] ?>"><i class="fas fa-edit btn btn-info"></i></a>
               </td>
             </tr> 
             <?php } ?>
