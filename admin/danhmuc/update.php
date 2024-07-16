@@ -61,7 +61,7 @@
                         </section>
                         <div class="border-top" style="text-align: center;">
                             <div class="card-body">
-                                <input type="hidden" name="id" value="<?php echo $category['category_id'] ?>">
+                                <input type="hidden" name="category_id" value="<?php echo $category['category_id'] ?>">
                                 <input type="submit" class="btn btn-warning" value="Cập Nhật" id="btn_update"
                                     name="btn-update">
                             </div>

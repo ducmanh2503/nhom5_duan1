@@ -30,8 +30,8 @@
                 break;
 
             case "edit_danhmuc":
-                if(isset($_GET['id']) && ($_GET['id']>0)){
-                    $category=load_one_category($_GET['id']);
+                if(isset($_GET['category_id']) && ($_GET['category_id']>0)){
+                    $category=load_one_category($_GET['category_id']);
                 }
                 include "danhmuc/update.php";
                 break;

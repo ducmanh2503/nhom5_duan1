@@ -25,7 +25,7 @@
     }
 
     function update_category($category_id,$category_name,$status){
-        $sql="update category set category_name='$category_name', status='$status' where category_id=$category_id";
+        $sql="update category set category_name='$category_name', status='$status' where category_id='$category_id'";
         pdo_execute($sql);
     }
 ?>
