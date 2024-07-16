@@ -8,6 +8,7 @@
     include "../model/thuonghieu.php";
     include "../model/sanpham.php";
     include "../model/mausac.php";
+    include "../model/binhluan.php";
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -93,9 +94,7 @@
                 include "sanpham/update.php";
                 break;
             
-            case "list_binhluan":
-                include "binhluan/list.php";
-                break;
+           
                 
             case "update_sanpham":
                 if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
@@ -124,16 +123,12 @@
                 include "sanpham/list.php";
                 break;
 
+            case "list_binhluan":
+                    $list_comment = load_all_comment();
+                    include "binhluan/list.php";
+                    break;
+
             case "dangky":
-                if (isset($_POST['dangky']) && ($_POST['dangky'])) {
-                    $email = $_POST['email'];
-                    $user = $_POST['user'];
-                    $pass = $_POST['pass'];
-                    $confirmpass = $_POST['confirmpass'];
-                   
-                    insert_account( $user,$email,$pass,$confirmpass);
-                    $thongbao = "Đã Đăng Ký Thành Công Vui Lòng Đăng Nhập";
-                }
                 include "user/dangky.php";
                 break;
 

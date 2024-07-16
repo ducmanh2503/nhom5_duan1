@@ -36,36 +36,38 @@
                             <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Tên Người Bình Luận</th>
-                                        <th>Nôi Dung</th>
-                                        <th>Chức năng</th>
-                                        <th>Thời Gian</th>
+                                        <th>Tên tài khoản</th>
+                                        <th>Nội dung</th>
 
+                                        <th>Sản phẩm được bình luận</th>
+
+                                        <th>Chức Năng</th>
+                                        <th>Thời gian</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                        foreach ($list_comment as $comment) {
+                                           
+
+                                    ?>
                                     <tr>
-                                        <td>Tùng</td>
-                                        <td>Laptop đẹp quá</td>
+                                        <td><?php echo $comment['user']?></td>
+
+                                        <td><?php echo $comment['content']?></td>
+
+                                        <td><?php echo $comment['product_name']?></td>
+
                                         <td>
-                                            <button type="button" class="btn btn-cyan btn-sm">Sửa</button>
-                                            <button type="button" class="btn btn-success btn-sm">Công Khai</button>
-                                            <button type="button" class="btn btn-danger btn-sm">Xóa</button>
+                                            <input type="submit" value="Sửa" name="sua" class="btn btn-cyan btn-sm">
+                                            <input type="submit" value="Công Khai" name="congkhai"
+                                                class="btn btn-success btn-sm">
+                                            <input type="button" value="Sửa" name="xoa" class="btn btn-danger btn-sm">
                                         </td>
-                                        <td>12/2/2004</td>
-
-
-
+                                        <td><?php echo $comment['time']?></td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Tên Người Bình Luận</th>
-                                        <th>Nôi Dung</th>
-                                        <th>Chức năng</th>
-                                        <th>Thời Gian</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
 
