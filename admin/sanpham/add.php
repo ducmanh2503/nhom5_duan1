@@ -70,7 +70,7 @@
                                     style="width: 100%; height:36px;" required>
                                     <option value="" disabled selected>Chọn màu</option>
                                     <?php foreach ($list_color as $color) { ?>
-                                    <option value="<?php echo $color['id']?>">
+                                    <option value="<?php echo $color['color_id']?>">
                                         <?php echo $color['color_name']?>
                                     </option>
                                     <?php } ?>
@@ -98,7 +98,7 @@
                                     required>
                                     <option value="" disabled selected>Chọn thương hiệu</option>
                                     <?php foreach ($list_brand as $brand) { ?>
-                                    <option value="<?php echo $brand['id']?>">
+                                    <option value="<?php echo $brand['brand_id']?>">
                                         <?php echo $brand['brand_name']?>
                                     </option>
                                     <?php } ?>

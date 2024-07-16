@@ -116,10 +116,10 @@
                                     style="width: 100%; height:36px;" required>
                                     <option value="" disabled selected>Chọn thương hiệu</option>
                                     <?php foreach ($list_brand as $brand) { ?>
-                                        <?php if ($brand['id'] == $product['brand_id']) {?>
-                                            <option value="<?php echo $brand['id']?>" selected><?php echo $brand['brand_name']?></option>
+                                        <?php if ($brand['brand_id'] == $product['brand_id']) {?>
+                                            <option value="<?php echo $brand['brand_id']?>" selected><?php echo $brand['brand_name']?></option>
                                         <?php } else { ?>
-                                            <option value="<?php echo $brand['id']?>"><?php echo $brand['brand_name']?></option>
+                                            <option value="<?php echo $brand['brand_id']?>"><?php echo $brand['brand_name']?></option>
                                         <?php } ?>
                                     <?php } ?>
                                 </select>

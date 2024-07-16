@@ -41,6 +41,7 @@
                                         <th>Mô Tả</th>
                                         <th>Giá</th>
                                         <th>Màu Sắc</th>
+                                        <th>Thương Hiệu</th>
                                         <th>Trạng Thái</th>
                                         <th>Chức Năng</th>
                                     </tr>
@@ -57,6 +58,7 @@
                                         <td><?php echo $product['product_describe']?></td>
                                         <td><?php echo $product['product_price']?></td>
                                         <td><?php echo $product['color_name']?></td>
+                                        <td><?php echo $product['brand_name']?></td>
                                         <td><input type="submit" class="btn btn-success" value="<?php echo $product['status']?>"></td>
                                         <td><a href="index.php?act=edit_sanpham&id=<?php echo $product['id']?>"><i class="fas fa-edit btn btn-info"></i></a>
                                         </td>
