@@ -34,28 +34,30 @@
             <div class="card-body wizard-content">
                 <h4 class="card-title">Thêm Mới Danh Mục</h4>
                 <h6 class="card-subtitle"></h6>
-                <form id="example-form" action="#" class="m-t-40">
+                <form id="example-form" action="index.php?act=add_danhmuc" method="post" class="m-t-40">
                     <div>
 
                         <section>
-                            <label for="userName">Mã danh mục</label>
-                            <input id="userName" name="userName" type="text" class="required form-control" disabled>
-                            <label for="password">Tên danh mục</label>
-                            <input id="password" name="password" type="text" class="required form-control">
-                            <label for="confirm">Trạng thái</label>
-                            <input id="confirm" name="confirm" type="text" class="required form-control">
+                            <label for="id">Mã danh mục</label>
+                            <input id="id" name="id" type="text" class="required form-control" disabled>
+                            <label for="category_name">Tên danh mục</label>
+                            <input id="category_name" name="category_name" type="text" class="required form-control">
+                            
 
                         </section>
 
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center; ">
-                        <input id="btn-them" type="button" value="Thêm mới"
+                        <input id="btn-them" type="submit" name="add_cate" value="Thêm mới"
                             class="btn btn-success" style="margin-top: 12px">
                     </div>
 
 
 
                 </form>
+                <?php
+                    if(isset($thongbao)&&($thongbao!="")) echo $thongbao;
+                ?>
             </div>
         </div>
         <!-- ============================================================== -->

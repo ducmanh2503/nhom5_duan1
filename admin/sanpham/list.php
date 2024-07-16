@@ -41,36 +41,30 @@
                                         <th>Mô Tả</th>
                                         <th>Giá</th>
                                         <th>Màu Sắc</th>
+                                        <th>Thương Hiệu</th>
                                         <th>Trạng Thái</th>
                                         <th>Chức Năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                        foreach ($list_product as $product) {
+                                            // var_dump($product);
+
+                                    ?>
                                     <tr>
-                                        <td>Laptop asus</td>
-                                        <td>123.jpg</td>
-                                        <td>Sản phẩm mới của thương hiệu nhà Asus</td>
-                                        <td>25000000đ</td>
-                                        <td>Đen</td>
-                                        <td><a href="#"><button class="btn btn-warning active">Đang
-                                                    Bán</button></a>
-                                            <a href="#"><button class="btn btn-danger">Ngưng bán</button></a>
-                                        </td>
-                                        <td><a href="index.php?act=update_sanpham"><i class="fas fa-edit btn btn-info"></i></a>
+                                        <td><?php echo $product['product_name']?></td>
+                                        <td><img src="upload/<?php echo $product['product_image']?>" alt="" style="max-width: 100px; max-height: 100px;"></td>
+                                        <td><?php echo $product['product_describe']?></td>
+                                        <td><?php echo $product['product_price']?></td>
+                                        <td><?php echo $product['color_name']?></td>
+                                        <td><?php echo $product['brand_name']?></td>
+                                        <td><input type="submit" class="btn btn-success" value="<?php echo $product['status']?>"></td>
+                                        <td><a href="index.php?act=edit_sanpham&id=<?php echo $product['id']?>"><i class="fas fa-edit btn btn-info"></i></a>
                                         </td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Tên Sản Phẩm</th>
-                                        <th>Ảnh</th>
-                                        <th>Mô Tả</th>
-                                        <th>Giá</th>
-                                        <th>Màu Sắc</th>
-                                        <th>Trạng Thái</th>
-                                        <th>Chức Năng</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
 
