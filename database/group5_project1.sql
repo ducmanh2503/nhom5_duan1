@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 16, 2024 at 07:06 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Jul 16, 2024 at 05:20 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,13 +28,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `account` (
-  `id` int(15) NOT NULL,
-  `user` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `phone_number` varchar(15) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `role_id` int(11) NOT NULL
+  `account_id` int NOT NULL,
+  `user` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone_number` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `role_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -44,9 +44,9 @@ CREATE TABLE `account` (
 --
 
 CREATE TABLE `brand` (
-  `brand_id` int(15) NOT NULL,
-  `brand_name` varchar(100) NOT NULL,
-  `status` enum('active','inactive','','') NOT NULL
+  `brand_id` int NOT NULL,
+  `brand_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` enum('active','inactive','','') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -68,9 +68,9 @@ INSERT INTO `brand` (`brand_id`, `brand_name`, `status`) VALUES
 --
 
 CREATE TABLE `category` (
-  `id` int(15) NOT NULL,
-  `category_name` varchar(100) NOT NULL,
-  `status` enum('Active','Inactive','','') NOT NULL
+  `id` int NOT NULL,
+  `category_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` enum('Active','Inactive','','') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -91,8 +91,8 @@ INSERT INTO `category` (`id`, `category_name`, `status`) VALUES
 --
 
 CREATE TABLE `color` (
-  `color_id` int(15) NOT NULL,
-  `color_name` varchar(100) NOT NULL
+  `color_id` int NOT NULL,
+  `color_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -111,11 +111,11 @@ INSERT INTO `color` (`color_id`, `color_name`) VALUES
 --
 
 CREATE TABLE `comment` (
-  `id` int(15) NOT NULL,
-  `content` text NOT NULL,
-  `time` varchar(20) NOT NULL,
-  `account_id` int(15) NOT NULL,
-  `product_id` int(15) NOT NULL
+  `comment_id` int NOT NULL,
+  `content` text COLLATE utf8mb4_general_ci NOT NULL,
+  `time` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `account_id` int NOT NULL,
+  `product_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -125,9 +125,9 @@ CREATE TABLE `comment` (
 --
 
 CREATE TABLE `gallery` (
-  `id` int(15) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `product_id` int(11) NOT NULL
+  `gallery_id` int NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `product_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -137,9 +137,9 @@ CREATE TABLE `gallery` (
 --
 
 CREATE TABLE `inventory` (
-  `id` int(15) NOT NULL,
-  `product_id` int(15) NOT NULL,
-  `quantity` int(10) NOT NULL
+  `inventory_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `quantity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -149,13 +149,13 @@ CREATE TABLE `inventory` (
 --
 
 CREATE TABLE `order` (
-  `id` int(15) NOT NULL,
-  `customer_name` varchar(100) NOT NULL,
-  `customer_address` varchar(255) NOT NULL,
-  `order_status` tinyint(10) NOT NULL DEFAULT 0,
-  `customer_phone` int(20) NOT NULL,
-  `customer_email` varchar(50) NOT NULL,
-  `user_id` int(15) NOT NULL
+  `order_id` int NOT NULL,
+  `customer_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `order_status` tinyint NOT NULL DEFAULT '0',
+  `customer_phone` int NOT NULL,
+  `customer_email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -165,12 +165,12 @@ CREATE TABLE `order` (
 --
 
 CREATE TABLE `order_details` (
-  `id` int(15) NOT NULL,
-  `product_id` int(15) NOT NULL,
-  `order_id` int(15) NOT NULL,
-  `product_price` int(20) NOT NULL,
-  `quantity` int(10) NOT NULL,
-  `total_money` int(20) NOT NULL
+  `order_detail_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `order_id` int NOT NULL,
+  `product_price` int NOT NULL,
+  `quantity` int NOT NULL,
+  `total_money` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -180,15 +180,15 @@ CREATE TABLE `order_details` (
 --
 
 CREATE TABLE `product` (
-  `product_id` int(15) NOT NULL,
-  `product_name` varchar(100) NOT NULL,
-  `product_price` int(20) NOT NULL,
-  `product_image` varchar(100) NOT NULL,
-  `product_describe` text NOT NULL,
-  `status` enum('active','inactive','','') NOT NULL,
-  `category_id` int(15) NOT NULL,
-  `brand_id` int(15) NOT NULL,
-  `color_id` int(15) NOT NULL
+  `product_id` int NOT NULL,
+  `product_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `product_price` int NOT NULL,
+  `product_image` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `product_describe` text COLLATE utf8mb4_general_ci NOT NULL,
+  `status` enum('active','inactive','','') COLLATE utf8mb4_general_ci NOT NULL,
+  `category_id` int NOT NULL,
+  `brand_id` int NOT NULL,
+  `color_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -209,8 +209,8 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_i
 --
 
 CREATE TABLE `role` (
-  `id` int(15) NOT NULL,
-  `role_name` varchar(100) NOT NULL DEFAULT '0'
+  `role_id` int NOT NULL,
+  `role_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -221,7 +221,7 @@ CREATE TABLE `role` (
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`account_id`),
   ADD KEY `lk_account_role` (`role_id`);
 
 --
@@ -246,7 +246,7 @@ ALTER TABLE `color`
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`comment_id`),
   ADD KEY `lk_comment_product` (`product_id`),
   ADD KEY `lk_comment_account` (`account_id`);
 
@@ -254,20 +254,20 @@ ALTER TABLE `comment`
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`gallery_id`),
   ADD KEY `lk_gallery_product` (`product_id`);
 
 --
 -- Indexes for table `inventory`
 --
 ALTER TABLE `inventory`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`inventory_id`);
 
 --
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`order_id`),
   ADD KEY `lk_order_account` (`user_id`);
 
 --
@@ -290,7 +290,7 @@ ALTER TABLE `product`
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`role_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -300,61 +300,61 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `account_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `brand_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `brand_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `color_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `color_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `gallery_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `inventory_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `product_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `role_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -364,13 +364,13 @@ ALTER TABLE `role`
 -- Constraints for table `account`
 --
 ALTER TABLE `account`
-  ADD CONSTRAINT `lk_account_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
+  ADD CONSTRAINT `lk_account_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
 
 --
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `lk_comment_account` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`),
+  ADD CONSTRAINT `lk_comment_account` FOREIGN KEY (`account_id`) REFERENCES `account` (`account_id`),
   ADD CONSTRAINT `lk_comment_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 
 --
@@ -383,13 +383,13 @@ ALTER TABLE `gallery`
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `lk_order_account` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`);
+  ADD CONSTRAINT `lk_order_account` FOREIGN KEY (`user_id`) REFERENCES `account` (`account_id`);
 
 --
 -- Constraints for table `order_details`
 --
 ALTER TABLE `order_details`
-  ADD CONSTRAINT `lk_orderDetails_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
+  ADD CONSTRAINT `lk_orderDetails_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
   ADD CONSTRAINT `lk_orderDetails_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 
 --

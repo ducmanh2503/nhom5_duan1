@@ -38,10 +38,10 @@
 
             case "update_danhmuc":
                 if(isset($_POST['btn-update']) && ($_POST['btn-update'])){
-                    $id = $_POST['id'];
+                    $category_id = $_POST['category_id'];
                     $category_name = $_POST['category_name'];
                     $status = $_POST['status'];
-                    update_category($id,$category_name,$status);
+                    update_category($category_id,$category_name,$status);
                     $thongbao="Cập nhật thành công";
                 }
                 $list_category=load_all_category();

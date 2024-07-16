@@ -100,10 +100,10 @@
                                     style="width: 100%; height:36px;" required>
                                     <option value="" disabled selected>Chọn loại sản phẩm</option>
                                     <?php foreach ($list_category as $category) { ?>
-                                        <?php if ($category['id'] == $product['category_id']) {?>
-                                            <option value="<?php echo $category['id']?>" selected><?php echo $category['category_name']?></option>
+                                        <?php if ($category['category_id'] == $product['category_id']) {?>
+                                            <option value="<?php echo $category['category_id']?>" selected><?php echo $category['category_name']?></option>
                                         <?php } else { ?>
-                                            <option value="<?php echo $category['id']?>"><?php echo $category['category_name']?></option>
+                                            <option value="<?php echo $category['category_id']?>"><?php echo $category['category_name']?></option>
                                         <?php } ?>
                                     <?php } ?>
                                 </select>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="border-top" style="text-align: center;">
                         <div class="card-body">
-                            <input type="hidden" name="id" value="<?php echo $product['product_id']?>">
+                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']?>">
                             <input type="submit" class="btn btn-warning" value="Cập Nhật" id="btn_update" name="btn_update">
                         </div>
                     </div>
