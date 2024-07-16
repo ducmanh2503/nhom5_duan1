@@ -61,7 +61,7 @@
                                         <td><?php echo $product['color_name']?></td>
                                         <td><?php echo $product['brand_name']?></td>
                                         <td><input type="submit" class="btn btn-success" value="<?php echo $status_text?>"></td>
-                                        <td><a href="index.php?act=edit_sanpham&id=<?php echo $product['id']?>"><i class="fas fa-edit btn btn-info"></i></a>
+                                        <td><a href="index.php?act=edit_sanpham&id=<?php echo $product['product_id']?>"><i class="fas fa-edit btn btn-info"></i></a>
                                         </td>
                                     </tr>
                                     <?php } ?>
