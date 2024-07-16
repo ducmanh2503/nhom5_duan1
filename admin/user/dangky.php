@@ -11,6 +11,7 @@
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
@@ -32,7 +33,8 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img style="margin-bottom: 24px" src="assets/images/logo.png" alt="logo" /></span>
+                        <span class="db"><img style="margin-bottom: 24px" src="assets/images/logo.png"
+                                alt="logo" /></span>
                     </div>
                     <!-- Form -->
                     <form action="index.php?act=dangky" class="form-horizontal m-t-20" action="index.html">
@@ -40,28 +42,37 @@
                             <div class="col-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
+                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i
+                                                class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Tên Tài Khoản" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="text" class="form-control form-control-lg" placeholder="Tên Tài Khoản"
+                                        name="user" aria-label="Username" aria-describedby="basic-addon1" required>
                                 </div>
                                 <!-- email -->
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i
+                                                class="ti-email"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Địa Chỉ Email" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="text" class="form-control form-control-lg" placeholder="Địa Chỉ Email"
+                                        name="email" aria-label="Username" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i
+                                                class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Mật Khẩu" aria-label="Password" aria-describedby="basic-addon1" required>
+                                    <input type="text" class="form-control form-control-lg" placeholder="Mật Khẩu"
+                                        name="pass" aria-label="Password" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                        <span class="input-group-text bg-info text-white" id="basic-addon2"><i
+                                                class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder=" Xác Nhận Mật Khẩu" aria-label="Password" aria-describedby="basic-addon1" required>
+                                    <input type="text" class="form-control form-control-lg"
+                                        placeholder=" Xác Nhận Mật Khẩu" aria-label="Password" name="confirmpass"
+                                        aria-describedby="basic-addon1" required>
                                 </div>
                             </div>
                         </div>
@@ -69,30 +80,35 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div style="margin-top: 16px" class="p-t-20">
-                                        <button class="btn btn-block btn-lg btn-info" type="submit">Đăng Ký</button>
+                                        <button class="btn btn-block btn-lg btn-info" value="dangky" type="submit">Đăng
+                                            Ký</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <a href="index.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to
+                            home</a>
                     </form>
                 </div>
             </div>
+
         </div>
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- Login box.scss -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper scss in scafholding.scss -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper scss in scafholding.scss -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right Sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right Sidebar -->
+    <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
     <!-- All Required js -->

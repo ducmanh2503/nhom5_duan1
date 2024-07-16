@@ -1,4 +1,3 @@
-
 <?php
 
     if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap'){
@@ -93,7 +92,11 @@
                 $list_color = load_all_color();
                 include "sanpham/update.php";
                 break;
-
+            
+            case "list_binhluan":
+                include "binhluan/list.php";
+                break;
+                
             case "update_sanpham":
                 if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
                     $id = $_POST['id'];
@@ -120,8 +123,17 @@
                 $list_product = load_all_product();
                 include "sanpham/list.php";
                 break;
-//User-------------------------------------------------------------------------------------------------------------------- 
+
             case "dangky":
+                if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+                    $email = $_POST['email'];
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $confirmpass = $_POST['confirmpass'];
+                   
+                    insert_account( $user,$email,$pass,$confirmpass);
+                    $thongbao = "Đã Đăng Ký Thành Công Vui Lòng Đăng Nhập";
+                }
                 include "user/dangky.php";
                 break;
 
