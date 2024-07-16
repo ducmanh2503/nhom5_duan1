@@ -6,7 +6,7 @@
     }
 
     function load_all_product() {
-        $sql =  "SELECT * FROM product INNER JOIN color on product.color_id = color.color_id ORDER BY id DESC";
+        $sql =  "SELECT * FROM product INNER JOIN color on product.color_id = color.color_id INNER JOIN brand on product.brand_id = brand.brand_id ORDER BY id DESC";
         $list_product = pdo_query($sql);
         return $list_product;
     }
