@@ -13,20 +13,45 @@
     if(isset($_GET['act'])){
         $act = $_GET['act'];
         switch($act){
+
+//Danh mục--------------------------------------------------------------------------------------------------------------------
+            
             case "list_danhmuc":
                 $list_category=load_all_category();
                 include "danhmuc/list.php";
                 break;
 
             case "add_danhmuc":
-               
+               if(isset($_POST['add_cate'])&& ($_POST['add_cate'])){
+                $category_name = $_POST['category_name'];
+                insert_category($category_name);
+                $thongbao = "Thêm thành công";
+               }
                 include "danhmuc/add.php";
                 break;
 
-            case "update_danhmuc":
+            case "edit_danhmuc":
+                if(isset($_GET['id']) && ($_GET['id']>0)){
+                    $category=load_one_category($_GET['id']);
+                }
                 include "danhmuc/update.php";
                 break;
-                
+
+            case "update_danhmuc":
+                if(isset($_POST['btn-update']) && ($_POST['btn-update'])){
+                    $id = $_POST['id'];
+                    $category_name = $_POST['category_name'];
+                    $status = $_POST['status'];
+                    update_category($id,$category_name,$status);
+                    $thongbao="Cập nhật thành công";
+                }
+                $list_category=load_all_category();
+                include "danhmuc/list.php";
+                break;
+
+
+//Sản phẩm--------------------------------------------------------------------------------------------------------------------            
+            
             case "add_sanpham":
                 if (isset($_POST['btn_addpro']) && ($_POST['btn_addpro'])) {
 
@@ -95,7 +120,7 @@
                 $list_product = load_all_product();
                 include "sanpham/list.php";
                 break;
-
+//User-------------------------------------------------------------------------------------------------------------------- 
             case "dangky":
                 include "user/dangky.php";
                 break;
