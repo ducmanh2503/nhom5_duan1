@@ -32,7 +32,8 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img style="margin-bottom: 24px" src="assets/images/logo.png" alt="logo" /></span>
+                        <span class="db"><img style="margin-bottom: 24px" src="assets/images/logo.png"
+                                alt="logo" /></span>
                     </div>
                     <!-- Form -->
                     <form class="form-horizontal m-t-20" id="loginform" action="index.php?act=dangnhap">
@@ -40,15 +41,19 @@
                             <div class="col-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
+                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i
+                                                class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Tên Tài Khoản" aria-label="Username" aria-describedby="basic-addon1" required="">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Tên Tài Khoản"
+                                        aria-label="Username" aria-describedby="basic-addon1" required="">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i
+                                                class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Mật Khẩu" aria-label="Password" aria-describedby="basic-addon1" required="">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Mật Khẩu"
+                                        aria-label="Password" aria-describedby="basic-addon1" required="">
                                 </div>
                             </div>
                         </div>
@@ -56,17 +61,21 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div style="margin-top: 16px" class="p-t-20">
-                                        <button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock m-r-5"></i> Quên Mật Khẩu ?</button>
+                                        <button class="btn btn-info" id="to-recover" type="button"><i
+                                                class="fa fa-lock m-r-5"></i> Quên Mật Khẩu ?</button>
                                         <button class="btn btn-success float-right" type="submit">Đăng Nhập</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <a href="index.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to
+                            home</a>
                     </form>
                 </div>
                 <div id="recoverform">
                     <div class="text-center">
-                        <span class="text-white">Nhập địa chỉ email của bạn bên dưới và chúng tôi sẽ gửi cho bạn hướng dẫn cách khôi phục mật khẩu.</span>
+                        <span class="text-white">Nhập địa chỉ email của bạn bên dưới và chúng tôi sẽ gửi cho bạn hướng
+                            dẫn cách khôi phục mật khẩu.</span>
                     </div>
                     <div class="row m-t-20">
                         <!-- Form -->
@@ -74,15 +83,18 @@
                             <!-- email -->
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
+                                    <span class="input-group-text bg-danger text-white" id="basic-addon1"><i
+                                            class="ti-email"></i></span>
                                 </div>
-                                <input type="text" class="form-control form-control-lg" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control form-control-lg" placeholder="Email Address"
+                                    aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                             <!-- pwd -->
                             <div class="row m-t-20 p-t-20 border-top border-secondary">
                                 <div class="col-12">
                                     <a class="btn btn-success" href="#" id="to-login" name="action">Trở về Đăng Nhập</a>
-                                    <button class="btn btn-info float-right" type="button" name="action">Khôi Phục </button>
+                                    <button class="btn btn-info float-right" type="button" name="action">Khôi Phục
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -117,7 +129,6 @@
     <!-- This page plugin js -->
     <!-- ============================================================== -->
     <script>
-
     $('[data-toggle="tooltip"]').tooltip();
     $(".preloader").fadeOut();
     // ============================================================== 
@@ -127,8 +138,8 @@
         $("#loginform").slideUp();
         $("#recoverform").fadeIn();
     });
-    $('#to-login').click(function(){
-        
+    $('#to-login').click(function() {
+
         $("#recoverform").hide();
         $("#loginform").fadeIn();
     });

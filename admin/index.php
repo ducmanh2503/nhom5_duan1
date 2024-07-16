@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -37,7 +36,21 @@
                 include "sanpham/update.php";
                 break;
 
+            
+            case "list_binhluan":
+                include "binhluan/list.php";
+                break;
+                
             case "dangky":
+                if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+                    $email = $_POST['email'];
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $confirmpass = $_POST['confirmpass'];
+                   
+                    insert_account( $user,$email,$pass,$confirmpass);
+                    $thongbao = "Đã Đăng Ký Thành Công Vui Lòng Đăng Nhập";
+                }
                 include "user/dangky.php";
                 break;
 
