@@ -62,7 +62,7 @@
                                             <input type="submit" value="Sửa" name="sua" class="btn btn-cyan btn-sm">
                                             <input type="submit" value="Công Khai" name="congkhai"
                                                 class="btn btn-success btn-sm">
-                                            <input type="button" value="Sửa" name="xoa" class="btn btn-danger btn-sm">
+                                            <input type="button" value="Xóa" name="xoa" class="btn btn-danger btn-sm">
                                         </td>
                                         <td><?php echo $comment['time']?></td>
                                     </tr>

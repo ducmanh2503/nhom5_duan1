@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2024 at 05:54 AM
+-- Generation Time: Jul 16, 2024 at 07:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,8 +78,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `category_name`, `status`) VALUES
-(1, 'Màn Hình', 'Active'),
-(2, 'Loa', 'Active');
+(1, 'Màn Hình', 'Inactive'),
+(2, 'Loa', 'Active'),
+(3, 'PC', 'Inactive'),
+(4, 'Chuột', 'Active'),
+(5, 'Case', 'Active');
 
 -- --------------------------------------------------------
 
@@ -177,12 +180,12 @@ CREATE TABLE `order_details` (
 --
 
 CREATE TABLE `product` (
-  `id` int(15) NOT NULL,
+  `product_id` int(15) NOT NULL,
   `product_name` varchar(100) NOT NULL,
   `product_price` int(20) NOT NULL,
   `product_image` varchar(100) NOT NULL,
   `product_describe` text NOT NULL,
-  `status` enum('Active','Inactive','','') NOT NULL,
+  `status` enum('active','inactive','','') NOT NULL,
   `category_id` int(15) NOT NULL,
   `brand_id` int(15) NOT NULL,
   `color_id` int(15) NOT NULL
@@ -192,13 +195,12 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `product_name`, `product_price`, `product_image`, `product_describe`, `status`, `category_id`, `brand_id`, `color_id`) VALUES
-(2, 'LG 24GN65R-B 24', 4000000, 'LG 24GN65R-B 24 (1).jpg', 'ac', 'Active', 1, 2, 1),
-(5, 'ASUS VA24EHF', 2000000, 'ASUS VA24EHF (1).jpg', 'accc', 'Active', 1, 1, 1),
-(6, 'Loa Bluetooth Edifier QD35', 1000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', '', 'Active', 1, 4, 3),
-(7, 'ASUS ROG Strix XG249CM', 100, 'ASUS ROG Strix XG249CM    (1).jpg', '', 'Active', 1, 1, 1),
-(8, 'LG 27QN600 27', 70000, 'LG 27QN600 27 (1).jpg', '', 'Active', 1, 2, 1),
-(9, 'Loa Edifier Hecate Gaming 2.1 G1500 Max', 2000000, 'Loa Edifier Hecate Gaming 2.1 G1500 Max (1).jpg', '', 'Active', 2, 4, 1);
+INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_image`, `product_describe`, `status`, `category_id`, `brand_id`, `color_id`) VALUES
+(2, 'LG 24GN65R-B 24', 4000000, 'LG 24GN65R-B 24 (1).jpg', 'ac', 'active', 1, 2, 1),
+(5, 'ASUS VA24EHF', 2000000, 'ASUS VA24EHF (1).jpg', 'accc', 'active', 1, 1, 1),
+(6, 'Loa Bluetooth Edifier QD35', 1000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', '', 'active', 1, 4, 2),
+(7, 'ASUS ROG Strix XG249CM', 100, 'ASUS ROG Strix XG249CM    (1).jpg', '', 'active', 1, 1, 1),
+(8, 'LG 27QN600 27', 70000, 'LG 27QN600 27 (1).jpg', '', 'active', 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -210,24 +212,6 @@ CREATE TABLE `role` (
   `id` int(15) NOT NULL,
   `role_name` varchar(100) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `status`
---
-
-CREATE TABLE `status` (
-  `id` int(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `status`
---
-
-INSERT INTO `status` (`id`) VALUES
-(1),
-(2);
 
 --
 -- Indexes for dumped tables
@@ -297,7 +281,7 @@ ALTER TABLE `order_details`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`product_id`),
   ADD KEY `lk_product_category` (`category_id`),
   ADD KEY `lk_product_color` (`color_id`),
   ADD KEY `lk_product_brand` (`brand_id`);
@@ -306,12 +290,6 @@ ALTER TABLE `product`
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -334,7 +312,7 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `color`
@@ -370,19 +348,13 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `product_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `status`
---
-ALTER TABLE `status`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -399,13 +371,13 @@ ALTER TABLE `account`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `lk_comment_account` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`),
-  ADD CONSTRAINT `lk_comment_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+  ADD CONSTRAINT `lk_comment_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 
 --
 -- Constraints for table `gallery`
 --
 ALTER TABLE `gallery`
-  ADD CONSTRAINT `lk_gallery_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+  ADD CONSTRAINT `lk_gallery_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 
 --
 -- Constraints for table `order`
@@ -418,7 +390,7 @@ ALTER TABLE `order`
 --
 ALTER TABLE `order_details`
   ADD CONSTRAINT `lk_orderDetails_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
-  ADD CONSTRAINT `lk_orderDetails_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+  ADD CONSTRAINT `lk_orderDetails_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 
 --
 -- Constraints for table `product`

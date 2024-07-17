@@ -98,7 +98,7 @@
                 
             case "update_sanpham":
                 if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
-                    $id = $_POST['id'];
+                    $product_id = $_POST['product_id'];
                     $product_name = $_POST['product_name'];
                     $product_price = $_POST['product_price'];
                     $product_describe = $_POST['product_describe'];
@@ -116,7 +116,7 @@
                         // $product_image = $product['product_image'];
                         // var_dump($product_image);
                     }
-                    update_product($id, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id); 
+                    update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id); 
                 }
                 $list_product = load_all_product();
                 $list_product = load_all_product();

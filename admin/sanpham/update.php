@@ -128,7 +128,7 @@
                     </div>
                     <div class="border-top" style="text-align: center;">
                         <div class="card-body">
-                            <input type="hidden" name="id" value="<?php echo $product['id']?>">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']?>">
                             <input type="submit" class="btn btn-warning" value="Cập Nhật" id="btn_update" name="btn_update">
                         </div>
                     </div>
