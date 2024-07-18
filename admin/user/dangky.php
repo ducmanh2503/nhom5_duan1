@@ -37,7 +37,8 @@
                                 alt="logo" /></span>
                     </div>
                     <!-- Form -->
-                    <form action="index.php?act=dangky" class="form-horizontal m-t-20" action="index.html">
+                    <form action="index.php?act=dangky" method="POST" class="form-horizontal m-t-20"
+                        action="index.html">
                         <div class="row p-b-30">
                             <div class="col-12">
                                 <div class="input-group mb-3">
@@ -74,14 +75,58 @@
                                         placeholder=" Xác Nhận Mật Khẩu" aria-label="Password" name="confirmpass"
                                         aria-describedby="basic-addon1" required>
                                 </div>
+
+
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-info text-white" id="basic-addon2"><i
+                                                class="ti-pencil"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" placeholder="Số điện thoại"
+                                        name="phone" aria-describedby="basic-addon1" required>
+                                </div>
+
+
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-info text-white" id="basic-addon2"><i
+                                                class="ti-pencil"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" placeholder=" Địa chỉ"
+                                        name="address" aria-describedby="basic-addon1" required>
+                                </div>
+
+
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-info text-white" id="basic-addon2"><i
+                                                class="ti-pencil"></i></span>
+                                    </div>
+                                    <select name="role_id">
+                                        <?php
+                                foreach($listrole as $role){
+                                    extract($role);
+                                    echo '<option value="'.$role_id.'"> '.$role_name.' </option>';
+                                }
+                            ?>
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+
+
+
                             </div>
                         </div>
                         <div class="row border-top border-secondary">
                             <div class="col-12">
                                 <div class="form-group">
                                     <div style="margin-top: 16px" class="p-t-20">
-                                        <button class="btn btn-block btn-lg btn-info" value="dangky" type="submit">Đăng
-                                            Ký</button>
+                                        <input class="btn btn-block btn-lg btn-info" value="Đăng Ký" name="dangky"
+                                            type="submit">
+
                                     </div>
                                 </div>
                             </div>

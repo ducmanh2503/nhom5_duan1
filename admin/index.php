@@ -9,6 +9,8 @@
     include "../model/sanpham.php";
     include "../model/mausac.php";
     include "../model/binhluan.php";
+    include "../model/taikhoan.php";
+    include "../model/role.php";
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -129,6 +131,19 @@
                     break;
 
             case "dangky":
+                if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+                    
+                    $user = $_POST['user'];
+                    $password = $_POST['pass'];
+                    $phone = $_POST['phone'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $role_id = $_POST['role_id'];
+                    
+                    insert_account($user, $password, $phone,$email,$address,$role_id);
+                    $thongbao = "Thêm Thành Công";
+               }
+               $listrole =loadall_role();
                 include "user/dangky.php";
                 break;
 
