@@ -449,17 +449,18 @@ button {
     width: 100%;
     float: left;
 }
-.catagary_left{
+/* .catagary_left{
     width: 20%;
     float: left;
 }
 .catagary_right{
     width: 80%;
     float: left;
-}
+} */
 .categary_text{
     width: 100%;
-    float: left;
+  
+    align-items: center;
     font-size: 24px;
     color: #fffefd;
     text-align: center;
@@ -598,7 +599,8 @@ button {
 .computer_main {
     width: 100%;
     float: left;
-    border: 1px solid #9fa0a1;
+    /* border: 1px solid #9fa0a1; */
+    
     padding: 50px 40px 50px 40px;
     margin-top: 90px;
 }
