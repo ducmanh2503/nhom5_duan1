@@ -57,7 +57,7 @@
                                         <td><?php echo $product['product_name']?></td>
                                         <td><img src="upload/<?php echo $product['product_image']?>" alt="" style="max-width: 100px; max-height: 100px;"></td>
                                         <td><?php echo $product['product_describe']?></td>
-                                        <td><?php echo $product['product_price']?></td>
+                                        <td><?php echo number_format($product['product_price'], 0, ',', '.'); ?>đ</td>
                                         <td><?php echo $product['color_name']?></td>
                                         <td><?php echo $product['brand_name']?></td>
                                         <td><input type="submit" class="btn btn-success" value="<?php echo $status_text?>"></td>
