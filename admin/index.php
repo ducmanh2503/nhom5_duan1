@@ -8,6 +8,7 @@
     include "../model/thuonghieu.php";
     include "../model/sanpham.php";
     include "../model/mausac.php";
+    include "../model/thuvienanh.php";
     include "../model/binhluan.php";
     include "../model/taikhoan.php";
     include "../model/role.php";
@@ -55,31 +56,55 @@
 //Sản phẩm--------------------------------------------------------------------------------------------------------------------            
             
             case "add_sanpham":
-                if (isset($_POST['btn_addpro']) && ($_POST['btn_addpro'])) {
+    if (isset($_POST['btn_addpro']) && ($_POST['btn_addpro'])) {
 
-                    $product_name = $_POST['product_name'];
-                    $product_price = $_POST['product_price'];
-                    $product_describe = $_POST['product_describe'];
-                    $category_id = $_POST['category_id'];
-                    $brand_id = $_POST['brand_id'];
-                    $color_id = $_POST['color_id'];
+        // Xử lý dữ liệu sản phẩm
+        $product_name = $_POST['product_name'];
+        $product_price = $_POST['product_price'];
+        $product_describe = $_POST['product_describe'];
+        $category_id = $_POST['category_id'];
+        $brand_id = $_POST['brand_id'];
+        $color_id = $_POST['color_id'];
 
-                    $product_image = $_FILES['product_image']['name'];
-                    $target_dir = 'upload/';
-                    $target_file = $target_dir . basename($_FILES['product_image']['name']);
-                    if (move_uploaded_file($_FILES['product_image']['tmp_name'], $target_file)) {
-                        // code here
-                    } else {
-                        echo "Có lỗi xảy ra";
-                    }
-                    insert_product($product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id);
+        // Xử lý ảnh đại diện sản phẩm
+        $product_image = $_FILES['product_image']['name'];
+        $target_dir = 'upload/';
+        $target_file = $target_dir . basename($_FILES['product_image']['name']);
+        if (move_uploaded_file($_FILES['product_image']['tmp_name'], $target_file)) {
+            // Upload thành công
+        } else {
+            echo "Có lỗi xảy ra khi tải ảnh đại diện";
+        }
+        // Lấy product_id vừa chèn
+        $product_id = insert_product($product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id);
+
+        // Xử lý tải lên nhiều ảnh cho thư viện ảnh
+        if (!empty(array_filter($_FILES['images']['name']))) {
+            foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+                $gallery_image = basename($_FILES['images']['name'][$key]);
+                $target_gallery_file = $target_dir . $gallery_image;
+                if (move_uploaded_file($tmp_name, $target_gallery_file)) {
+                    // Lưu thông tin ảnh vào bảng gallery
+                    $thongbao = "<span style='color: green; text-align: center; font-size: 24px;'>Thêm thành công</span>";
+                    insert_gallery_images($product_id, $gallery_image);
+                } else {
+                    echo "Có lỗi xảy ra khi tải ảnh $gallery_image";
                 }
-                $list_category = load_all_category();
-                $list_brand = load_all_brand();
-                $list_color = load_all_color();
-                
-                include "sanpham/add.php";
-                break;
+            }
+        }
+    }
+
+    // Load lại danh sách và thông tin cần thiết cho trang thêm sản phẩm
+    $list_category = load_all_category();
+    $list_brand = load_all_brand();
+    $list_color = load_all_color();
+    include "sanpham/add.php";
+    break;
+
+
+
+
+
 
             case "list_sanpham":
                 $list_product = load_all_product();
@@ -120,7 +145,6 @@
                     }
                     update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id); 
                 }
-                $list_product = load_all_product();
                 $list_product = load_all_product();
                 include "sanpham/list.php";
                 break;

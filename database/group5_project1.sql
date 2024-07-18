@@ -2,10 +2,12 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 18, 2024 lúc 05:32 PM
--- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.2.12
+
+-- Host: 127.0.0.1
+-- Generation Time: Jul 18, 2024 at 06:18 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,6 +38,13 @@ CREATE TABLE `account` (
   `address` varchar(255) NOT NULL,
   `role_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`account_id`, `user`, `password`, `phone_number`, `email`, `address`, `role_id`) VALUES
+(2, 'admin', '123456', '0227427463', 'traubudz@gmail.com', 'Lạng Sơn', 1);
 
 -- --------------------------------------------------------
 
@@ -118,6 +127,13 @@ CREATE TABLE `comment` (
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`comment_id`, `content`, `time`, `account_id`, `product_id`) VALUES
+(1, 'Vụ án hiếp dâm tập thể 1 cô gái dã man', '16/07/2024', 2, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -126,8 +142,8 @@ CREATE TABLE `comment` (
 
 CREATE TABLE `gallery` (
   `gallery_id` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `product_id` int(11) NOT NULL
+  `product_id` int(11) NOT NULL,
+  `images` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -191,6 +207,8 @@ CREATE TABLE `product` (
   `color_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
@@ -201,6 +219,7 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_i
 (6, 'Loa Bluetooth Edifier QD35', 1000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', '', 'active', 1, 4, 2),
 (7, 'ASUS ROG Strix XG249CM', 100, 'ASUS ROG Strix XG249CM    (1).jpg', '', 'active', 1, 1, 1),
 (8, 'LG 27QN600 27', 70000, 'LG 27QN600 27 (1).jpg', '', 'active', 1, 2, 1);
+
 
 -- --------------------------------------------------------
 
@@ -214,7 +233,16 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Chỉ mục cho các bảng đã đổ
+
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`role_id`, `role_name`) VALUES
+(1, '0'),
+(2, '1');
+
+--
+-- Indexes for dumped tables
 --
 
 --
@@ -254,8 +282,7 @@ ALTER TABLE `comment`
 -- Chỉ mục cho bảng `gallery`
 --
 ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`gallery_id`),
-  ADD KEY `lk_gallery_product` (`product_id`);
+  ADD PRIMARY KEY (`gallery_id`);
 
 --
 -- Chỉ mục cho bảng `inventory`
@@ -302,6 +329,7 @@ ALTER TABLE `role`
 ALTER TABLE `account`
   MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT;
 
+
 --
 -- AUTO_INCREMENT cho bảng `brand`
 --
@@ -326,11 +354,13 @@ ALTER TABLE `color`
 ALTER TABLE `comment`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
 
+
 --
 -- AUTO_INCREMENT cho bảng `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- AUTO_INCREMENT cho bảng `inventory`
@@ -350,11 +380,13 @@ ALTER TABLE `order`
 ALTER TABLE `product`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
+
 --
 -- AUTO_INCREMENT cho bảng `role`
 --
 ALTER TABLE `role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- Các ràng buộc cho các bảng đã đổ
