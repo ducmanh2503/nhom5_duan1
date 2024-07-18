@@ -2,10 +2,12 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
+
 -- Host: 127.0.0.1
 -- Generation Time: Jul 18, 2024 at 06:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +20,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `group5_project1`
+-- Cơ sở dữ liệu: `group5_project1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Cấu trúc bảng cho bảng `account`
 --
 
 CREATE TABLE `account` (
@@ -47,7 +49,7 @@ INSERT INTO `account` (`account_id`, `user`, `password`, `phone_number`, `email`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brand`
+-- Cấu trúc bảng cho bảng `brand`
 --
 
 CREATE TABLE `brand` (
@@ -57,7 +59,7 @@ CREATE TABLE `brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `brand`
+-- Đang đổ dữ liệu cho bảng `brand`
 --
 
 INSERT INTO `brand` (`brand_id`, `brand_name`, `status`) VALUES
@@ -71,7 +73,7 @@ INSERT INTO `brand` (`brand_id`, `brand_name`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Cấu trúc bảng cho bảng `category`
 --
 
 CREATE TABLE `category` (
@@ -81,7 +83,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `category`
+-- Đang đổ dữ liệu cho bảng `category`
 --
 
 INSERT INTO `category` (`category_id`, `category_name`, `status`) VALUES
@@ -94,7 +96,7 @@ INSERT INTO `category` (`category_id`, `category_name`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `color`
+-- Cấu trúc bảng cho bảng `color`
 --
 
 CREATE TABLE `color` (
@@ -103,7 +105,7 @@ CREATE TABLE `color` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `color`
+-- Đang đổ dữ liệu cho bảng `color`
 --
 
 INSERT INTO `color` (`color_id`, `color_name`) VALUES
@@ -114,7 +116,7 @@ INSERT INTO `color` (`color_id`, `color_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 CREATE TABLE `comment` (
@@ -135,7 +137,7 @@ INSERT INTO `comment` (`comment_id`, `content`, `time`, `account_id`, `product_i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gallery`
+-- Cấu trúc bảng cho bảng `gallery`
 --
 
 CREATE TABLE `gallery` (
@@ -147,7 +149,7 @@ CREATE TABLE `gallery` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inventory`
+-- Cấu trúc bảng cho bảng `inventory`
 --
 
 CREATE TABLE `inventory` (
@@ -159,7 +161,7 @@ CREATE TABLE `inventory` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Cấu trúc bảng cho bảng `order`
 --
 
 CREATE TABLE `order` (
@@ -175,7 +177,7 @@ CREATE TABLE `order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_details`
+-- Cấu trúc bảng cho bảng `order_details`
 --
 
 CREATE TABLE `order_details` (
@@ -190,7 +192,7 @@ CREATE TABLE `order_details` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -205,10 +207,24 @@ CREATE TABLE `product` (
   `color_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_image`, `product_describe`, `status`, `category_id`, `brand_id`, `color_id`) VALUES
+(2, 'LG 24GN65R-B 24', 4000000, 'LG 24GN65R-B 24 (1).jpg', 'ac', 'active', 1, 2, 1),
+(5, 'ASUS VA24EHF', 2000000, 'ASUS VA24EHF (1).jpg', 'accc', 'active', 1, 1, 1),
+(6, 'Loa Bluetooth Edifier QD35', 1000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', '', 'active', 1, 4, 2),
+(7, 'ASUS ROG Strix XG249CM', 100, 'ASUS ROG Strix XG249CM    (1).jpg', '', 'active', 1, 1, 1),
+(8, 'LG 27QN600 27', 70000, 'LG 27QN600 27 (1).jpg', '', 'active', 1, 2, 1);
+
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Cấu trúc bảng cho bảng `role`
 --
 
 CREATE TABLE `role` (
@@ -217,6 +233,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+
 -- Dumping data for table `role`
 --
 
@@ -229,32 +246,32 @@ INSERT INTO `role` (`role_id`, `role_name`) VALUES
 --
 
 --
--- Indexes for table `account`
+-- Chỉ mục cho bảng `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`account_id`),
   ADD KEY `lk_account_role` (`role_id`);
 
 --
--- Indexes for table `brand`
+-- Chỉ mục cho bảng `brand`
 --
 ALTER TABLE `brand`
   ADD PRIMARY KEY (`brand_id`);
 
 --
--- Indexes for table `category`
+-- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `color`
+-- Chỉ mục cho bảng `color`
 --
 ALTER TABLE `color`
   ADD PRIMARY KEY (`color_id`);
 
 --
--- Indexes for table `comment`
+-- Chỉ mục cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`),
@@ -262,33 +279,33 @@ ALTER TABLE `comment`
   ADD KEY `lk_comment_account` (`account_id`);
 
 --
--- Indexes for table `gallery`
+-- Chỉ mục cho bảng `gallery`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`gallery_id`);
 
 --
--- Indexes for table `inventory`
+-- Chỉ mục cho bảng `inventory`
 --
 ALTER TABLE `inventory`
   ADD PRIMARY KEY (`inventory_id`);
 
 --
--- Indexes for table `order`
+-- Chỉ mục cho bảng `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `lk_order_account` (`user_id`);
 
 --
--- Indexes for table `order_details`
+-- Chỉ mục cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   ADD KEY `lk_orderDetails_product` (`product_id`),
   ADD KEY `lk_orderDetails_order` (`order_id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`product_id`),
@@ -297,100 +314,118 @@ ALTER TABLE `product`
   ADD KEY `lk_product_brand` (`brand_id`);
 
 --
--- Indexes for table `role`
+-- Chỉ mục cho bảng `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `account`
+-- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
--- AUTO_INCREMENT for table `brand`
+-- AUTO_INCREMENT cho bảng `brand`
 --
 ALTER TABLE `brand`
   MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `color`
+-- AUTO_INCREMENT cho bảng `color`
 --
 ALTER TABLE `color`
   MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
--- AUTO_INCREMENT for table `gallery`
+-- AUTO_INCREMENT cho bảng `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
--- AUTO_INCREMENT for table `inventory`
+-- AUTO_INCREMENT cho bảng `inventory`
 --
 ALTER TABLE `inventory`
   MODIFY `inventory_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT cho bảng `role`
 --
 ALTER TABLE `role`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `account`
+-- Các ràng buộc cho bảng `account`
 --
 ALTER TABLE `account`
   ADD CONSTRAINT `lk_account_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
 
 --
--- Constraints for table `order`
+-- Các ràng buộc cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `lk_comment_account` FOREIGN KEY (`account_id`) REFERENCES `account` (`account_id`),
+  ADD CONSTRAINT `lk_comment_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
+
+--
+-- Các ràng buộc cho bảng `gallery`
+--
+ALTER TABLE `gallery`
+  ADD CONSTRAINT `lk_gallery_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
+
+--
+-- Các ràng buộc cho bảng `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `lk_order_account` FOREIGN KEY (`user_id`) REFERENCES `account` (`account_id`);
 
 --
--- Constraints for table `order_details`
+-- Các ràng buộc cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   ADD CONSTRAINT `lk_orderDetails_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
   ADD CONSTRAINT `lk_orderDetails_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 
 --
--- Constraints for table `product`
+-- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `lk_product_brand` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`brand_id`),

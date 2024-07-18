@@ -9,6 +9,9 @@
     include "../model/sanpham.php";
     include "../model/mausac.php";
     include "../model/thuvienanh.php";
+    include "../model/binhluan.php";
+    include "../model/taikhoan.php";
+    include "../model/role.php";
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -118,9 +121,7 @@
                 include "sanpham/update.php";
                 break;
             
-            case "list_binhluan":
-                include "binhluan/list.php";
-                break;
+           
                 
             case "update_sanpham":
                 if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
@@ -148,16 +149,25 @@
                 include "sanpham/list.php";
                 break;
 
+            case "list_binhluan":
+                    $list_comment = load_all_comment();
+                    include "binhluan/list.php";
+                    break;
+
             case "dangky":
                 if (isset($_POST['dangky']) && ($_POST['dangky'])) {
-                    $email = $_POST['email'];
+                    
                     $user = $_POST['user'];
-                    $pass = $_POST['pass'];
-                    $confirmpass = $_POST['confirmpass'];
-                   
-                    insert_account( $user,$email,$pass,$confirmpass);
-                    $thongbao = "Đã Đăng Ký Thành Công Vui Lòng Đăng Nhập";
-                }
+                    $password = $_POST['pass'];
+                    $phone = $_POST['phone'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $role_id = $_POST['role_id'];
+                    
+                    insert_account($user, $password, $phone,$email,$address,$role_id);
+                    $thongbao = "Thêm Thành Công";
+               }
+               $listrole =loadall_role();
                 include "user/dangky.php";
                 break;
 
