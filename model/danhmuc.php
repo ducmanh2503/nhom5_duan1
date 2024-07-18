@@ -13,19 +13,19 @@
     // }
 
     function load_all_category(){
-        $sql="SELECT * FROM category order by id";
+        $sql="SELECT * FROM category order by category_id";
         $list_category=pdo_query($sql);
         return $list_category;
     }
 
-    function load_one_category($id){
-        $sql="SELECT * FROM category where id= $id";
+    function load_one_category($category_id){
+        $sql="SELECT * FROM category where category_id= $category_id";
         $category=pdo_query_one($sql);
         return $category;
     }
 
-    function update_category($id,$category_name,$status){
-        $sql="update category set category_name='$category_name', status='$status' where id=$id";
+    function update_category($category_id,$category_name,$status){
+        $sql="update category set category_name='$category_name', status='$status' where category_id='$category_id'";
         pdo_execute($sql);
     }
 ?>

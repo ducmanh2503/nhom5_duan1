@@ -38,8 +38,8 @@
                     <div>
 
                         <section>
-                            <label for="id">Mã danh mục</label>
-                            <input id="id" name="id" type="text" class="required form-control" disabled>
+                            <label for="category_id">Mã danh mục</label>
+                            <input id="category_id" name="category_id" type="text" class="required form-control" disabled>
                             <label for="category_name">Tên danh mục</label>
                             <input id="category_name" name="category_name" type="text" class="required form-control">
                             

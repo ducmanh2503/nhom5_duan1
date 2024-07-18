@@ -84,7 +84,7 @@
                                     style="width: 100%; height:36px;" required>
                                     <option value="" disabled selected>Chọn loại sản phẩm</option>
                                     <?php foreach ($list_category as $category) { ?>
-                                    <option value="<?php echo $category['id']?>">
+                                    <option value="<?php echo $category['category_id']?>">
                                         <?php echo $category['category_name']?>
                                     </option>
                                     <?php } ?>
