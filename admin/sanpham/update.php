@@ -47,7 +47,7 @@
                                 Sản Phẩm</label>
                             <div class="col-sm-9">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="product_price" name="product_price" value="<?php echo $product['product_price']?>"
+                                    <input type="text" class="form-control" id="product_price" name="product_price" value="<?php echo number_format($product['product_price']);?>"
                                         placeholder="Ví dụ: 100.000" aria-label="Recipient 's username"
                                         aria-describedby="basic-addon2">
                                     <div class="input-group-append">
