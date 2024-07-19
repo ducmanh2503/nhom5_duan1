@@ -214,7 +214,7 @@
         <div class="px-0 border rounded-2 shadow-0">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Similar items</h5>
+              <h5 class="card-title">Sản phẩm cùng loại</h5>
               <?php
                 foreach ($listProduct_sameType as $product_sameType) {
                   $img_prst = $img_path . $product_sameType['product_image'];
