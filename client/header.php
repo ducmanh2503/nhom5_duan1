@@ -34,6 +34,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
         media="screen">
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
@@ -44,19 +55,18 @@
             <nav class="navbar navbar-light bg-light justify-content-between">
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="index.html">Trang chủ</a>
-                    <a href="computers.html">PC</a>
-                    <a href="womans_clothes.html">Laptop</a>
-                    <a href="mans_clothes.html">Màn hình</a>
-                    <a href="womans_clothes.html">Bàn phím</a>
-                    <a href="womans_clothes.html">Chuột</a>
-                    <a href="womans_clothes.html">Loa</a>
-                    <a href="womans_clothes.html">CASE</a>
+                    <a href="index.php">Trang chủ</a>
+                    <a href="client/computer.html">PC</a>
+                    <a href="client/laptop.html">Laptop</a>
+                    <a href="client/manhinh.html">Màn hình</a>
+                    <a href="client/banphim.html">Bàn phím</a>
+                    <a href="client/chuot.html">Chuột</a>
+                    <a href="client/loa.html">Loa</a>
                     <a href="contact.html">Liên hệ</a>
                 </div>
                 <span style="font-size:30px;cursor:pointer; color: #fff;" onclick="openNav()"><img
                         src="images/toggle-icon.png"></span>
-                <a class="navbar-brand" href="index.html"><img style="margin-top: -60px;" src="images/logo.png"></a></a>
+                <a class="navbar-brand" href="index.php"><img style="margin-top: -60px;" src="images/logo.png"></a></a>
                 <form class="form-inline ">
                     <div class="login_text">
                         <ul>
