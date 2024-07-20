@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +75,7 @@
                     <div class="login_text">
                         <ul>
                             <li><a href="#"><img src="images/user-icon.png"></a></li>
-                            <li><a href="cart.php"><img src="images/trolly-icon.png"></a></li>
+                            <li><a href="index.php?act=cart"><img src="images/trolly-icon.png"></a></li>
                             <li><a href="#"><img src="images/search-icon.png"></a></li>
                         </ul>
                     </div>

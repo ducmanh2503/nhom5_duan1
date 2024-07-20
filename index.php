@@ -3,7 +3,6 @@
     if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap'){
         include "client/header.php";
     }
-    session_start();
     include_once "model/pdo.php";
     include_once "model/sanpham.php";
     include_once "model/danhmuc.php";
@@ -48,13 +47,15 @@
                 else{
                     $_SESSION['cart'][$product_id] = $item;
                 }
-                
-                
-                
             }
+            header("Location: index.php?act=cart");
             
-            include "cart.php";
+            include "client/cart.php";
             break;
+            case "cart";
+            include "client/cart.php";
+            break;
+
             default:
                 include "client/home.php";
                 break;
