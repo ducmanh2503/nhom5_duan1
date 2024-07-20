@@ -3,10 +3,12 @@
     if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap'){
         include "client/header.php";
     }
+    session_start();
     include_once "model/pdo.php";
     include_once "model/sanpham.php";
     include_once "model/danhmuc.php";
     include_once "model/thuvienanh.php";
+    include_once "model/cart.php";
     include_once "global.php";
 
     $list_products = load_all_product_client();
@@ -27,6 +29,32 @@
                     include "client/home.php";
                 }
                 break;
+            
+            case "add_cart";
+            if(isset($_GET['product_id'])){
+                $product_id = $_GET['product_id'];
+                $product= add_cart($product_id);
+                $item = [
+                    'product_id'=>$product['product_id'],
+                    'product_name'=>$product['product_name'],
+                    'product_image'=>$product['product_image'],
+                    'product_price'=>$product['product_price'],
+                    'quantity'=>1
+                    
+                ];
+                if(isset($_SESSION['cart'][$product_id])){
+                    $_SESSION['cart'][$product_id]['quantity'] +=1 ;
+                }
+                else{
+                    $_SESSION['cart'][$product_id] = $item;
+                }
+                
+                
+                
+            }
+            
+            include "cart.php";
+            break;
             default:
                 include "client/home.php";
                 break;
