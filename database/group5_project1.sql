@@ -2,10 +2,17 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Host: 127.0.0.1
 -- Generation Time: Jul 22, 2024 at 12:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
+=======
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 21, 2024 lúc 11:58 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,11 +45,12 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `account`
+-- Đang đổ dữ liệu cho bảng `account`
 --
 
 INSERT INTO `account` (`account_id`, `user`, `password`, `phone_number`, `email`, `address`, `role_id`) VALUES
-(2, 'admin', '123456', '0227427463', 'traubudz@gmail.com', 'Lạng Sơn', 1);
+(2, 'admin', '123456', '0227427463', 'traubudz@gmail.com', 'Lạng Sơn', 1),
+(3, 'Van', '123456', '0382681166', 'vandhph47040@fpt.edu.vn', 'Hà Nội', 2);
 
 -- --------------------------------------------------------
 
@@ -126,7 +134,7 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `comment`
+-- Đang đổ dữ liệu cho bảng `comment`
 --
 
 INSERT INTO `comment` (`comment_id`, `content`, `time`, `account_id`, `product_id`) VALUES
@@ -190,6 +198,14 @@ CREATE TABLE `order` (
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `order`
+--
+
+INSERT INTO `order` (`order_id`, `customer_name`, `customer_address`, `order_status`, `customer_phone`, `customer_email`, `user_id`) VALUES
+(1, 'Văn', 'Hà nội', 0, 382681166, 'vandh47040@fpt.edu.vn', 2),
+(2, 'Đặng Văn', 'Yên Bái', 0, 382681167, 'vandh57040@fpt.edu.vn', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -201,9 +217,17 @@ CREATE TABLE `order_details` (
   `product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `product_price` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `total_money` int(11) NOT NULL
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_details`
+--
+
+INSERT INTO `order_details` (`order_detail_id`, `product_id`, `order_id`, `product_price`, `quantity`) VALUES
+(2, 6, 2, 1000000, 2),
+(3, 5, 2, 2000000, 1),
+(4, 7, 1, 100, 1);
 
 -- --------------------------------------------------------
 
@@ -228,11 +252,19 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_image`, `product_describe`, `status`, `category_id`, `brand_id`, `color_id`) VALUES
+<<<<<<< HEAD
 (110, 'Loa Bluetooth Edifier QD35 White', 2000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', 'Loa Bluetooth Edifier', 'active', 2, 4, 2),
 (111, 'Loa Edifier Hecate Gaming 2.1 G1500 Max', 7000000, 'Loa Edifier Hecate Gaming 2.1 G1500 Max (1).jpg', 'Loa Gaming', 'active', 2, 4, 1),
 (112, 'Loa Edifier QR65 Halo 2', 5000000, 'Loa Edifier QR65 Halo 2 (1).jpg', 'Loa Edifier QR65 Halo 2 là sản phẩm mới nhất của Edifier', 'active', 2, 4, 1),
 (113, 'Loa SoundMax SB201 Grey', 10000000, 'Loa SoundMax SB201 Grey (1).jpg', 'Loa SoundMax SB201 Grey là mẫu thiết kế nằm ngang hiện đại, sang trọng mới nhất', 'active', 2, 5, 1),
 (114, 'Razer Leviathan V2 X', 15000000, 'Razer Leviathan V2 X (1).jpg', 'Razer Leviathan V2 X là sản phẩm mới hiện đại bậc nhất của Leviathan', 'active', 2, 6, 1);
+=======
+(2, 'LG 24GN65R-B 24', 4000000, 'LG 24GN65R-B 24 (1).jpg', 'ac', 'active', 1, 2, 1),
+(5, 'ASUS VA24EHF', 2000000, 'ASUS VA24EHF (1).jpg', 'accc', 'active', 1, 1, 1),
+(6, 'Loa Bluetooth Edifier QD35', 1000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', '', 'active', 1, 4, 2),
+(7, 'ASUS ROG Strix XG249CM', 100, 'ASUS ROG Strix XG249CM    (1).jpg', '', 'active', 1, 1, 1),
+(8, 'LG 27QN600 27', 70000, 'LG 27QN600 27 (1).jpg', '', 'active', 1, 2, 1);
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 -- --------------------------------------------------------
 
@@ -246,7 +278,11 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< HEAD
 -- Dumping data for table `role`
+=======
+-- Đang đổ dữ liệu cho bảng `role`
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 --
 
 INSERT INTO `role` (`role_id`, `role_name`) VALUES
@@ -254,7 +290,7 @@ INSERT INTO `role` (`role_id`, `role_name`) VALUES
 (2, '1');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
@@ -294,7 +330,8 @@ ALTER TABLE `comment`
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`gallery_id`);
+  ADD PRIMARY KEY (`gallery_id`),
+  ADD KEY `lk_gallery_product` (`product_id`);
 
 --
 -- Indexes for table `inventory`
@@ -340,7 +377,11 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
+<<<<<<< HEAD
   MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT for table `brand`
@@ -370,7 +411,11 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
+<<<<<<< HEAD
   MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
+=======
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -382,7 +427,17 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
+<<<<<<< HEAD
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+=======
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT for table `order_details`
@@ -394,7 +449,11 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
+<<<<<<< HEAD
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+=======
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT for table `role`

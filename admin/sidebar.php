@@ -35,6 +35,11 @@
                                 </span></a></li>
                     </ul>
                 </li>
+
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="index.php?act=list_cart" aria-expanded="false"><i
+                            class=" fas fa-comment-dots"></i><span class="hide-menu">Đơn hàng</span></a></li>
+
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="index.php?act=list_binhluan" aria-expanded="false"><i
                             class=" fas fa-comment-dots"></i><span class="hide-menu">Bình Luận</span></a></li>
