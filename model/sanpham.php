@@ -6,6 +6,12 @@
     return $last_id;
     }
 
+    function get_product_by_name($product_name) {
+    $sql = "SELECT * FROM product WHERE product_name = '$product_name'";
+    return pdo_query_one($sql);
+    }
+
+
 
     function load_all_product() {
         $sql =  "SELECT * FROM product INNER JOIN color on product.color_id = color.color_id INNER JOIN brand on product.brand_id = brand.brand_id INNER JOIN category on product.category_id = category.category_id ORDER BY product_id DESC";

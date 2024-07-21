@@ -27,8 +27,13 @@
             case "add_danhmuc":
                if(isset($_POST['add_cate'])&& ($_POST['add_cate'])){
                 $category_name = $_POST['category_name'];
-                insert_category($category_name);
-                $thongbao = "Thêm thành công";
+                $existing_category = get_category_by_name($category_name);
+                if($existing_category) {
+                    $thongbao = '<span style="color: #ff0000; text-align: center; font-size: 24px; font-weight: 700;">Danh mục đã tồn tại!</span>';
+                } else {
+                    insert_category($category_name);
+                    $thongbao = "Thêm thành công";
+                }
                }
                 include "danhmuc/add.php";
                 break;
@@ -66,7 +71,11 @@
                     $brand_id = $_POST['brand_id'];
                     $color_id = $_POST['color_id'];
 
-                    // Xử lý ảnh đại diện sản phẩm
+                    $existing_product = get_product_by_name($product_name);
+                    if ($existing_product) {
+                        $thongbao = '<span style="color: #ff0000; text-align: center; font-size: 24px; font-weight: 700;">Sản phẩm đã tồn tại!</span>';
+                    } else {
+                        // Xử lý ảnh đại diện sản phẩm
                     $product_image = $_FILES['product_image']['name'];
                     $target_dir = 'upload/';
                     $target_file = $target_dir . basename($_FILES['product_image']['name']);
@@ -93,6 +102,7 @@
                     }
                     $thongbao = '<span style="color: #28b779; text-align: center; font-size: 24px; font-weight: 700;">Thành công!</span>';
                 }
+                    }
                 // Load lại danh sách và thông tin cần thiết cho trang thêm sản phẩm
                 $list_category = load_all_category();
                 $list_brand = load_all_brand();
@@ -108,7 +118,7 @@
             case "edit_sanpham":
                 if (isset($_GET['id']) && ($_GET['id']) > 0) {
                     $product = load_one_product($_GET['id']);
-                }
+                }   
                 $list_category = load_all_category();
                 $list_brand = load_all_brand();
                 $list_color = load_all_color();

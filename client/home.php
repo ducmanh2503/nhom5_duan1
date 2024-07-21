@@ -72,11 +72,7 @@
                 </div>
                 <div class="catagary_right">
                     <div class="catagary_menu">
-                        <?php
-                            foreach ($list_categories as $category) {
-                        ?>
-                        <div class="category_name"><a href="#"><?php echo $category['category_name']?></a></div>
-                        <?php } ?>
+                        <div class="category_name"><a href="#"></a></div>
                     </div>
                 </div>
             </div>
@@ -93,7 +89,7 @@
                     <div class="box_man" style="margin: 3% 0;">
                         <div class="mobile_img"><a href="index.php?act=chitietsanpham&product_id=<?php echo $product['product_id']?>"><img src="<?php echo $image_product?>" style="max-width: 50%; max-height: auto;"></a></div>
                         <div class="cart_main">
-                            <div class="cart_bt"><a href="index.php?act=add_cart&product_id=<?php echo $product['product_id']?>">Add To Cart</a></div>
+                            <!-- <div class="cart_bt"><a href="index.php?act=add_cart&product_id=<?php echo $product['product_id']?>">Add To Cart</a></div> -->
                             <a href="index.php?act=chitietsanpham&product_id=<?php echo $product['product_id']?>"><h4 class="samsung_text"><?php echo $product['brand_name']?></h4></a>
                             <h6 class="rate_text"><a href="index.php?act=chitietsanpham&product_id=<?php echo $product['product_id']?>"><?php echo number_format($product['product_price'], 0, ',', '.')?>đ</a></h6>
                         </div>

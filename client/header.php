@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +18,8 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- favia icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <!-- style css -->
@@ -71,7 +77,7 @@
                     <div class="login_text">
                         <ul>
                             <li><a href="#"><img src="images/user-icon.png"></a></li>
-                            <li><a href="cart.php"><img src="images/trolly-icon.png"></a></li>
+                            <li><a href="index.php?act=cart"><img src="images/trolly-icon.png"></a></li>
                             <li><a href="#"><img src="images/search-icon.png"></a></li>
                         </ul>
                     </div>

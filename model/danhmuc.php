@@ -6,6 +6,11 @@
         pdo_execute($sql);
     }
 
+    function get_category_by_name($category_name) {
+    $sql = "SELECT * FROM category WHERE category_name = '$category_name'";
+    return pdo_query_one($sql);
+    }
+
    
     // function delete_category($id){
     //     $sql="DELETE FROM category where id=".$id;

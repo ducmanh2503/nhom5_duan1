@@ -27,7 +27,7 @@
         <!-- gallery-wrap .end// -->
       </aside>
       <main class="col-lg-6">
-        <div class="ps-lg-3">
+          <div class="ps-lg-3">
           <h4 class="title text-dark">
             <?php echo $product['product_name']?>
           </h4>
@@ -69,29 +69,24 @@
           </div>
 
           <hr />
-
+          <form action="index.php?act=add_cart" method="post">
           <div class="row mb-4">
             <div class="col-md-4 col-6 mb-3">
               <label class="mb-2 d-block">Số Lượng</label>
               <div class="input-group mb-3" style="width: 170px;">
-                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1"
-                  data-mdb-ripple-color="dark">
-                  <i class="fas fa-minus"></i>
-                </button>
-                <input type="text" class="form-control text-center border border-secondary" placeholder="14"
+                <input type="hidden" name="product_id" value="<?php echo $product['product_id']?>">
+                <input type="number" class="form-control text-center border border-secondary" min="1" value="1" name="quantity"
                   aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2"
-                  data-mdb-ripple-color="dark">
-                  <i class="fas fa-plus"></i>
-                </button>
               </div>
             </div>
           </div>
-          <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-          <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
-          <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i
-              class="me-1 fa fa-heart fa-lg"></i> Save </a>
+          <!-- <a href="index.php?act=add_cart&product_id=" class="btn btn-warning shadow-0"> Mua ngay </a> -->
+          <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-primary shadow-0" name="btn_add">
+          <!-- <a href="index.php?act=add_cart&product_id=" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Thêm vào giỏ hàng </a> -->
+          <!-- <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i
+              class="me-1 fa fa-heart fa-lg"></i> Yêu thích </a> -->
         </div>
+        </form>
       </main>
     </div>
   </div>
@@ -232,42 +227,6 @@
                 </div>
               </div>
               <?php } ?>
-              <!-- 
-              <div class="d-flex mb-3">
-                <a href="#" class="me-3">
-                  <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/9.webp"
-                    style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
-                </a>
-                <div class="info">
-                  <a href="#" class="nav-link mb-1">
-                    Summer New Men's Denim <br />
-                    Jeans Shorts
-                  </a>
-                  <strong class="text-dark"> $29.50</strong>
-                </div>
-              </div>
-
-              <div class="d-flex mb-3">
-                <a href="#" class="me-3">
-                  <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/10.webp"
-                    style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
-                </a>
-                <div class="info">
-                  <a href="#" class="nav-link mb-1"> T-shirts with multiple colors, for men and lady </a>
-                  <strong class="text-dark"> $120.00</strong>
-                </div>
-              </div>
-
-              <div class="d-flex">
-                <a href="#" class="me-3">
-                  <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/11.webp"
-                    style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
-                </a>
-                <div class="info">
-                  <a href="#" class="nav-link mb-1"> Blazer Suit Dress Jacket for Men, Blue color </a>
-                  <strong class="text-dark"> $339.90</strong>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>
