@@ -166,24 +166,15 @@
                     </select>
                   </div> -->
 
-                  <h5 class="text-uppercase mb-3">Khuyến mại</h5>
-
-                  <div class="mb-5">
-                    <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplea2">Nhập vào mã giảm giá</label>
-                    </div>
-                  </div>
-
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-5">
-                    <h5 class="text-uppercase">Tổng tiền</h5>
+                    <h5 class="text-uppercase">Tổng tiền: </h5>
                     <h5><?php echo number_format($price_total, 0, ',', '.')?>đ</h5>
                   </div>
 
-                  <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
-                    data-mdb-ripple-color="dark">Xác Nhận</button>
+                  <a href="index.php?act=thanhtoan"><button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
+                    data-mdb-ripple-color="dark">Xác Nhận</button></a>
 
                 </div>
               </div>
