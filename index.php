@@ -1,5 +1,4 @@
 <?php
-
     if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap'){
         include "client/header.php";
     }
@@ -28,31 +27,52 @@
                     include "client/home.php";
                 }
                 break;
+
+            case 'cart':
+                include 'client/cart.php';
+                break;
             
-            case "add_cart";
-            if(isset($_GET['product_id'])){
-                $product_id = $_GET['product_id'];
-                $product= add_cart($product_id);
+            case "add_cart":
+            if(isset($_POST['btn_add'])){
+                $quantity = $_POST['quantity'];
+                $product_id = $_POST['product_id'];
+                $product = add_cart($product_id);
                 $item = [
                     'product_id'=>$product['product_id'],
                     'product_name'=>$product['product_name'],
                     'product_image'=>$product['product_image'],
                     'product_price'=>$product['product_price'],
-                    'quantity'=>1
+                    'quantity'=> $quantity
                     
                 ];
                 if(isset($_SESSION['cart'][$product_id])){
-                    $_SESSION['cart'][$product_id]['quantity'] +=1 ;
+                    $_SESSION['cart'][$product_id]['quantity'] += $quantity;
                 }
                 else{
                     $_SESSION['cart'][$product_id] = $item;
                 }
             }
-            header("Location: index.php?act=cart");
-            
             include "client/cart.php";
             break;
-            case "cart";
+
+            case 'update_cart':
+                if (isset($_POST['update_quantity']) && ($_POST['update_quantity'])) {
+                $product_id = $_POST['product_id'];
+                $quantity = $_POST['quantity'];
+                if (isset($_SESSION['cart'][$product_id])) {
+                    $_SESSION['cart'][$product_id]['quantity'] = $quantity;
+                    }
+                }
+            include "client/cart.php";
+            break;
+
+            case 'delete_cart':
+                if (isset($_POST['btn_delete']) && ($_POST['btn_delete'])) {
+                $product_id = $_POST['product_id'];
+                if (isset($_SESSION['cart'][$product_id])) {
+                    unset($_SESSION['cart'][$product_id]);
+                    }
+                }
             include "client/cart.php";
             break;
 
