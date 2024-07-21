@@ -12,6 +12,8 @@
     include "../model/binhluan.php";
     include "../model/taikhoan.php";
     include "../model/role.php";
+    include "../model/cart.php";
+    include "../model/total.php";
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -168,6 +170,36 @@
             case "dangnhap":
                 include "user/dangnhap.php";
                 break;
+
+            /*---------------------------------------------Cart--------------------------------------------------*/
+
+            case "list_cart":
+                $order = load_all_order();
+                include "cart/order.php";
+                break;
+
+            case "order_detail":
+                if(isset($_GET['order_id'])){
+                    $order_id = $_GET['order_id'];
+                    $order = load_one_order($order_id) ;    
+                    $acc_id = $order['user_id'];
+                    $acc = load_one_acc($acc_id);
+                    $list_order_details=order_details($_GET['order_id']);
+            }
+                
+                include "cart/order-detail.php";
+                break;
+
+            case "update_order":
+                if(isset($_POST['btn-update-status']) && ($_POST['btn-update-status'])){
+                    $order_id = $_POST['order_id'];
+                    $order_status = $_POST['order_status'];
+                    update_order($order_id, $order_status);
+                }
+                $order = load_all_order();
+                include "cart/order.php";
+                break;
+
 
             default:
                 include "home.php";

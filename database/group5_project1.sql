@@ -2,12 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
-
--- Host: 127.0.0.1
--- Generation Time: Jul 18, 2024 at 06:18 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 21, 2024 lúc 11:58 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,11 +38,12 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `account`
+-- Đang đổ dữ liệu cho bảng `account`
 --
 
 INSERT INTO `account` (`account_id`, `user`, `password`, `phone_number`, `email`, `address`, `role_id`) VALUES
-(2, 'admin', '123456', '0227427463', 'traubudz@gmail.com', 'Lạng Sơn', 1);
+(2, 'admin', '123456', '0227427463', 'traubudz@gmail.com', 'Lạng Sơn', 1),
+(3, 'Van', '123456', '0382681166', 'vandhph47040@fpt.edu.vn', 'Hà Nội', 2);
 
 -- --------------------------------------------------------
 
@@ -128,7 +127,7 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `comment`
+-- Đang đổ dữ liệu cho bảng `comment`
 --
 
 INSERT INTO `comment` (`comment_id`, `content`, `time`, `account_id`, `product_id`) VALUES
@@ -174,6 +173,14 @@ CREATE TABLE `order` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `order`
+--
+
+INSERT INTO `order` (`order_id`, `customer_name`, `customer_address`, `order_status`, `customer_phone`, `customer_email`, `user_id`) VALUES
+(1, 'Văn', 'Hà nội', 0, 382681166, 'vandh47040@fpt.edu.vn', 2),
+(2, 'Đặng Văn', 'Yên Bái', 0, 382681167, 'vandh57040@fpt.edu.vn', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -185,9 +192,17 @@ CREATE TABLE `order_details` (
   `product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `product_price` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `total_money` int(11) NOT NULL
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_details`
+--
+
+INSERT INTO `order_details` (`order_detail_id`, `product_id`, `order_id`, `product_price`, `quantity`) VALUES
+(2, 6, 2, 1000000, 2),
+(3, 5, 2, 2000000, 1),
+(4, 7, 1, 100, 1);
 
 -- --------------------------------------------------------
 
@@ -207,8 +222,6 @@ CREATE TABLE `product` (
   `color_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
-
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
@@ -219,7 +232,6 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_i
 (6, 'Loa Bluetooth Edifier QD35', 1000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', '', 'active', 1, 4, 2),
 (7, 'ASUS ROG Strix XG249CM', 100, 'ASUS ROG Strix XG249CM    (1).jpg', '', 'active', 1, 1, 1),
 (8, 'LG 27QN600 27', 70000, 'LG 27QN600 27 (1).jpg', '', 'active', 1, 2, 1);
-
 
 -- --------------------------------------------------------
 
@@ -233,8 +245,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
-
--- Dumping data for table `role`
+-- Đang đổ dữ liệu cho bảng `role`
 --
 
 INSERT INTO `role` (`role_id`, `role_name`) VALUES
@@ -242,7 +253,7 @@ INSERT INTO `role` (`role_id`, `role_name`) VALUES
 (2, '1');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
@@ -282,7 +293,8 @@ ALTER TABLE `comment`
 -- Chỉ mục cho bảng `gallery`
 --
 ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`gallery_id`);
+  ADD PRIMARY KEY (`gallery_id`),
+  ADD KEY `lk_gallery_product` (`product_id`);
 
 --
 -- Chỉ mục cho bảng `inventory`
@@ -301,6 +313,7 @@ ALTER TABLE `order`
 -- Chỉ mục cho bảng `order_details`
 --
 ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`order_detail_id`),
   ADD KEY `lk_orderDetails_product` (`product_id`),
   ADD KEY `lk_orderDetails_order` (`order_id`);
 
@@ -327,8 +340,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `brand`
@@ -352,15 +364,13 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT;
-
 
 --
 -- AUTO_INCREMENT cho bảng `inventory`
@@ -372,7 +382,13 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
@@ -380,13 +396,11 @@ ALTER TABLE `order`
 ALTER TABLE `product`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
-
 --
 -- AUTO_INCREMENT cho bảng `role`
 --
 ALTER TABLE `role`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
