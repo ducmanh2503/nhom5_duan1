@@ -7,6 +7,7 @@
     include_once "model/danhmuc.php";
     include_once "model/thuvienanh.php";
     include_once "model/cart.php";
+    include_once "model/thanhtoan.php";
     include_once "global.php";
 
     $list_products = load_all_product_client();
@@ -75,6 +76,41 @@
                 }
             include "client/cart.php";
             break;
+
+            case 'thanhtoan':
+                if (isset($_POST['btn_order']) && ($_POST['btn_order'])) {
+                    $customer_name = $_POST['customer_name'];
+                    $customer_address = $_POST['customer_address'];
+                    $customer_phone = $_POST['customer_phone'];
+                    $customer_email = $_POST['customer_email'];
+
+                    // Lấy dữ liệu giỏ hàng từ session, nếu không có thì khởi tạo mảng rỗng
+                    $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+
+                    $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email);
+
+                    if($order_id) {
+                        foreach ($cart as $item) {
+                            $product_id = $item['product_id'];
+                            $quantity = $item['quantity'];
+                            $product_price = $item['product_price'] * $item['quantity'];
+                            $price_total += $product_price;
+                            $total_money = $price_total + $price_ship;
+
+                            insert_order_details($order_id, $product_id, $quantity, $product_price, $total_money);
+                        }
+                        unset($_SESSION['cart']);
+                        echo '
+                        <span class="success" style="text-align: center; font-size: 24px; font-weight: 700;">Đặt hàng thành công! Quý khách vui lòng theo dõi tình trạng đơn hàng!</span>
+                        <div class="pt-5">
+                        <h6 class="mb-0"><a href="index.php" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Tiếp tục mua sắm</a></h6>
+                        </div>
+                        ';
+                        
+                    }
+                }
+                include "client/thanhtoan.php";
+                break;
 
             default:
                 include "client/home.php";
