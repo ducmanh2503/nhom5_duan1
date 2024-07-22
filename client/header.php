@@ -76,7 +76,7 @@ session_start();
                 <form class="form-inline ">
                     <div class="login_text">
                         <ul>
-                            <li><a href="#"><img src="images/user-icon.png"></a></li>
+                            <li><a href="admin/index.php?act=dangnhap"><img src="images/user-icon.png"></a></li>
                             <li><a href="index.php?act=cart"><img src="images/trolly-icon.png"></a></li>
                             <li><a href="#"><img src="images/search-icon.png"></a></li>
                         </ul>

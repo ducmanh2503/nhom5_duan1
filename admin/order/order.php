@@ -48,11 +48,11 @@
                                         <td><?php echo $cart['user_id'] ?></td>
                                         <td><?php echo $cart['customer_address'] ?></td>
                                         <td><?php if($cart['order_status'] == 0) { ?> 
-                                            <span class="btn-danger">Chưa xử lý</span>
+                                            <span class="btn btn-dark">Chưa xử lý</span>
                                         <?php } elseif($cart['order_status'] == 1) { ?>  
-                                            <span class="btn btn-success">Đã xử lý </span>
+                                            <span class="btn btn-info">Đã xử lý </span>
                                         <?php } elseif($cart['order_status'] == 2) { ?> 
-                                            <span class="btn btn-success">Đang giao Hàng </span>
+                                            <span class="btn btn-warning">Đang giao Hàng </span>
                                         <?php } elseif($cart['order_status'] == 3) { ?>
                                             <span class="btn btn-success">Giao hàng thành công </span>
                                         <?php } else{ ?> Hủy đơn <span class="btn btn-success">Giao hàng thành công </span>

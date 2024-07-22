@@ -2,12 +2,6 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
-<<<<<<< HEAD
--- Host: 127.0.0.1
--- Generation Time: Jul 22, 2024 at 12:55 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-=======
 -- Máy chủ: 127.0.0.1
 -- Thời gian đã tạo: Th7 21, 2024 lúc 11:58 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
@@ -252,19 +246,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_image`, `product_describe`, `status`, `category_id`, `brand_id`, `color_id`) VALUES
-<<<<<<< HEAD
 (110, 'Loa Bluetooth Edifier QD35 White', 2000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', 'Loa Bluetooth Edifier', 'active', 2, 4, 2),
 (111, 'Loa Edifier Hecate Gaming 2.1 G1500 Max', 7000000, 'Loa Edifier Hecate Gaming 2.1 G1500 Max (1).jpg', 'Loa Gaming', 'active', 2, 4, 1),
 (112, 'Loa Edifier QR65 Halo 2', 5000000, 'Loa Edifier QR65 Halo 2 (1).jpg', 'Loa Edifier QR65 Halo 2 là sản phẩm mới nhất của Edifier', 'active', 2, 4, 1),
 (113, 'Loa SoundMax SB201 Grey', 10000000, 'Loa SoundMax SB201 Grey (1).jpg', 'Loa SoundMax SB201 Grey là mẫu thiết kế nằm ngang hiện đại, sang trọng mới nhất', 'active', 2, 5, 1),
 (114, 'Razer Leviathan V2 X', 15000000, 'Razer Leviathan V2 X (1).jpg', 'Razer Leviathan V2 X là sản phẩm mới hiện đại bậc nhất của Leviathan', 'active', 2, 6, 1);
-=======
-(2, 'LG 24GN65R-B 24', 4000000, 'LG 24GN65R-B 24 (1).jpg', 'ac', 'active', 1, 2, 1),
-(5, 'ASUS VA24EHF', 2000000, 'ASUS VA24EHF (1).jpg', 'accc', 'active', 1, 1, 1),
-(6, 'Loa Bluetooth Edifier QD35', 1000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', '', 'active', 1, 4, 2),
-(7, 'ASUS ROG Strix XG249CM', 100, 'ASUS ROG Strix XG249CM    (1).jpg', '', 'active', 1, 1, 1),
-(8, 'LG 27QN600 27', 70000, 'LG 27QN600 27 (1).jpg', '', 'active', 1, 2, 1);
->>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
+
 
 -- --------------------------------------------------------
 
@@ -278,12 +265,9 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
-<<<<<<< HEAD
+
 -- Dumping data for table `role`
-=======
--- Đang đổ dữ liệu cho bảng `role`
->>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
---
+
 
 INSERT INTO `role` (`role_id`, `role_name`) VALUES
 (1, '0'),
@@ -377,11 +361,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-<<<<<<< HEAD
   MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-=======
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
->>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT for table `brand`
@@ -411,11 +391,7 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-<<<<<<< HEAD
   MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
-=======
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT;
->>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -427,9 +403,6 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-<<<<<<< HEAD
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-=======
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -449,11 +422,7 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-<<<<<<< HEAD
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
-=======
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
->>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT for table `role`
