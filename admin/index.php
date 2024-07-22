@@ -1,6 +1,6 @@
 <?php
 
-    if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap'){
+    if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap' && $_GET['act'] != 'laylaimk'){
         include "header.php";
     }
     include "../model/pdo.php";
@@ -155,30 +155,93 @@
                 include "sanpham/list.php";
                 break;
 
-            case "list_binhluan":
-                    $list_comment = load_all_comment();
-                    include "binhluan/list.php";
-                    break;
+          //Bình Luận--------------------------------------------------------------------------------------------------------------------  
+          case "list_binhluan":
+            $list_comment = load_all_comment();
+            include "binhluan/list.php";
+            break;
 
-            case "dangky":
-                if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+
+//Tài Khoản--------------------------------------------------------------------------------------------------------------------  
+    case "dangky":
+        if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+            
+            $user = $_POST['user'];
+            $password = $_POST['pass'];
+            $phone = $_POST['phone'];
+            $email = $_POST['email'];
+            $address = $_POST['address'];
+            $role_id = $_POST['role_id'];
+            
+            insert_account($user, $password, $phone,$email,$address,$role_id);
+            $thongbao = "Thêm Thành Công";
+       }
+       $listrole =loadall_role();
+        include "user/dangky.php";
+        break;
+
+        case "list_taikhoan":
+            $list_taikhoan = load_all_account();
+            include "user/list.php";
+            break;
+
+        case "edit_taikhoan":
+            if (isset($_GET['account_id']) && ($_GET['account_id']) > 0) {
+              $account=load_one_account($_GET['account_id']);
+            }
+            $listrole = loadall_role();
+            include "user/edit_taikhoan.php";
+            break;
+
+        case "update_taikhoan":
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $phone_number = $_POST['phone'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $account_id = $_POST['account_id'];
+                $role_id = $_POST['role_id'];
+                
+                update_account($account_id, $user, $pass,$phone_number, $email, $address,$role_id);  
+            }
+            $list_taikhoan = load_all_account();
+            include "user/list.php";
+            break;
+
+        case "dangnhap":
+            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+                
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $checkuser = checkuser($user, $pass);
+                if (is_array($checkuser)) {
+                    $_SESSION['account'] = $checkuser;
+                    // $thongbao="Bạn Đã Đăng Nhập Thành Công";
+                    header('Location: index.php');
+                } else {
+                    $thongbao = "Tài Khoản Không Tồn Tại. Vui Lòng Kiểm Tra Lại Hoặc Đăng ký";
                     
-                    $user = $_POST['user'];
-                    $password = $_POST['pass'];
-                    $phone = $_POST['phone'];
+                }
+                $thongbao = "Đã Đăng Ký Thành Công Vui Lòng Đăng Nhập";
+            }
+            include "user/dangnhap.php";
+            break;
+
+            case 'laylaimk':
+                if (isset($_POST['gui']) && ($_POST['gui'])) {
+                    
                     $email = $_POST['email'];
-                    $address = $_POST['address'];
-                    $role_id = $_POST['role_id'];
-                    
-                    insert_account($user, $password, $phone,$email,$address,$role_id);
-                    $thongbao = "Thêm Thành Công";
-               }
-               $listrole =loadall_role();
-                include "user/dangky.php";
-                break;
-
-            case "dangnhap":
-                include "user/dangnhap.php";
+                  
+                    $checkemail=checkemail($email);
+                    if(is_array($checkemail)){
+                            $thongbao = "Mật Khẩu Của Bạn Là:  " .$checkemail['password'];
+                    }else{
+                        $thongbao = "Email Này Không Tồn Tại";
+                    }
+                   
+                }
+                include "user/quenmk.php";
                 break;
 
             /*---------------------------------------------Cart--------------------------------------------------*/

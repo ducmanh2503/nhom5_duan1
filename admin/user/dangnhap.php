@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>Đăng Nhập</title>
     <link href="dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -22,84 +24,106 @@
                 <div class="lds-pos"></div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
-                <div id="loginform">
-                    <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img style="margin-bottom: 24px" src="assets/images/logo.png"
-                                alt="logo" /></span>
-                    </div>
-                    <!-- Form -->
-                    <form class="form-horizontal m-t-20" id="loginform" action="index.php?act=dangnhap">
-                        <div class="row p-b-30">
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i
-                                                class="ti-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Tên Tài Khoản"
-                                        aria-label="Username" aria-describedby="basic-addon1" required="">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i
-                                                class="ti-pencil"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Mật Khẩu"
-                                        aria-label="Password" aria-describedby="basic-addon1" required="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row border-top border-secondary">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <div style="margin-top: 16px" class="p-t-20">
-                                        <button class="btn btn-info" id="to-recover" type="button"><i
-                                                class="fa fa-lock m-r-5"></i> Quên Mật Khẩu ?</button>
-                                        <button class="btn btn-success float-right" type="submit">Đăng Nhập</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="index.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to
-                            home</a>
-                    </form>
+
+
+
+        <div>
+
+            <div>
+                <!-- <?php
+            if(isset($_SESSION['account'])){
+                    extract($_SESSION['account']);
+                ?>
+                <div>
+                    Xin Chào <strong><?=$user?></strong>
                 </div>
-                <div id="recoverform">
-                    <div class="text-center">
-                        <span class="text-white">Nhập địa chỉ email của bạn bên dưới và chúng tôi sẽ gửi cho bạn hướng
-                            dẫn cách khôi phục mật khẩu.</span>
-                    </div>
-                    <div class="row m-t-20">
-                        <!-- Form -->
-                        <form class="col-12" action="index.php">
-                            <!-- email -->
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-danger text-white" id="basic-addon1"><i
-                                            class="ti-email"></i></span>
-                                </div>
-                                <input type="text" class="form-control form-control-lg" placeholder="Email Address"
-                                    aria-label="Username" aria-describedby="basic-addon1">
+                <div>
+
+                    <li>
+                        <a href="index.php?act=edit_taikhoan">Cập Nhật Tài Khoản</a>
+                    </li>
+                    <?php if($role_id==1){?>
+                    <li>
+                        <a href="index.php">Đăng Nhập Admin</a>
+                    </li>
+                    <?php }?>
+                    <li>
+                        <a href="index.php?act=thoat">Đăng Xuất</a>
+                    </li>
+                </div>
+                <?php
+
+            }else{
+
+            
+            ?> -->
+
+                <!-- ============================================================== -->
+                <!-- Preloader - style you can find in spinners.css -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Login box.scss -->
+                <!-- ============================================================== -->
+                <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
+                    <div class="auth-box bg-dark border-top border-secondary">
+                        <div id="loginform">
+                            <div class="text-center p-t-20 p-b-20">
+                                <span class="db"><img style="margin-bottom: 24px" src="assets/images/logo.png"
+                                        alt="logo" /></span>
                             </div>
-                            <!-- pwd -->
-                            <div class="row m-t-20 p-t-20 border-top border-secondary">
-                                <div class="col-12">
-                                    <a class="btn btn-success" href="#" id="to-login" name="action">Trở về Đăng Nhập</a>
-                                    <button class="btn btn-info float-right" type="button" name="action">Khôi Phục
-                                    </button>
+
+                            <!-- Form -->
+                            <form class="form-horizontal m-t-20" method="POST" id="loginform"
+                                action="index.php?act=dangnhap">
+                                <div class="row p-b-30">
+                                    <div class="col-12">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text bg-success text-white"
+                                                    id="basic-addon1"><i class="ti-user"></i></span>
+                                            </div>
+                                            <input type="text" name="user" class="form-control form-control-lg"
+                                                placeholder="Tên Tài Khoản" aria-label="Username"
+                                                aria-describedby="basic-addon1" required="">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text bg-warning text-white"
+                                                    id="basic-addon2"><i class="ti-pencil"></i></span>
+                                            </div>
+                                            <input type="text" name="pass" class="form-control form-control-lg"
+                                                placeholder="Mật Khẩu" aria-label="Password"
+                                                aria-describedby="basic-addon1" required="">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                                <div class="row border-top border-secondary">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <div style="margin-top: 16px" class="p-t-20">
+                                                <a href="http://localhost/nhom5_duan1/admin/index.php?act=laylaimk">
+                                                    <button class="btn btn-info" id="to-recover" type="button"><i
+                                                            class="fa fa-lock m-r-5"></i> Quên
+                                                        Mật Khẩu
+                                                        ?</button></a>
+
+                                                <input name="dangnhap" value="Đăng Nhập"
+                                                    class="btn btn-success float-right" type="submit">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="index.php"
+                                    class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back
+                                    to
+                                    home</a>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
+
+                <?php }?>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -144,5 +168,9 @@
         $("#loginform").fadeIn();
     });
     </script>
-
+    <script>
+    document.getElementById("to-recover").onclick = function() {
+        window.location.href = "user/quenmk.php";
+    };
+    </script>
 </body>
