@@ -199,17 +199,16 @@
                 
                 include "order/order-detail.php";
                 break;
-
+            
             case "update_order":
-                if(isset($_POST['btn-update-status']) && ($_POST['btn-update-status'])){
+                if(isset($_POST['btn-update'])){
                     $order_id = $_POST['order_id'];
                     $order_status = $_POST['order_status'];
-                    update_order($order_id, $order_status);
+                    update_order($order_id,$order_status);
                 }
                 $order = load_all_order();
-                include "order/order.php";
+                include "order/order.php";  
                 break;
-
 
             default:
                 include "home.php";
