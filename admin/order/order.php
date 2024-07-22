@@ -44,7 +44,7 @@
                                     <tr>
                                         <td><?php echo $cart['order_id'] ?></td>
                                         <td><?php echo $cart['customer_name'] ?></td>
-                                        <td><?php echo $cart['name'] ?></td>
+                                        <td><?php echo $cart['user_id'] ?></td>
                                         <td><?php echo $cart['customer_address'] ?></td>
                                         <td><?php if($cart['order_status'] == 0){ ?>
                                             <span class="btn btn-danger" >Chưa xử lý</span>

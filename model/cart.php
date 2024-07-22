@@ -10,10 +10,7 @@
     /* cart admin*/
 
     function load_all_order() {
-        $sql = "SELECT o.*, a.user as 'name' 
-                FROM `order` o 
-                JOIN account a ON o.user_id = a.account_id 
-                ORDER BY o.order_id";
+        $sql = "SELECT * FROM `order` WHERE 1";
         $list_order = pdo_query($sql);
         return $list_order;
     }

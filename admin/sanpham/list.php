@@ -50,7 +50,7 @@
                                     <?php
                                         foreach ($list_product as $product) {
                                             // var_dump($product);
-                                            $status_text = ($product['status'] == 'active') ? 'Hoạt Động' : 'Ngưng Hoạt Động';
+                                            $status_text = ($product['status'] == 'Active') ? 'Hoạt Động' : 'Ngưng Hoạt Động';
 
                                     ?>
                                     <tr>
