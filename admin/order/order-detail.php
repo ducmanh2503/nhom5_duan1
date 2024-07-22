@@ -37,7 +37,7 @@
                                             <br /> Email: <?php echo $acc['email'] ?>
                                             <br /> Địa chỉ nhận hàng:  <?php echo $order['customer_address'] ?>
                                             <br /> Trạng thái đơn hàng: <?php if($order['order_status'] == 0) { ?> Chưa xử lý
-                                                                        <?php } elseif($order['order_status'] == 1) { ?> Đang xử lý  
+                                                                        <?php } elseif($order['order_status'] == 1) { ?> Đã xử lý  
                                                                         <?php } elseif($order['order_status'] == 2) { ?> Đang giao Hàng
                                                                         <?php } elseif($order['order_status'] == 3) { ?> Giao hàng thành công
                                                                         <?php } else{ ?> Hủy đơn
@@ -105,8 +105,8 @@
                                     <option value="3">Giao hàng thành công</option>
                                     <option value="4">Hủy</option>
                                 </select>
-                                <input type="hidden" name="order_id" value="<?php echo $order['order_id'] ?>">
-                                <input type="submit" class="btn btn-success" value="Cập nhật" name="btn-update-status">
+                                <input type="hidden" value="<?php echo $order['order_id'] ?>" name="order_id">
+                                <input type="submit" class="btn btn-success" value="Cập nhật" name="btn-update" >
                             </form>
                         </div>
                     </div>

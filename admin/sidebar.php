@@ -37,8 +37,8 @@
                 </li>
 
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="index.php?act=list_cart" aria-expanded="false"><i
-                            class=" fas fa-comment-dots"></i><span class="hide-menu">Đơn hàng</span></a></li>
+                        href="index.php?act=list_cart" aria-expanded="false"><i class=" fas fa-comment-dots"></i><span
+                            class="hide-menu">Đơn hàng</span></a></li>
 
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="index.php?act=list_binhluan" aria-expanded="false"><i
@@ -52,6 +52,9 @@
                         </li>
                         <li class="sidebar-item"><a href="index.php?act=dangky" class="sidebar-link"><i
                                     class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Đăng Ký </span></a></li>
+                        <li class="sidebar-item"><a href="index.php?act=list_taikhoan" class="sidebar-link"><i
+                                    class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Danh sách tài
+                                    Khoản</span></a></li>
                     </ul>
                 </li>
             </ul>
