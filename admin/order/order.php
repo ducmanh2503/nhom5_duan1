@@ -26,6 +26,7 @@
                         <h5 class="card-title">Danh Sách Đơn Hàng</h5>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
+                            
                                 <thead>
                                     <tr>
                                         <th>Mã đơn hàng</th>
@@ -46,13 +47,19 @@
                                         <td><?php echo $cart['customer_name'] ?></td>
                                         <td><?php echo $cart['name'] ?></td>
                                         <td><?php echo $cart['customer_address'] ?></td>
-                                        <td><?php if($cart['order_status'] == 0){ ?>
-                                            <span class="btn btn-danger" >Chưa xử lý</span>
-                                            <?php }elseif($cart['order_status'] == 1){ ?>
-                                            <span class="btn btn-success">Đang xử lý</span>
-                                            <?php } ?>
+                                        <td><?php if($cart['order_status'] == 0) { ?> 
+                                            <span class="btn-danger">Chưa xử lý</span>
+                                        <?php } elseif($cart['order_status'] == 1) { ?>  
+                                            <span class="btn btn-success">Đã xử lý </span>
+                                        <?php } elseif($cart['order_status'] == 2) { ?> 
+                                            <span class="btn btn-success">Đang giao Hàng </span>
+                                        <?php } elseif($cart['order_status'] == 3) { ?>
+                                            <span class="btn btn-success">Giao hàng thành công </span>
+                                        <?php } else{ ?> Hủy đơn <span class="btn btn-success">Giao hàng thành công </span>
+                                        <?php } ?></td>
+                                        
 
-                                        </td>
+                                        </>
                                         <td>
                                             <a href="index.php?act=order_detail&order_id=<?php echo $cart['order_id'] ?>" title="Xem chi tiết" class="fas fa-edit btn btn-info"></a>
                                             <a href="" title="Xóa" class="fas fa-trash-alt btn btn-danger"></a>
