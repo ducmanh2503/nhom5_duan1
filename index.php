@@ -91,6 +91,8 @@
 
                     if($order_id) {
                         foreach ($cart as $item) {
+                            $price_total = 0;
+                            $price_ship = 30000;
                             $product_id = $item['product_id'];
                             $quantity = $item['quantity'];
                             $product_price = $item['product_price'] * $item['quantity'];

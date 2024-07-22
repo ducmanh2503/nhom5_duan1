@@ -185,7 +185,7 @@
 
             case "list_cart":
                 $order = load_all_order();
-                include "cart/order.php";
+                include "order/order.php";
                 break;
 
             case "order_detail":
@@ -197,7 +197,7 @@
                     $list_order_details=order_details($_GET['order_id']);
             }
                 
-                include "cart/order-detail.php";
+                include "order/order-detail.php";
                 break;
 
             case "update_order":
@@ -207,7 +207,7 @@
                     update_order($order_id, $order_status);
                 }
                 $order = load_all_order();
-                include "cart/order.php";
+                include "order/order.php";
                 break;
 
 
