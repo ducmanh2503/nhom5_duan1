@@ -1,3 +1,4 @@
+
 <?php
 
     if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap' && $_GET['act'] != 'laylaimk'){
@@ -256,7 +257,7 @@
                     $order_id = $_GET['order_id'];
                     $order = load_one_order($order_id) ;    
                     $acc_id = $order['user_id'];
-                    $acc = load_one_acc($acc_id);
+                    // $acc = load_one_acc($acc_id);
                     $list_order_details=order_details($_GET['order_id']);
             }
                 

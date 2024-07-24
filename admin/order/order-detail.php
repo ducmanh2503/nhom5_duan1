@@ -32,9 +32,9 @@
                                 <div class="pull-left text-left">
                                     <address>
                                         <h3></h3>
-                                        <h4 class="font-bold">Tên khách hàng:  <?php echo $acc['user'] ?> </h4>
-                                        <p class="text-muted m-l-30 font-bold">Số điện thoại:   <?php echo $acc['phone_number'] ?>
-                                            <br /> Email: <?php echo $acc['email'] ?>
+                                        <h4 class="font-bold">Tên khách hàng:   </h4>
+                                        <p class="text-muted m-l-30 font-bold">Số điện thoại:  +84  <?php echo $order['customer_phone'] ?>
+                                            <br /> Email: <?php echo $order['customer_name'] ?>
                                             <br /> Địa chỉ nhận hàng:  <?php echo $order['customer_address'] ?>
                                             <br /> Trạng thái đơn hàng: <?php if($order['order_status'] == 0) { ?> Chưa xử lý
                                                                         <?php } elseif($order['order_status'] == 1) { ?> Đã xử lý  
