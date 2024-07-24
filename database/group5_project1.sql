@@ -2,17 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
-<<<<<<< HEAD
--- Host: 127.0.0.1
--- Generation Time: Jul 22, 2024 at 12:55 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-=======
 -- Máy chủ: 127.0.0.1
 -- Thời gian đã tạo: Th7 21, 2024 lúc 11:58 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
->>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
