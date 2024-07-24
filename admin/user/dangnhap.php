@@ -15,9 +15,7 @@
 
 <body>
     <div class="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
+       
         <div class="preloader">
             <div class="lds-ripple">
                 <div class="lds-pos"></div>
@@ -30,19 +28,19 @@
         <div>
 
             <div>
-                <!-- <?php
+                <?php
             if(isset($_SESSION['account'])){
-                    extract($_SESSION['account']);
+                    foreach($checkuser as $user)
                 ?>
                 <div>
-                    Xin Chào <strong><?=$user?></strong>
+                    Xin Chào <strong><?$user['user']?></strong>
                 </div>
                 <div>
 
                     <li>
                         <a href="index.php?act=edit_taikhoan">Cập Nhật Tài Khoản</a>
                     </li>
-                    <?php if($role_id==1){?>
+                    <?php if($user['role_name']== 'admin'){?>
                     <li>
                         <a href="index.php">Đăng Nhập Admin</a>
                     </li>
@@ -56,14 +54,9 @@
             }else{
 
             
-            ?> -->
+            ?>
 
-                <!-- ============================================================== -->
-                <!-- Preloader - style you can find in spinners.css -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Login box.scss -->
-                <!-- ============================================================== -->
+              
                 <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
                     <div class="auth-box bg-dark border-top border-secondary">
                         <div id="loginform">
@@ -126,38 +119,18 @@
                 <?php }?>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
+        
     </div>
-    <!-- ============================================================== -->
-    <!-- All Required js -->
-    <!-- ============================================================== -->
+    
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
+   
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugin js -->
-    <!-- ============================================================== -->
+   
     <script>
     $('[data-toggle="tooltip"]').tooltip();
     $(".preloader").fadeOut();
-    // ============================================================== 
-    // Login and Recover Password 
-    // ============================================================== 
+    
     $('#to-recover').on("click", function() {
         $("#loginform").slideUp();
         $("#recoverform").fadeIn();

@@ -104,19 +104,24 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white" id="basic-addon2"><i
                                                 class="ti-pencil"></i></span>
-                                    </div>
-                                    <select name="role_id">
-                                        <?php
-                                foreach($listrole as $role){
-                                    extract($role);
-                                    echo '<option value="'.$role_id.'"> '.$role_name.' </option>';
-                                }
-                            ?>
-                                        <option value=""></option>
+
+                                                <select class="" id="role_id" name="role_id"
+                                        style="width: 16.8vw; height:36px;" required>
+                                        <option value="" disabled selected>Chọn vai trò</option>
+                                        <?php foreach ($listrole as $role) { ?>
+                                            <?php if ($role['role_id'] == $account['role_id']) { ?>
+                                                <option value="<?php echo $role['role_id']?>" selected><?php echo $role['role_name']?></option>
+                                                <?php } else { ?>
+                                                    <option value="<?php echo $role['role_id']?>"><?php echo $role['role_name']?></option>
+                                                <?php } ?>
+                                        <?php } ?>
                                     </select>
-                                </div>
-
-
+                                    </div>
+                                     
+                                    
+                                    </div>
+                            
+                        </div>
 
                             </div>
                         </div>
@@ -139,32 +144,14 @@
 
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Login box.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
+    
     </div>
-    <!-- ============================================================== -->
-    <!-- All Required js -->
-    <!-- ============================================================== -->
+    
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
+   
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugin js -->
-    <!-- ============================================================== -->
+    
     <script>
     $('[data-toggle="tooltip"]').tooltip();
     $(".preloader").fadeOut();
