@@ -18,7 +18,8 @@
   </title>
 
   <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -27,21 +28,15 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-    <!-- Font Awesome -->
+  <!-- Font Awesome -->
   <!-- <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     rel="stylesheet"
   /> -->
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   <!-- MDB -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -49,12 +44,13 @@
     <!-- header section strats -->
     <header class="header_section">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <span>
             MVT
           </span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""></span>
         </button>
 
@@ -83,12 +79,23 @@
             </li>
           </ul>
           <div class="user_option">
+            <?php
+              if (isset($_SESSION['account']) && $_SESSION['account']) {
+            ?>
             <a href="admin/index.php?act=dangnhap">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>
+                <?php echo $_SESSION['account']['user']?>
+              </span>
+            </a>
+            <?php } else { ?>
+              <a href="admin/index.php?act=dangnhap">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
                 Login
               </span>
             </a>
+            <?php } ?>
             <a href="index.php?act=cart">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </a>
@@ -103,7 +110,6 @@
     </header>
     <!-- end header section -->
     <!-- slider section -->
-
     <section class="slider_section">
       <div class="slider_container">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -114,20 +120,20 @@
                   <div class="col-md-7">
                     <div class="detail-box">
                       <h1>
-                        Welcome To Our <br>
-                        Gift Shop
+                        Chào mừng đến với MVT Shop
                       </h1>
                       <p>
-                        Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                        Nơi đây, bạn có thể tha hồ lựa chọn những sản phẩm mà mình yêu thích với vô vàn các sản phẩm đa
+                        dạng như Laptop, Case, Màn Hình, Bàn Phím, ... .
                       </p>
-                      <a href="">
-                        Contact Us
+                      <a href="index.php?act=contact">
+                        Liên hệ với chúng tôi
                       </a>
                     </div>
                   </div>
                   <div class="col-md-5 ">
                     <div class="img-box">
-                      <img src="images/slider-img.png" alt="" />
+                      <a href="index.php?act=chitietsanpham&product_id=145"><img src="images/case/pc1.1.jpg" alt="" /></a>
                     </div>
                   </div>
                 </div>
@@ -139,20 +145,20 @@
                   <div class="col-md-7">
                     <div class="detail-box">
                       <h1>
-                        Welcome To Our <br>
-                        Gift Shop
+                        Sản phẩm đang được bán chạy <br>
+                        Tại cửa hàng
                       </h1>
                       <p>
-                        Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                        Còn chần chờ gì nữa mà không nhấn thêm ngay vào giỏ hàng nào.
                       </p>
-                      <a href="">
-                        Contact Us
+                      <a href="index.php?act=contact">
+                        Liên hệ với chúng tôi
                       </a>
                     </div>
                   </div>
                   <div class="col-md-5 ">
                     <div class="img-box">
-                      <img src="images/slider-img.png" alt="" />
+                      <a href="index.php?act=chitietsanpham&product_id=139"><img src="images/Loa/Razer Leviathan V2 X (3).jpg" alt="" /></a>
                     </div>
                   </div>
                 </div>
@@ -164,20 +170,20 @@
                   <div class="col-md-7">
                     <div class="detail-box">
                       <h1>
-                        Welcome To Our <br>
-                        Gift Shop
+                        Giảm ngay 30% và miễn phí giao hàng khi đăng ký thành viên của MVT Shop <br>
+                        Đăng ký ngay thôi!
                       </h1>
                       <p>
-                        Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                        Tha ga mua sắm, không lo về giá.
                       </p>
-                      <a href="">
-                        Contact Us
+                      <a href="index.php?act=contact">
+                        Liên hệ với chúng tôi
                       </a>
                     </div>
                   </div>
                   <div class="col-md-5 ">
                     <div class="img-box">
-                      <img src="images/slider-img.png" alt="" />
+                      <a href="index.php?act=chitietsanpham&product_id=143"><img src="images/laptop/lt3.3.jpg" alt="" /></a>
                     </div>
                   </div>
                 </div>

@@ -14,19 +14,19 @@
 
 
     function load_all_product() {
-        $sql =  "SELECT * FROM product INNER JOIN color on product.color_id = color.color_id INNER JOIN brand on product.brand_id = brand.brand_id INNER JOIN category on product.category_id = category.category_id ORDER BY product_id DESC";
+        $sql =  "SELECT * FROM product INNER JOIN color on product.color_id = color.color_id ORDER BY product_id DESC";
         $list_product = pdo_query($sql);
         return $list_product;
     }
     
     function load_all_product_client() {
-        $sql =  "SELECT * FROM product INNER JOIN brand on product.brand_id = brand.brand_id ORDER BY product_id DESC";
+        $sql =  "SELECT * FROM product ORDER BY product_id DESC";
         $list_product = pdo_query($sql);
         return $list_product;
     }
 
     function load_one_product($product_id) {
-        $sql = "SELECT * FROM product INNER JOIN color on product.color_id = color.color_id INNER JOIN brand on product.brand_id = brand.brand_id WHERE product_id = $product_id";
+        $sql = "SELECT * FROM product INNER JOIN color on product.color_id = color.color_id WHERE product_id = $product_id";
         $product = pdo_query_one($sql);
         return $product;
     }

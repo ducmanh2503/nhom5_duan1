@@ -29,7 +29,7 @@
 
             <div>
                 <?php
-            if(isset($_SESSION['account'])){
+                if(isset($_SESSION['account'])){
                     foreach($checkuser as $user)
                 ?>
                 <div>

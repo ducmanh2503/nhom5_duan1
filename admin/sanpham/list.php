@@ -41,7 +41,6 @@
                                         <th>Mô Tả</th>
                                         <th>Giá</th>
                                         <th>Màu Sắc</th>
-                                        <th>Thương Hiệu</th>
                                         <th>Trạng Thái</th>
                                         <th>Chức Năng</th>
                                     </tr>
@@ -49,7 +48,9 @@
                                 <tbody>
                                     <?php
                                         foreach ($list_product as $product) {
-                                            // var_dump($product);
+                                            // echo "<pre>";
+                                            // print_r($product);
+                                            // echo "</pre>";
                                             $status_text = ($product['status'] == 'Active') ? 'Hoạt động' : 'Ngưng hoạt động';
 
                                     ?>
@@ -59,7 +60,6 @@
                                         <td><?php echo $product['product_describe']?></td>
                                         <td><?php echo number_format($product['product_price'], 0, ',', '.'); ?>đ</td>
                                         <td><?php echo $product['color_name']?></td>
-                                        <td><?php echo $product['brand_name']?></td>
                                         <?php if ($product['status'] == 'Active') {
                                             ?>
                                             <td><input type="submit" class="btn btn-success" value="<?php echo $status_text?>"></td>
