@@ -47,10 +47,4 @@ function update_order($order_id, $order_status)
 
 }
 
-
-
-
-
-
-
 ?>

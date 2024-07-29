@@ -1,7 +1,33 @@
 <?php
   $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
 ?>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 
+  <title>
+    MVT Shop
+  </title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
 <section class="bg-light py-5">
   <div class="container">
     <div class="row">
@@ -16,21 +42,21 @@
                 <div class="col-6 mb-3">
                   <p class="mb-0">Họ & Tên</p>
                   <div class="form-outline">
-                    <input type="text" id="typeText" name="customer_name" placeholder="Bắt buộc" class="form-control" require />
+                    <input type="text" id="typeText" name="customer_name" placeholder="Bắt buộc" class="form-control" required />
                   </div>
                 </div>
 
                 <div class="col-6 mb-3">
                   <p class="mb-0">Số điện thoại</p>
                   <div class="form-outline">
-                    <input type="tel" id="typePhone" name="customer_phone" value="+84 " class="form-control" require />
+                    <input type="tel" id="typePhone" name="customer_phone" value="+84 " class="form-control" required />
                   </div>
                 </div>
 
                 <div class="col-6 mb-3">
                   <p class="mb-0">Email</p>
                   <div class="form-outline">
-                    <input type="email" id="typeEmail" name="customer_email" placeholder="example@gmail.com" class="form-control" require />
+                    <input type="email" id="typeEmail" name="customer_email" placeholder="example@gmail.com" class="form-control" required />
                   </div>
                 </div>
               </div>
@@ -41,7 +67,7 @@
                 <div class="col-sm-8 mb-3">
                   <p class="mb-0">Địa chỉ</p>
                   <div class="form-outline">
-                    <input type="text" id="typeText" name="customer_address" placeholder="Bắt buộc" class="form-control" require />
+                    <input type="text" id="typeText" name="customer_address" placeholder="Bắt buộc" class="form-control" required />
                   </div>
                 </div>
 
@@ -84,7 +110,7 @@
                   style="height: 96px; width: 96px;" class="img-sm rounded border" />
               </div>
               <div class="">
-                <a href="#" class="nav-link">
+                <a href="index.php?act=chitietsanpham&product_id=<?php echo $item['product_id']?>" class="nav-link">
                   <?php echo $item['product_name']; ?> <br />
                 </a>
                 <div class="price text-muted">Tổng: <?php echo number_format($product_price, 0, ',', '.'); ?>đ</div>
@@ -121,3 +147,8 @@
     </div>
   </div>
 </section>
+<script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="js/custom.js"></script>

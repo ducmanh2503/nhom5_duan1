@@ -68,23 +68,22 @@
                         </dd>
                     </div>
 
-                    <hr />
-                    <form action="index.php?act=add_cart" method="post">
-                        <div class="row mb-4">
-                            <div class="col-md-4 col-6 mb-3">
-                                <label class="mb-2 d-block">Số Lượng</label>
-                                <div class="input-group mb-3" style="width: 170px;">
-                                    <input type="hidden" name="product_id" value="<?php echo $product['product_id']?>">
-                                    <input type="number" class="form-control text-center border border-secondary"
-                                        min="1" value="1" name="quantity" aria-label="Example text with button addon"
-                                        aria-describedby="button-addon1" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <a href="index.php?act=add_cart&product_id=" class="btn btn-warning shadow-0"> Mua ngay </a> -->
-                        <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-primary shadow-0" name="btn_add">
-                        <!-- <a href="index.php?act=add_cart&product_id=" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Thêm vào giỏ hàng </a> -->
-                        <!-- <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i
+          <hr />
+          <form action="index.php?act=add_cart" method="post">
+          <div class="row mb-4">
+            <div class="col-md-4 col-6 mb-3">
+              <label class="mb-2 d-block">Số Lượng</label>
+              <div class="input-group mb-3" style="width: 170px;">
+                <input type="hidden" name="product_id" value="<?php echo $product['product_id']?>">
+                <input type="number" class="form-control text-center border border-secondary" min="1" value="1" name="quantity"
+                  aria-label="Example text with button addon" aria-describedby="button-addon1" />
+              </div>
+            </div>
+          </div>
+          <!-- <a href="index.php?act=add_cart&product_id=" class="btn btn-warning shadow-0"> Mua ngay </a> -->
+          <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-primary shadow-0" name="btn_add">
+          <!-- <a href="index.php?act=add_cart&product_id=" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Thêm vào giỏ hàng </a> -->
+          <!-- <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i
               class="me-1 fa fa-heart fa-lg"></i> Yêu thích </a> -->
                 </div>
                 </form>
@@ -255,9 +254,9 @@
                         <div class="card-body">
                             <h5 class="card-title">Sản phẩm cùng loại</h5>
                             <?php
-                foreach ($listProduct_sameType as $product_sameType) {
-                  $img_prst = $img_path . $product_sameType['product_image'];
-              ?>
+                                foreach ($listProduct_sameType as $product_sameType) {
+                                $img_prst = $img_path . $product_sameType['product_image'];
+                            ?>
                             <div class="d-flex mb-3">
                                 <a href="index.php?act=chitietsanpham&product_id=<?php echo $product_sameType['product_id']?>"
                                     class="me-3">

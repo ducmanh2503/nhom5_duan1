@@ -251,8 +251,14 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_i
 (111, 'Loa Edifier Hecate Gaming 2.1 G1500 Max', 7000000, 'Loa Edifier Hecate Gaming 2.1 G1500 Max (1).jpg', 'Loa Gaming', 'active', 2, 4, 1),
 (112, 'Loa Edifier QR65 Halo 2', 5000000, 'Loa Edifier QR65 Halo 2 (1).jpg', 'Loa Edifier QR65 Halo 2 là sản phẩm mới nhất của Edifier', 'active', 2, 4, 1),
 (113, 'Loa SoundMax SB201 Grey', 10000000, 'Loa SoundMax SB201 Grey (1).jpg', 'Loa SoundMax SB201 Grey là mẫu thiết kế nằm ngang hiện đại, sang trọng mới nhất', 'active', 2, 5, 1),
-(114, 'Razer Leviathan V2 X', 15000000, 'Razer Leviathan V2 X (1).jpg', 'Razer Leviathan V2 X là sản phẩm mới hiện đại bậc nhất của Leviathan', 'active', 2, 6, 1),
-(129, '128', 2, '1.jpg', '', 'active', 1, 2, 1);
+(114, 'Razer Leviathan V2 X', 15000000, 'Razer Leviathan V2 X (1).jpg', 'Razer Leviathan V2 X là sản phẩm mới hiện đại bậc nhất của Leviathan', 'active', 2, 6, 1);
+=======
+(2, 'LG 24GN65R-B 24', 4000000, 'LG 24GN65R-B 24 (1).jpg', 'ac', 'active', 1, 2, 1),
+(5, 'ASUS VA24EHF', 2000000, 'ASUS VA24EHF (1).jpg', 'accc', 'active', 1, 1, 1),
+(6, 'Loa Bluetooth Edifier QD35', 1000000, 'Loa Bluetooth Edifier QD35 White (1).jpg', '', 'active', 1, 4, 2),
+(7, 'ASUS ROG Strix XG249CM', 100, 'ASUS ROG Strix XG249CM    (1).jpg', '', 'active', 1, 1, 1),
+(8, 'LG 27QN600 27', 70000, 'LG 27QN600 27 (1).jpg', '', 'active', 1, 2, 1);
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 -- --------------------------------------------------------
 
@@ -266,7 +272,11 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< HEAD
+-- Dumping data for table `role`
+=======
 -- Đang đổ dữ liệu cho bảng `role`
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 --
 
 INSERT INTO `role` (`role_id`, `role_name`) VALUES
@@ -360,7 +370,11 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
+<<<<<<< HEAD
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
   MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT cho bảng `brand`
@@ -390,7 +404,11 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT cho bảng `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+<<<<<<< HEAD
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
+=======
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT cho bảng `inventory`
@@ -402,7 +420,10 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+<<<<<<< HEAD
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+=======
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
@@ -414,7 +435,11 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+<<<<<<< HEAD
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+=======
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+>>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 --
 -- AUTO_INCREMENT cho bảng `role`

@@ -57,13 +57,26 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 text-right control-label col-form-label">Tải file</label>
+                            <label class="col-sm-3 text-right control-label col-form-label">Tải ảnh đại diện</label>
                             <div class="col-md-9">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="product_image" name="product_image">
                                     <img src="upload/<?php echo $product['product_image']?>" alt="" style="max-width: 100px; max-height: 100px;">
-                                    <label class="custom-file-label" for="validatedCustomFile">Chọn tải file
+                                    <label class="custom-file-label" for="validatedCustomFile">Chọn tải ảnh đại diện
                                         ở đây...</label>
+                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right control-label col-form-label">Tải thư viện ảnh</label>
+                            <div class="col-md-9">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="images" name="images[]" multiple
+                                        required>
+                                        <img src="upload/<?php echo $gallery_product?>" alt="" style="max-width: 100px; max-height: 100px;">
+                                    <label class="custom-file-label" for="images">Chọn tải thư viện ảnh ở
+                                        đây...</label>
                                     <div class="invalid-feedback">Example invalid custom file feedback</div>
                                 </div>
                             </div>
@@ -122,6 +135,21 @@
                                             <option value="<?php echo $brand['brand_id']?>"><?php echo $brand['brand_name']?></option>
                                         <?php } ?>
                                     <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right control-label col-form-label">Trạng Thái</label>
+                            <div class="col-md-9">
+                                <select class="select2 form-control custom-select" id="status" name="status"
+                                    style="width: 100%; height:36px;" required>
+                                    <option value="" disabled selected>Chọn trạng thái</option>
+                                    <?php $status_options = array("Active" => "Hoạt động", "Inactive" => "Ngưng hoạt động");?>
+                                    <?php foreach ($status_options as $key => $value) {
+                                        $selected = ($key == $product['status'] ? 'selected' : '');
+
+                                        echo '<option value="'.$key.'" '.$selected.'>'.$value.'</option>';
+                                    }?>          
                                 </select>
                             </div>
                         </div>

@@ -136,21 +136,39 @@
                     $product_name = $_POST['product_name'];
                     $product_price = $_POST['product_price'];
                     $product_describe = $_POST['product_describe'];
+                    $status = $_POST['status'];
                     $color_id = $_POST['color_id'];
                     $category_id = $_POST['category_id'];
                     $brand_id = $_POST['brand_id'];
 
+                    $target_dir = 'upload/';
+
                     $product_image = "";
                     if ($_FILES['product_image']['name']) {
                         $product_image = $_FILES['product_image']['name'];
-                        $target_dir = "upload/";
                         $target_file = $target_dir . basename($_FILES['product_image']['name']);
                         move_uploaded_file($_FILES['product_image']['tmp_name'], $target_file);
                     } else {
-                        // $product_image = $product['product_image'];
-                        // var_dump($product_image);
+                        $product = load_one_product($product_id);
+                        $product_image = $product['product_image'];
                     }
-                    update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id); 
+                    update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $color_id); 
+
+                    if (!empty(array_filter($_FILES['images']['name']))) {
+                        $new_images = [];
+                        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+                            $gallery_image = basename($_FILES['images']['name'][$key]);
+                            $target_gallery_file = $target_dir . $gallery_image;
+                            if (move_uploaded_file($tmp_name, $target_gallery_file)) {
+                                $new_images[] = $gallery_image;
+                            } else {
+                                echo "Có lỗi xảy ra khi tải ảnh $gallery_image";
+                            }
+                        }
+                        update_gallery_images($product_id, $new_images);
+                    }
+
+                    $thongbao = '<span style="color: #28b779; text-align: center; font-size: 24px; font-weight: 700;">Cập nhật thành công!</span>';
                 }
                 $list_product = load_all_product();
                 include "sanpham/list.php";

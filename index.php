@@ -1,5 +1,7 @@
 <?php
-    if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap'){
+    // Kiểm tra các act để không bao gồm header
+    session_start();
+    if (!isset($_GET['act']) || !in_array($_GET['act'], ['dangky', 'dangnhap', 'cart', 'add_cart', 'update_cart', 'delete_cart', 'thanhtoan'])) {
         include "client/header.php";
     }
     include_once "model/pdo.php";
@@ -17,6 +19,34 @@
     if(isset($_GET['act'])){
         $act = $_GET['act'];
         switch($act){
+            case 'sanpham':
+                include 'client/shop.php';
+                break;
+
+            case 'saving':
+                include 'client/saving.php';
+                break;
+
+            case 'why':
+                include 'client/why.php';
+                break;
+
+            case 'gift':
+                include 'client/gift.php';
+                break;
+
+            case 'contact':
+                include 'client/contact.php';
+                break;
+
+            case 'testimonial':
+                include 'client/testimonial.php';
+                break;
+
+            case 'cart':
+                include 'client/cart.php';
+                break;
+            
             case "chitietsanpham":
                 if (isset($_GET['product_id']) && ($_GET['product_id'] > 0)) {
                     $product_id = $_GET['product_id'];
@@ -27,6 +57,11 @@
                 } else {
                     include "client/home.php";
                 }
+                break;
+
+            case 'sanpham':
+                $list_products = load_all_product_client();
+                include 'client/shop.php';
                 break;
 
             case 'cart':
@@ -123,5 +158,8 @@
         include "client/home.php";
     }
     
-     include "client/footer.php";
+    // Kiểm tra các act để không bao gồm footer
+    if (!isset($_GET['act']) || !in_array($_GET['act'], ['dangky', 'dangnhap', 'cart', 'add_cart', 'update_cart', 'delete_cart', 'thanhtoan'])) {
+        include "client/footer.php";
+    }
 ?>
