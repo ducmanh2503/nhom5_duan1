@@ -6,7 +6,6 @@
 -- Thời gian đã tạo: Th7 21, 2024 lúc 11:58 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
->>>>>>> ff62a0fa14cb8ac872d8a755e2c83c95c439f2dc
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;

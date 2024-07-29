@@ -34,7 +34,7 @@
     }
 
     function update_order($order_id,$order_status){
-        $sql = "UPDATE order set order_status = '$order_status' where order_id = $order_id";
+        $sql = "UPDATE `order` set order_status = $order_status where order_id = $order_id";
         pdo_execute($sql,$order_id,$order_status);
         
     }

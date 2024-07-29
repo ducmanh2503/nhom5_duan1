@@ -20,7 +20,7 @@
     }
     
     function load_all_product_client() {
-        $sql =  "SELECT * FROM product INNER JOIN brand on product.brand_id = brand.brand_id ORDER BY product_id DESC LIMIT 3";
+        $sql =  "SELECT * FROM product INNER JOIN brand on product.brand_id = brand.brand_id ORDER BY product_id DESC";
         $list_product = pdo_query($sql);
         return $list_product;
     }
@@ -32,9 +32,15 @@
     }
 
     function load_all_product_same_type($product_id) {
-        $sql =  "SELECT * FROM product WHERE category_id AND product_id <> $product_id";
-        $list_product = pdo_query($sql);
-        return $list_product;
+        // Lấy category_id của sản phẩm hiện tại
+        $sql_get_category = "SELECT category_id FROM product WHERE product_id = $product_id";
+        $category = pdo_query_one($sql_get_category);
+        $category_id = $category['category_id'];
+        
+        // Lấy các sản phẩm cùng danh mục và khác product_id hiện tại
+        $sql =  "SELECT * FROM product WHERE category_id = $category_id AND product_id <> $product_id";
+        $listProduct_sameType = pdo_query($sql);
+        return $listProduct_sameType;
     }
 
     function update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id) {

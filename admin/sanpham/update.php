@@ -57,13 +57,26 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 text-right control-label col-form-label">Tải file</label>
+                            <label class="col-sm-3 text-right control-label col-form-label">Tải ảnh đại diện</label>
                             <div class="col-md-9">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="product_image" name="product_image">
                                     <img src="upload/<?php echo $product['product_image']?>" alt="" style="max-width: 100px; max-height: 100px;">
-                                    <label class="custom-file-label" for="validatedCustomFile">Chọn tải file
+                                    <label class="custom-file-label" for="validatedCustomFile">Chọn tải ảnh đại diện
                                         ở đây...</label>
+                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right control-label col-form-label">Tải thư viện ảnh</label>
+                            <div class="col-md-9">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="images" name="images[]" multiple
+                                        required>
+                                        <img src="upload/<?php echo $gallery_product?>" alt="" style="max-width: 100px; max-height: 100px;">
+                                    <label class="custom-file-label" for="images">Chọn tải thư viện ảnh ở
+                                        đây...</label>
                                     <div class="invalid-feedback">Example invalid custom file feedback</div>
                                 </div>
                             </div>

@@ -1,5 +1,3 @@
-<!-- shop section -->
-
 <section class="shop_section layout_padding">
   <div class="container">
     <div class="heading_container heading_center">
@@ -23,6 +21,7 @@
                 <?php echo $product['product_name']?>
               </h6>
               <h6>
+                Giá: 
                 <span>
                   <?php echo number_format($product['product_price'], 0, ',', '.')?>đ
                 </span>
@@ -45,37 +44,3 @@
     </div>
   </div>
 </section>
-
-<!-- end shop section -->
-
-<!-- saving section -->
-<?php
-  include_once 'client/saving.php';
-?>
-<!-- end saving section -->
-
-<!-- why section -->
-<?php
-  include_once 'client/why.php';
-?>
-<!-- end why section -->
-
-
-<!-- gift section -->
-<?php 
- include_once 'client/gift.php';
-?>
-<!-- end gift section -->
-
-
-<!-- contact section -->
-<?php
-  include_once 'client/contact.php';
-?>
-<!-- end contact section -->
-
-<!-- client section -->
-<?php
-  include_once 'client/testimonial.php';
-?>
-<!-- end client section -->
