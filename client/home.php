@@ -10,6 +10,7 @@
     <div class="row">
       <?php
         foreach ($list_products as $product) {
+          // var_dump($product);
           if ($product['status'] == 'Active') {
           $product_img = $img_path . $product['product_image'];
       ?>
