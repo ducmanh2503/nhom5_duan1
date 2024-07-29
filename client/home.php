@@ -10,6 +10,7 @@
     <div class="row">
       <?php
         foreach ($list_products as $product) {
+          if ($product['status'] == 'Active') {
           $product_img = $img_path . $product['product_image'];
       ?>
       <div class="col-sm-6 col-md-4 col-lg-3">
@@ -36,7 +37,7 @@
           </a>
         </div>
       </div>
-      <?php } ?>
+      <?php } } ?>
     </div>
     <div class="btn-box">
       <a href="#">

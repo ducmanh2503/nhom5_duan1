@@ -43,9 +43,9 @@
         return $listProduct_sameType;
     }
 
-    function update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id) {
-        $sql = "UPDATE `product` SET `product_name`=?,`product_price`=?,`product_image`=?,`product_describe`=?,`category_id`=?,`brand_id`=?,`color_id`=? WHERE product_id = ?";
-        pdo_execute($sql, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id, $product_id);
+    function update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $color_id) {
+        $sql = "UPDATE `product` SET `product_name`=?,`product_price`=?,`product_image`=?,`product_describe`=?,`status`=?,`category_id`=?,`brand_id`=?,`color_id`=? WHERE product_id = ?";
+        pdo_execute($sql, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $color_id, $product_id);
     }
 ?>
 

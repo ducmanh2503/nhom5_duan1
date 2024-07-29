@@ -86,7 +86,7 @@
                             <div class="col-md-12">
                                 <div class="pull-right m-t-30 text-right">
                                 
-                                    <h3><b>Total : <?php echo total_price($list_order_details) ?></b></h3>
+                                    <h3><b>Tổng : <?php echo number_format(total_price($list_order_details), 0, ',', '.') ?>đ</b></h3>
                                    
                                 </div>
                                 
@@ -97,8 +97,19 @@
                                 </div>
                             </div>
                             <form action="index.php?act=update_order" method="post">
-                                
                                 <select class="select2 form-control custom-select" id="" name="order_status" required="required">
+                                    <?php if ($order['order_status'] == 0) {
+                                        echo '<option value="0" selected hidden >Chưa xử lý</option>';
+                                    } else if ($order['order_status'] == 1) {
+                                        echo '<option value="1" selected hidden >Đã xử lý</option>';
+                                    } else if ($order['order_status'] == 2) {
+                                        echo '<option value="2" selected hidden >Đang giao hàng</option>';
+                                    } else if ($order['order_status'] == 3) {
+                                        echo '<option value="3" selected hidden >Giao hàng thành công</option>';
+                                    } else {
+                                        echo '<option value="4" selected hidden >Hủy</option>';
+                                    }
+                                    ?>
                                     <option value="0">Chưa xử lý</option>
                                     <option value="1">Đã xử lý</option>
                                     <option value="2">Đang giao hàng</option>

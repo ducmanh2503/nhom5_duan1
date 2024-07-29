@@ -50,7 +50,7 @@
                                     <?php
                                         foreach ($list_product as $product) {
                                             // var_dump($product);
-                                            $status_text = ($product['status'] == 'Active') ? 'Hoạt Động' : 'Ngưng Hoạt Động';
+                                            $status_text = ($product['status'] == 'Active') ? 'Hoạt động' : 'Ngưng hoạt động';
 
                                     ?>
                                     <tr>
@@ -60,7 +60,12 @@
                                         <td><?php echo number_format($product['product_price'], 0, ',', '.'); ?>đ</td>
                                         <td><?php echo $product['color_name']?></td>
                                         <td><?php echo $product['brand_name']?></td>
-                                        <td><input type="submit" class="btn btn-success" value="<?php echo $status_text?>"></td>
+                                        <?php if ($product['status'] == 'Active') {
+                                            ?>
+                                            <td><input type="submit" class="btn btn-success" value="<?php echo $status_text?>"></td>
+                                        <?php } else { ?>
+                                            <td><input type="submit" class="btn btn-danger" value="<?php echo $status_text?>"></td>
+                                        <?php } ?>
                                         <td><a href="index.php?act=edit_sanpham&id=<?php echo $product['product_id']?>"><i class="fas fa-edit btn btn-info"></i></a>
                                         </td>
                                     </tr>

@@ -138,6 +138,21 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right control-label col-form-label">Trạng Thái</label>
+                            <div class="col-md-9">
+                                <select class="select2 form-control custom-select" id="status" name="status"
+                                    style="width: 100%; height:36px;" required>
+                                    <option value="" disabled selected>Chọn trạng thái</option>
+                                    <?php $status_options = array("Active" => "Hoạt động", "Inactive" => "Ngưng hoạt động");?>
+                                    <?php foreach ($status_options as $key => $value) {
+                                        $selected = ($key == $product['status'] ? 'selected' : '');
+
+                                        echo '<option value="'.$key.'" '.$selected.'>'.$value.'</option>';
+                                    }?>          
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="border-top" style="text-align: center;">
                         <div class="card-body">

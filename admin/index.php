@@ -136,6 +136,7 @@
                     $product_name = $_POST['product_name'];
                     $product_price = $_POST['product_price'];
                     $product_describe = $_POST['product_describe'];
+                    $status = $_POST['status'];
                     $color_id = $_POST['color_id'];
                     $category_id = $_POST['category_id'];
                     $brand_id = $_POST['brand_id'];
@@ -151,7 +152,7 @@
                         $product = load_one_product($product_id);
                         $product_image = $product['product_image'];
                     }
-                    update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id); 
+                    update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $color_id); 
 
                     if (!empty(array_filter($_FILES['images']['name']))) {
                         $new_images = [];

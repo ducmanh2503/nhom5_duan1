@@ -39,23 +39,37 @@
 
 
                                 <tbody>
-                                   <?php foreach($order as $cart) {?>
-                                    <tr>
-                                        <td><?php echo $cart['order_id'] ?></td>
-                                        <td><?php echo $cart['customer_name'] ?></td>
-                                        <td><?php echo $cart['name'] ?></td>
-                                        <td><?php echo $cart['customer_address'] ?></td>
-                                        <td><?php if($cart['order_status'] == 0) { ?> 
-                                            <span class="btn-danger">Chưa xử lý</span>
-                                        <?php } elseif($cart['order_status'] == 1) { ?>  
-                                            <span class="btn btn-success">Đã xử lý </span>
-                                        <?php } elseif($cart['order_status'] == 2) { ?> 
-                                            <span class="btn btn-success">Đang giao Hàng </span>
-                                        <?php } elseif($cart['order_status'] == 3) { ?>
-                                            <span class="btn btn-success">Giao hàng thành công </span>
-                                        <?php } else{ ?> Hủy đơn <span class="btn btn-success">Giao hàng thành công </span>
-                                        <?php } ?></td>
-                                        
+                                    <?php foreach ($order as $cart) { ?>
+                                        <tr>
+
+                                            <td><?php echo $cart['order_id']?></td>
+                                            
+                                            <td><?php
+                                                if(isset($cart['user_id']) && $cart['user_id']!=""){
+                                                    echo $cart['user'];
+                                                }
+                                                else{
+                                                    echo $cart['customer_name'];
+                                                }
+                                            ?></td>
+                                           
+                                            <td><?php echo $cart['customer_address'] ?></td>
+
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <?php if ($cart['order_status'] == 0) { ?>
+                                                        <span class="btn btn-danger">Chưa xử lý</span>
+                                                    <?php } elseif ($cart['order_status'] == 1) { ?>
+                                                        <span class="btn btn-info">Đã xử lý </span>
+                                                    <?php } elseif ($cart['order_status'] == 2) { ?>
+                                                        <span class="btn btn-warning">Đang giao Hàng </span>
+                                                    <?php } elseif ($cart['order_status'] == 3) { ?>
+                                                        <span class="btn btn-success">Giao hàng thành công </span>
+                                                    <?php } else { ?><span class="btn btn-secondary">Hủy đơn</span>
+                                                    <?php } ?>
+                                                </div>
+                                            </td>
+
 
                                             </>
                                             <td>

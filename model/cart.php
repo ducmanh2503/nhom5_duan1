@@ -10,14 +10,13 @@ function add_cart($product_id)
 
 /* cart admin*/
 
-    function load_all_order() {
-        $sql = "SELECT o.*, a.user as 'name' 
-                FROM `order` o 
-                JOIN account a ON o.user_id = a.account_id 
-                ORDER BY o.order_id";
-        $list_order = pdo_query($sql);
-        return $list_order;
-    }
+function load_all_order()
+{
+    $sql = "SELECT * FROM `order` LEFT JOIN account ON `order`.user_id = account.account_id ORDER BY `order_id`";
+    $list_order = pdo_query($sql);
+    return $list_order;
+
+}
 
 
 function load_one_order($order_id)
@@ -41,16 +40,11 @@ function order_details($order_id)
     return $list_order_details;
 }
 
-    function update_order($order_id,$order_status){
-        $sql = "UPDATE order set order_status = '$order_status' where order_id = $order_id";
-        pdo_execute($sql,$order_id,$order_status);
-        
-    }
+function update_order($order_id, $order_status)
+{
+    $sql = "UPDATE `order` set order_status = '$order_status' where order_id = $order_id";
+    pdo_execute($sql);
 
-
-
-
-
-
+}
 
 ?>
