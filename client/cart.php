@@ -91,7 +91,7 @@
                           <i class="fas fa-minus"></i>
                         </button>
 
-                        <input id="form1" min="1" name="quantity" value="<?php echo $item['quantity'] ?>" type="number" class="form-control form-control-sm" onchange="this.form.submit();" />
+                        <input id="form1" min="1" max="4" name="quantity" value="<?php echo $item['quantity'] ?>" type="number" class="form-control form-control-sm" onchange="this.form.submit();" />
 
                         <button type="button" class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); this.parentNode.submit();">
                           <i class="fas fa-plus"></i>

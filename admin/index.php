@@ -15,6 +15,8 @@
     include "../model/role.php";
     include "../model/cart.php";
     include "../model/total.php";
+    include "../model/tonkho.php";
+
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -73,6 +75,7 @@
                     $category_id = $_POST['category_id'];
                     $brand_id = $_POST['brand_id'];
                     $color_id = $_POST['color_id'];
+                    $quantity = $_POST['quantity'];
 
                     $existing_product = get_product_by_name($product_name);
                     if ($existing_product) {
@@ -103,6 +106,7 @@
                             }
                         }
                     }
+                    insert_quantity_product($product_id, $quantity);
                     $thongbao = '<span style="color: #28b779; text-align: center; font-size: 24px; font-weight: 700;">Thành công!</span>';
                 }
                     }
@@ -291,8 +295,26 @@
                 $order = load_all_order();
                 include "order/order.php";  
                 break;
-
+/*---------------------------------------------Inventory--------------------------------------------------*/
             case "tonkho":
+                $list_product_inventory = load_all_product();
+            include "tonkho/list.php";
+            break;
+
+            case "edit_soluongsanpham":
+                if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                    $quantity_product = load_one_quantity_product($_GET['id']);
+                } 
+            include "tonkho/update.php";
+            break;
+
+            case "update_soluongsanpham":
+                if (isset($_POST['btn_addquantity']) && ($_POST['btn_addquantity'])) {
+                    $product_id = $_POST['product_id'];
+                    $quantity = $_POST['quantity'];
+                    update_quantity_inventory($quantity, $product_id);
+                }
+                $list_product_inventory = load_all_product();
             include "tonkho/list.php";
             break;
 

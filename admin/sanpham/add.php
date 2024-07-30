@@ -78,6 +78,16 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="product_price" class="col-sm-3 text-right control-label col-form-label">Số Lượng</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="product_price" name="quantity"
+                                        placeholder="Ví dụ: 999" aria-label="Recipient 's username"
+                                        aria-describedby="basic-addon2" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-3 text-right control-label col-form-label">Màu Sắc</label>
                             <div class="col-md-9">
                                 <select class="select2 form-control custom-select" id="color_id" name="color_id"

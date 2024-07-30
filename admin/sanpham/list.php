@@ -41,6 +41,7 @@
                                         <th>Mô Tả</th>
                                         <th>Giá</th>
                                         <th>Màu Sắc</th>
+                                        <th>Số Lượng</th>
                                         <th>Trạng Thái</th>
                                         <th>Chức Năng</th>
                                     </tr>
@@ -51,7 +52,18 @@
                                             // echo "<pre>";
                                             // print_r($product);
                                             // echo "</pre>";
+                                            // var_dump($product_id);   
+                                            $product_id = $product['product_id'];
                                             $status_text = ($product['status'] == 'Active') ? 'Hoạt động' : 'Ngưng hoạt động';
+                                            if ($product['quantity'] <= 0) {
+                                                update_status_inactive($product_id);
+                                                $status_text = 'Ngưng hoạt động';
+                                            }
+
+                                            if ($product['quantity'] > 0) {
+                                                update_status_active($product_id);
+                                                $status_text = 'Hoạt động';
+                                            }
 
                                     ?>
                                     <tr>
@@ -60,13 +72,9 @@
                                         <td><?php echo $product['product_describe']?></td>
                                         <td><?php echo number_format($product['product_price'], 0, ',', '.'); ?>đ</td>
                                         <td><?php echo $product['color_name']?></td>
-                                        <?php if ($product['status'] == 'Active') {
-                                            ?>
-                                            <td><input type="submit" class="btn btn-success" value="<?php echo $status_text?>"></td>
-                                        <?php } else { ?>
-                                            <td><input type="submit" class="btn btn-danger" value="<?php echo $status_text?>"></td>
-                                        <?php } ?>
-                                        <td><a href="index.php?act=edit_sanpham&id=<?php echo $product['product_id']?>"><i class="fas fa-edit btn btn-info"></i></a>
+                                        <td><?php echo $product['quantity']?></td>
+                                        <td><input type="button" class="btn <?php echo ($status_text == 'Ngưng hoạt động') ? 'btn-danger' : 'btn-success' ?>" value="<?php echo $status_text?>"></td>
+                                        <td><a href="index.php?act=edit_sanpham&id=<?php echo $product_id?>"><i class="fas fa-edit btn btn-info"></i></a>
                                         </td>
                                     </tr>
                                     <?php } ?>
