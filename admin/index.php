@@ -292,6 +292,10 @@
                 include "order/order.php";  
                 break;
 
+            case "tonkho":
+            include "tonkho/list.php";
+            break;
+
             default:
                 include "home.php";
                 break;
