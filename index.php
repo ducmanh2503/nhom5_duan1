@@ -28,7 +28,7 @@
                 break;
 
             case 'why':
-                include 'client/why.php';
+                include 'client/danhmuc.php';
                 break;
 
             case 'gift':
@@ -46,6 +46,13 @@
             case 'cart':
                 include 'client/cart.php';
                 break;
+
+            case 'danhmuc':
+                $list_category = load_all_category();
+                include "client/danhmuc.php";
+                break;
+
+//Danh mục-------------------------------------------------------------------------------
             
             case "chitietsanpham":
                 if (isset($_GET['product_id']) && ($_GET['product_id'] > 0)) {
