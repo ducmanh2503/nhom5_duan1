@@ -65,8 +65,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?act=why">
-                Why Us
+              <a class="nav-link" href="index.php?act=danhmuc">
+               Danh mục
               </a>
             </li>
             <li class="nav-item">
