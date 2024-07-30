@@ -75,7 +75,7 @@
               <label class="mb-2 d-block">Số Lượng</label>
               <div class="input-group mb-3" style="width: 170px;">
                 <input type="hidden" name="product_id" value="<?php echo $product['product_id']?>">
-                <input type="number" class="form-control text-center border border-secondary" min="1" value="1" name="quantity"
+                <input type="number" class="form-control text-center border border-secondary" min="1" max="4" value="1" name="quantity"
                   aria-label="Example text with button addon" aria-describedby="button-addon1" />
               </div>
             </div>

@@ -40,15 +40,21 @@
                                         <th>Mã Sản Phẩm</th>
                                         <th>Tên Sản Phẩm</th>
                                         <th>Số Lượng</th></th>
+                                        <th>Chức Năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php 
+                                        foreach ($list_product_inventory as $inventory) {
+                                    ?>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td><?php echo $inventory['inventory_id']?></td>
+                                        <td><?php echo $inventory['product_id']?></td>
+                                        <td><?php echo $inventory['product_name']?></td>
+                                        <td><?php echo $inventory['quantity']?></td>
+                                        <td><a href="index.php?act=edit_soluongsanpham&id=<?php echo $inventory['product_id']?>"><i class="fas fa-edit btn btn-info"></i></a></td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

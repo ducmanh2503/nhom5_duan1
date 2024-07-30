@@ -11,6 +11,8 @@
     include_once "model/cart.php";
     include_once "model/thanhtoan.php";
     include_once "global.php";
+    include_once "model/tonkho.php";
+
 
     $list_products = load_all_product_client();
     $list_categories = load_all_category();
@@ -142,6 +144,7 @@
                             $total_money = $price_total + $price_ship;
 
                             insert_order_details($order_id, $product_id, $quantity, $product_price, $total_money);
+                            update_quantity_buy($quantity, $product_id);
                         }
                         unset($_SESSION['cart']);
                         echo '
