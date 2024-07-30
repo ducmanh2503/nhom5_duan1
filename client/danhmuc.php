@@ -12,7 +12,7 @@
       ?>
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="box">
-          <a href="index.php?act=chitietsanpham&product_id=<?php echo $category['category_id']?>">
+          
             <div class="detail-box">
               <h6>
                 <?php echo $category['category_name']?>
