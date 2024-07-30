@@ -20,6 +20,7 @@
         $act = $_GET['act'];
         switch($act){
             case 'sanpham':
+                $list_category = load_all_category();
                 include 'client/shop.php';
                 break;
 
@@ -68,6 +69,7 @@
 
             case 'sanpham':
                 $list_products = load_all_product_client();
+                
                 include 'client/shop.php';
                 break;
 
