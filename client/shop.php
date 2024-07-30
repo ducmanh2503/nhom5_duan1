@@ -6,9 +6,33 @@
       </h2>
     </div>
     <div class="row">
+    <?php
+        $active_categories = array();
+        foreach ($list_category as $category) {
+          if ($category['status'] == 'Active') {
+              $active_categories[] = $category['category_id']; // Giả sử bạn có id danh mục
+    ?>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="box">
+        <div class="detail-box">
+          <h6>
+            <?php echo $category['category_name']?>
+              <input type="hidden" value="<?php echo $category['status']?>">
+          </h6>
+        </div>
+      </div>
+    </div>
+    <?php
+          }
+        }
+      ?>
+    </div>
+    
       <?php
         foreach ($list_products as $product) {
-          $product_img = $img_path . $product['product_image'];
+          // Kiểm tra nếu sản phẩm thuộc danh mục đang hoạt động
+          if (in_array($product['category_id'], $active_categories)) { // Giả sử bạn có category_id của sản phẩm
+            $product_img = $img_path . $product['product_image'];
       ?>
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="box">
@@ -35,7 +59,10 @@
           </a>
         </div>
       </div>
-      <?php } ?>
+      <?php
+          }
+        }
+      ?>
     </div>
     <div class="btn-box">
       <a href="#">

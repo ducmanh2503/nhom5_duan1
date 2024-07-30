@@ -47,5 +47,11 @@
         $sql = "UPDATE `product` SET `product_name`=?,`product_price`=?,`product_image`=?,`product_describe`=?,`status`=?,`category_id`=?,`brand_id`=?,`color_id`=? WHERE product_id = ?";
         pdo_execute($sql, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $color_id, $product_id);
     }
+
+    function show_pro(){
+        $sql = "SELECT * FROM product join category on product.category_id=category_id where category.status = 'Inactive'";
+        $show = pdo_query($sql);
+        return $show;
+    }
 ?>
 
