@@ -37,8 +37,16 @@
                 </li>
 
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="index.php?act=list_cart" aria-expanded="false"><i class=" fas fa-comment-dots"></i><span
-                            class="hide-menu">Đơn hàng</span></a></li>
+                        href="index.php?act=list_cart" aria-expanded="false"><i class="fas fa-clipboard-list"></i><span
+                            class="hide-menu">Đơn Hàng</span></a></li>
+
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="index.php?act=tonkho" aria-expanded="false"><i class="fas fa-warehouse"></i><span
+                            class="hide-menu">Tồn Kho</span></a></li>
+
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="index.php?act=thuonghieu" aria-expanded="false"><i class="fas fa-trademark"></i><span
+                            class="hide-menu">Thương Hiệu</span></a></li>
 
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="index.php?act=list_binhluan" aria-expanded="false"><i
