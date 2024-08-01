@@ -1,5 +1,13 @@
-
 <?php
+session_start();
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
+if(!isset($_SESSION['account'])) {
+// Chuyển hướng tới trang đăng nhập nếu chưa đăng nhập
+header('Location: client/user/dangnhap.php');
+exit();
+}
+
+$account = $_SESSION['account'];
 
     if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap' && $_GET['act'] != 'laylaimk'){
         include "header.php";
@@ -181,6 +189,17 @@
           //Bình Luận--------------------------------------------------------------------------------------------------------------------  
           case "list_binhluan":
             $list_comment = load_all_comment();
+            include "binhluan/list.php";
+            break;
+            
+            case 'xoa_binhluan':
+                if (isset($_GET['comment_id'])) {
+                    $comment_id = intval($_GET['comment_id']);
+                
+                    delete_comment($comment_id);
+                   
+                }
+                $list_comment = load_all_comment();
             include "binhluan/list.php";
             break;
 

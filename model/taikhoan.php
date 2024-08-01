@@ -11,7 +11,7 @@ values('$user','$password','$phone_number','$email','$address','$role_id')";
 pdo_execute($sql);
 }
 
-function update_account($account_id, $user, $password, $phone_number, $email, $address, $role_id){
+function update_account($account_id, $user, $password, $phone_number, $email, $address){
     $sql="update account set user='$user', password='$password',phone_number='$phone_number',  email='$email', address='$address' where account_id='$account_id'";
     pdo_execute($sql);
 }

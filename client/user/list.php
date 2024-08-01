@@ -5,12 +5,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Bình Luận</h4>
+                <h4 class="page-title">Tài Khoản</h4>
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Bình Luận</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tài Khoản</li>
                         </ol>
                     </nav>
                 </div>
@@ -31,40 +31,42 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Danh Sách Bình Luận</h5>
+                        <h5 class="card-title">Danh Sách Tài Khoản</h5>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Tên tài khoản</th>
-                                        <th>Nội dung</th>
-
-                                        <th>Sản phẩm được bình luận</th>
+                                        <th>Mật khẩu</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Email</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Vai trò</th>
 
                                         <th>Chức Năng</th>
-                                        <th>Thời gian</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        foreach ($list_comment as $comment) {
-                                           
-
-                                    ?>
+                            foreach ($list_taikhoan as $taikhoan) {
+                                // Giả sử mỗi tài khoản trong $list_taikhoan là một mảng kết hợp chứa các thông tin
+                                $user = htmlspecialchars($taikhoan['user']);
+                                $password = htmlspecialchars($taikhoan['password']);
+                                $phone_number = htmlspecialchars($taikhoan['phone_number']);
+                                $email = htmlspecialchars($taikhoan['email']);
+                                $address = htmlspecialchars($taikhoan['address']);
+                                $role_name = htmlspecialchars($taikhoan['role_name']);
+                                $account_id = htmlspecialchars($taikhoan['account_id']);
+                            ?>
                                     <tr>
-                                        <td><?php echo $comment['user']?></td>
-
-                                        <td><?php echo $comment['content']?></td>
-
-                                        <td><?php echo $comment['product_name']?></td>
-
-                                        <td>
-
-                                            <a href="index.php?act=xoa_binhluan&comment_id=<?php echo $comment['comment_id']; ?>"
-                                                class="btn btn-danger btn-sm"
-                                                onclick="return confirm('Bạn có chắc chắn muốn xóa bình luận này không?')">Xóa</a>
-                                        </td>
-                                        <td><?php echo $comment['time']?></td>
+                                        <td><?php echo $user; ?></td>
+                                        <td><?php echo $password; ?></td>
+                                        <td><?php echo $phone_number; ?></td>
+                                        <td><?php echo $email; ?></td>
+                                        <td><?php echo $address; ?></td>
+                                        <td><?php echo $role_name; ?></td>
+                                        <td><a href="index.php?act=edit_taikhoan&account_id=<?php echo $account_id; ?>"><i
+                                                    class="fas fa-edit btn btn-info"></i></a></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
