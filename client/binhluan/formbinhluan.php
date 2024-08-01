@@ -38,7 +38,7 @@ $list_comment = load_all_comment();
             <?php
            
            if (isset($_POST['gui']) && ($_POST['gui'])) {
-            $user = $_SESSION['account']['account_id'];
+            $account_id = $_SESSION['account']['account_id'];
             $content = $_POST['content'];
             $product_id = $_POST['product_id'];
            

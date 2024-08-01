@@ -15,7 +15,7 @@ function load_one_comment($product_id) {
 }
 function delete_comment($comment_id)
 {
-    $sql = "DELETE FROM comment WHERE comment_id=".$comment_id;
+    $sql = "DELETE FROM comment WHERE `comment`.`comment_id` = $comment_id";
     pdo_execute($sql);
 }
 ?>
