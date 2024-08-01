@@ -12,6 +12,8 @@
     include_once "model/thanhtoan.php";
     include_once "global.php";
     include_once "model/tonkho.php";
+    include_once "model/taikhoan.php";
+    include_once "model/role.php";
 
 
     $list_products = load_all_product_client();
@@ -160,6 +162,100 @@
                 }
                 include "client/thanhtoan.php";
                 break;
+
+                case "dangky":
+                    if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+                        
+                        $user = $_POST['user'];
+                        $password = $_POST['pass'];
+                        $phone = $_POST['phone'];
+                        $email = $_POST['email'];
+                        $address = $_POST['address'];
+                        $role_id = $_POST['role_id'];
+                        
+                        insert_account($user, $password, $phone,$email,$address,$role_id);
+                        $thongbao = "Thêm Thành Công";
+                   }
+                   $listrole =loadall_role();
+                    include "client/user/dangky.php";
+                    break;
+    
+                    // case "list_taikhoan":
+                    //     $list_taikhoan = load_all_account();
+                    //     include "client/user/list.php";
+                    //     break;
+    
+                    case "edit_taikhoan":
+                        if (isset($_GET['account_id']) && ($_GET['account_id']) > 0) {
+                          $account=load_one_account($_GET['account_id']);
+                        }
+                        $listrole = loadall_role();
+                        include "client/user/edit_taikhoan.php";
+                        break;
+                        
+    
+                
+                    case "update_taikhoan":
+                        if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                            $user = $_POST['user'];
+                            $pass = $_POST['pass'];
+                            $phone_number = $_POST['phone'];
+                            $email = $_POST['email'];
+                            $address = $_POST['address'];
+                            $account_id = $_POST['account_id'];
+                            // $role_id = $_POST['role_id'];   
+                                   
+                            update_account($account_id, $user, $pass,$phone_number, $email, $address);  
+                            $_SESSION['account']=checkuser($user,$pass);
+                
+                          
+                        }
+                      
+                        include "client/user/edit_taikhoan.php";
+                        break;
+    
+                        case "dangnhap":
+                            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+                                $user = $_POST['user'];
+                                $pass = $_POST['pass'];
+                                $checkuser = checkuser($user, $pass);
+                    
+                                if (is_array($checkuser)) {
+                                    // Lưu thông tin người dùng vào session
+                                    $_SESSION['account'] = $checkuser;
+                                    // Chuyển hướng đến trang chủ hoặc trang quản trị
+                                    header('Location: index.php');
+                                    exit(); // Đảm bảo không thực thi thêm mã sau chuyển hướng
+                                } else {
+                                    // Thông báo lỗi nếu thông tin đăng nhập không hợp lệ
+                                    $thongbao = "Tài Khoản Không Tồn Tại. Vui Lòng Kiểm Tra Lại Hoặc Đăng ký";
+                                }
+                            }
+                            // Bao gồm tệp giao diện đăng nhập
+                            include "client/user/dangnhap.php";
+                            break;
+    
+                        case 'laylaimk':
+                            if (isset($_POST['gui']) && ($_POST['gui'])) {
+                                
+                                $email = $_POST['email'];
+                              
+                                $checkemail=checkemail($email);
+                                if(is_array($checkemail)){
+                                        $thongbao = "Mật Khẩu Của Bạn Là:  " .$checkemail['password'];
+                                }else{
+                                    $thongbao = "Email Này Không Tồn Tại";
+                                }
+                               
+                            }
+                            include "client/user/quenmk.php";
+                            break;
+    
+                            case 'thoat':
+                                include "logout.php";
+                             
+                                break;
+    
 
             default:
                 include "client/home.php";
