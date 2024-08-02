@@ -122,13 +122,9 @@
                         <a href="index.php?act=cart">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                         </a>
-<<<<<<< HEAD
-                        <form action="index.php?act=sanpham" class="form-inline" method="get">
-=======
                         <form action="index.php?act=tim_kiem" method="post" class="form-inline ">
                             <input type="text" name="tim_kiem" placeholder="Nhập vào để tìm kiếm">
                             <button class="btn nav_search-btn" type="submit">
->>>>>>> 20d3dcc280b933934d114c0da5983d3f47ca7068
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <input type="search" name="search">
                                 <input type="submit" name="btn_search" value="Tìm kiếm">
