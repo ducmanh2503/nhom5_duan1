@@ -20,11 +20,11 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-3">
-            <h6>
+            <h6 class="text-center">
               ABOUT US
             </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+            <p class="text-center">
+            Shop bán máy tính & phụ kiện MVT, đảm bảo uy tín, chất lượng, giá rẻ nhất thị trường. Mua ngay nào!
             </p>
           </div>
           <div class="col-md-6 col-lg-3">
