@@ -1,16 +1,3 @@
-<style>
-    .alert-custom {
-    padding: 8px 12px;
-    max-width: 250px;
-    transform: translateX(620%);
-    transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng chuyển đổi */
-}
-
-.alert-custom.transformed {
-    transform: translateX(510%);
-}
-
-</style>
 <?php
   $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
 ?>
@@ -86,7 +73,7 @@
 
                 <div class="float-end">
                   <!-- <button class="btn btn-light border">Cancel</button> -->
-                  <input type="submit" class="btn btn-success shadow-0 border btn-custom" id="continueBtn" name="btn_order" value="Tiếp Tục">
+                  <input type="submit" class="btn btn-success shadow-0 border" name="btn_order" value="Tiếp Tục">
                 </div>
               </div>
             </div>
@@ -160,12 +147,6 @@
     </div>
   </div>
 </section>
-<script>
-  document.getElementById('continueBtn').addEventListener('click', function(event) {
-      event.preventDefault(); // Ngăn chặn submit form nếu bạn muốn kiểm tra hiệu ứng trước
-      document.querySelector('.alert-custom').classList.add('transformed');
-  });
-</script>
 <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">

@@ -14,6 +14,7 @@
     include_once "model/tonkho.php";
     include_once "model/taikhoan.php";
     include_once "model/role.php";
+    include_once "model/total.php";
 
 
     $list_products = load_all_product_client();
@@ -59,6 +60,31 @@
 
 //Danh mục-------------------------------------------------------------------------------
             
+            case 'tracuu':
+                $order_like = [];
+                if (isset($_POST['tracuu']) && ($_POST['tracuu'])) {
+                    $order_id = $_POST['tracuu'];
+                    if ($order_id != '') {
+                        $order_like = load_order_like($order_id);
+                    }
+                }
+                // var_dump($order_like);
+                // die();
+                include 'client/tracuu.php';
+                break;
+
+            case "chitietdonhang":
+                if(isset($_GET['order_id'])){
+                    $order_id = $_GET['order_id'];
+                    $order = load_one_order($order_id) ;    
+                    $acc_id = $order['user_id'];
+                    // $acc = load_one_acc($acc_id);
+                    $list_order_details=order_details($_GET['order_id']);
+            }
+                
+                include "client/chitietdonhang.php";
+                break;
+
             case "chitietsanpham":
                 if (isset($_GET['product_id']) && ($_GET['product_id'] > 0)) {
                     $product_id = $_GET['product_id'];
@@ -72,8 +98,7 @@
                 break;
 
             case 'sanpham':
-                $list_products = load_all_product_client();
-                
+                $list_products = load_all_product_client();              
                 include 'client/shop.php';
                 break;
 
@@ -151,29 +176,13 @@
                             update_quantity_buy($quantity, $product_id);
                         }
                         unset($_SESSION['cart']);
+                        echo '<div class="alert-success" style="text-align: center; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #d4edda; background-color: #d4edda; color: #155724; border-radius: 5px;">
+                <span>Đặt hàng thành công! Vui lòng theo dõi tiến trình đơn hàng.</span><br />
+                <span>Mã đơn hàng của bạn là: ' . $order_id . '</span>
+            </div>';
                         echo '
-                        <svg xmlns="http://www.w3.org/2000/svg" class="d-flex align-items-center width="16" height="16">
-                            <symbol id="check-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                            </symbol>
-                            <symbol id="info-fill" viewBox="0 0 16 16">
-                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                            </symbol>
-                            <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
-                                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </symbol>
-                        </svg>
-
-                        <div class="alert alert-success d-flex align-items-center alert-custom" role="alert" style="padding: 8px 12px; max-width: 250px;">
-                            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:" width="16" height="16">
-                                <use xlink:href="#check-circle-fill"/>
-                            </svg>
-                            <div>
-                                Đặt hàng thành công!
-                            </div>
-                        </div>
                         <div class="pt-5">
-                        <h6 class="mb-0"><a href="index.php" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Tiếp tục mua sắm</a></h6>
+                        <h6 class="mb-0""><a href="index.php"class="text-body d-flex justify-content-center">Tiếp tục mua sắm</a></h6>
                         </div>
                         ';
                         

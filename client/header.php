@@ -100,6 +100,7 @@
                                     <a class="dropdown-item bg-info text-white" href="admin/index.php">Đăng Nhập
                                         Admin</a>
                                     <?php endif; ?>
+                                    <a class="dropdown-item bg-info text-white" href="index.php?act=tracuu">Tra cứu đơn hàng</a>
                                     <a class="dropdown-item bg-info text-white" href="index.php?act=laylaimk">Quên Mật
                                         Khẩu</a>
                                     <a class="dropdown-item bg-info text-white" href="client/user/logout.php">Đăng
@@ -125,10 +126,10 @@
                         <a href="index.php?act=cart">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                         </a>
-                        <form class="form-inline ">
-                            <button class="btn nav_search-btn" type="submit">
+                        <form action="index.php?act=sanpham" class="form-inline" method="get">
                                 <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
+                                <input type="search" name="search">
+                                <input type="submit" name="btn_search" value="Tìm kiếm">
                         </form>
                     </div>
                 </div>

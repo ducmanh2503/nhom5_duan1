@@ -18,6 +18,14 @@ function load_all_order()
 
 }
 
+function load_order_like($order_id)
+{
+    $sql = "SELECT * FROM `order` LEFT JOIN account ON `order`.user_id = account.account_id WHERE `order_id` LIKE '%$order_id%' ORDER BY `order_id`";
+    $order_like = pdo_query($sql);
+    return $order_like;
+
+}
+
 
 function load_one_order($order_id)
 {
