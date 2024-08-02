@@ -99,93 +99,18 @@
             <div class="col-lg-8 mb-4">
                 <div class="border rounded-2 px-3 py-2 bg-white">
                     <!-- Pills navs -->
-                    <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-                        <li class="nav-item d-flex" role="presentation">
-                            <a class="nav-link d-flex align-items-center justify-content-center w-100 active"
-                                id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab"
-                                aria-controls="ex1-pills-1" aria-selected="true">Specification</a>
-                        </li>
-                        <li class="nav-item d-flex" role="presentation">
-                            <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-2"
-                                data-mdb-toggle="pill" href="#ex1-pills-2" role="tab" aria-controls="ex1-pills-2"
-                                aria-selected="false">Warranty info</a>
-                        </li>
-                        <li class="nav-item d-flex" role="presentation">
-                            <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-3"
-                                data-mdb-toggle="pill" href="#ex1-pills-3" role="tab" aria-controls="ex1-pills-3"
-                                aria-selected="false">Shipping info</a>
-                        </li>
-                        <li class="nav-item d-flex" role="presentation">
-                            <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-4"
-                                data-mdb-toggle="pill" href="#ex1-pills-4" role="tab" aria-controls="ex1-pills-4"
-                                aria-selected="false">Seller profile</a>
-                        </li>
-                    </ul>
-                    <!-- Pills navs -->
-
-                    <!-- Pills content -->
+                   
                     <div class="tab-content" id="ex1-content">
                         <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel"
                             aria-labelledby="ex1-tab-1">
-                            <p>
-                                With supporting text below as a natural lead-in to additional content. Lorem ipsum dolor
-                                sit amet,
-                                consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                eu fugiat
-                                nulla
-                                pariatur.
-                            </p>
-                            <div class="row mb-2">
-                                <div class="col-12 col-md-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><i class="fas fa-check text-success me-2"></i>Some great feature name here
-                                        </li>
-                                        <li><i class="fas fa-check text-success me-2"></i>Lorem ipsum dolor sit amet,
-                                            consectetur</li>
-                                        <li><i class="fas fa-check text-success me-2"></i>Duis aute irure dolor in
-                                            reprehenderit</li>
-                                        <li><i class="fas fa-check text-success me-2"></i>Optical heart sensor</li>
-                                    </ul>
-                                </div>
-                                <div class="col-12 col-md-6 mb-0">
-                                    <ul class="list-unstyled">
-                                        <li><i class="fas fa-check text-success me-2"></i>Easy fast and ver good</li>
-                                        <li><i class="fas fa-check text-success me-2"></i>Some great feature name here
-                                        </li>
-                                        <li><i class="fas fa-check text-success me-2"></i>Modern style and design</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <table class="table border mt-3 mb-2">
-                                <tr>
-                                    <th class="py-2">Display:</th>
-                                    <td class="py-2">13.3-inch LED-backlit display with IPS</td>
-                                </tr>
-                                <tr>
-                                    <th class="py-2">Processor capacity:</th>
-                                    <td class="py-2">2.3GHz dual-core Intel Core i5</td>
-                                </tr>
-                                <tr>
-                                    <th class="py-2">Camera quality:</th>
-                                    <td class="py-2">720p FaceTime HD camera</td>
-                                </tr>
-                                <tr>
-                                    <th class="py-2">Memory</th>
-                                    <td class="py-2">8 GB RAM or 16 GB RAM</td>
-                                </tr>
-                                <tr>
-                                    <th class="py-2">Graphics</th>
-                                    <td class="py-2">Intel Iris Plus Graphics 640</td>
-                                </tr>
-                                <tr><?php  
+                           
+                            
+                            
+                                <?php  
             extract($product);
             ?>
                                     <th class="py-2">
-                                        Bình Luận
+                                       <h3>Bình luận</h3>
                                     </th>
                                     <td class="py-2">
                                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
