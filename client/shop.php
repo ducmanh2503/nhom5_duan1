@@ -17,7 +17,7 @@
         <div class="detail-box">
           <h6>
             <?php echo $category['category_name']?>
-              <input type="hidden" value="<?php echo $category['status']?>">
+              <input type="hidden" value="<?php echo $category['status']?>"> 
           </h6>
         </div>
       </div>

@@ -260,7 +260,7 @@
                                 }
                             }
                             // Bao gồm tệp giao diện đăng nhập
-                            include "client/user/dangnhap.php";
+                            include "./client/user/dangnhap.php";
                             break;
     
                         case 'laylaimk':
@@ -277,6 +277,14 @@
                                
                             }
                             include "client/user/quenmk.php";
+                            break;
+
+                        case 'tim_kiem':
+                            if(isset($_POST['tim_kiem'])){
+                                $tim_kiem = search($_POST['tim_kiem']);
+                                // var_dump($tim_kiem);
+                            }
+                            include "client/timkiem.php";
                             break;
     
                             case 'thoat':

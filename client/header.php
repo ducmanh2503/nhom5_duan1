@@ -11,7 +11,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/LOGO SHOP.png" type="image/x-icon">
 
     <title>
         MVT Shop
@@ -45,9 +45,9 @@
         <header class="header_section">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
                 <a class="navbar-brand" href="index.php">
-                    <span>
-                        MVT
-                    </span>
+                    
+                        <img src="images/LOGO SHOP.png" alt="" style="width: 100%; height: 3vw;">
+                    
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -117,20 +117,22 @@
 
                         </ul>
 
-
-
-
-
-
-
                         <a href="index.php?act=cart">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                         </a>
+<<<<<<< HEAD
                         <form action="index.php?act=sanpham" class="form-inline" method="get">
+=======
+                        <form action="index.php?act=tim_kiem" method="post" class="form-inline ">
+                            <input type="text" name="tim_kiem" placeholder="Nhập vào để tìm kiếm">
+                            <button class="btn nav_search-btn" type="submit">
+>>>>>>> 20d3dcc280b933934d114c0da5983d3f47ca7068
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <input type="search" name="search">
                                 <input type="submit" name="btn_search" value="Tìm kiếm">
                         </form>
+
+                        
                     </div>
                 </div>
             </nav>
