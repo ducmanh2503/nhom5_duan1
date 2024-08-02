@@ -53,5 +53,11 @@
         $show = pdo_query($sql);
         return $show;
     }
+
+    function search($seach){
+        $sql = "SELECT * FROM product where product_name like '%$seach%'";
+        $tim_kiem = pdo_query($sql);
+        return $tim_kiem;
+    }
 ?>
 
