@@ -65,7 +65,7 @@
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <a href="index.php?act=chitietdonhang&order_id=<?php echo $row['order_id'] ?>"
-                                                        title="Xem chi tiết" class="fas fa-edit btn btn-info"></a>
+                                                        title="Xem chi tiết" class="btn btn-info"><i class="bi bi-search"></i></a>
                                                 </div>
 
                                             </td>
