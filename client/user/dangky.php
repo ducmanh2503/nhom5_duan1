@@ -10,6 +10,7 @@
     <title>Đăng Ký</title>
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -33,8 +34,9 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img style="margin-bottom: 24px" src="assets/images/logo.png"
-                                alt="logo" /></span>
+                        <span class="db">
+                            <h3 style="color:white;">Đăng Ký</h3>
+                        </span>
                     </div>
                     <!-- Form -->
                     <form action="index.php?act=dangky" method="POST" class="form-horizontal m-t-20"
@@ -63,7 +65,7 @@
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i
                                                 class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Mật Khẩu"
+                                    <input type="password" class="form-control form-control-lg" placeholder="Mật Khẩu"
                                         name="pass" aria-label="Password" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
@@ -71,7 +73,7 @@
                                         <span class="input-group-text bg-info text-white" id="basic-addon2"><i
                                                 class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg"
+                                    <input type="password" class="form-control form-control-lg"
                                         placeholder=" Xác Nhận Mật Khẩu" aria-label="Password" name="confirmpass"
                                         aria-describedby="basic-addon1" required>
                                 </div>

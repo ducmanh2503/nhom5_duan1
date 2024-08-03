@@ -3,7 +3,7 @@ session_start();
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 if(!isset($_SESSION['account'])) {
 // Chuyển hướng tới trang đăng nhập nếu chưa đăng nhập
-header('Location: client/user/dangnhap.php');
+header('Location: ../index.php?act=dangnhap');
 exit();
 }
 

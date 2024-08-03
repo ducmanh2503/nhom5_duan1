@@ -96,7 +96,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <div style="margin-top: 16px" class="p-t-20">
-                                                <a href="http://localhost/tam2/index.php?act=laylaimk">
+                                                <a href="../index.php?act=laylaimk">
                                                     <button class="btn btn-info" id="to-recover" type="button"><i
                                                             class="fa fa-lock m-r-5"></i> Quên
                                                         Mật Khẩu
