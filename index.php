@@ -14,6 +14,7 @@
     include_once "model/tonkho.php";
     include_once "model/taikhoan.php";
     include_once "model/role.php";
+    include_once "model/total.php";
 
 
     $list_products = load_all_product_client();
@@ -59,6 +60,31 @@
 
 //Danh mục-------------------------------------------------------------------------------
             
+            case 'tracuu':
+                $order_like = [];
+                if (isset($_POST['tracuu']) && ($_POST['tracuu'])) {
+                    $order_id = $_POST['tracuu'];
+                    if ($order_id != '') {
+                        $order_like = load_order_like($order_id);
+                    }
+                }
+                // var_dump($order_like);
+                // die();
+                include 'client/tracuu.php';
+                break;
+
+            case "chitietdonhang":
+                if(isset($_GET['order_id'])){
+                    $order_id = $_GET['order_id'];
+                    $order = load_one_order($order_id) ;    
+                    $acc_id = $order['user_id'];
+                    // $acc = load_one_acc($acc_id);
+                    $list_order_details=order_details($_GET['order_id']);
+            }
+                
+                include "client/chitietdonhang.php";
+                break;
+
             case "chitietsanpham":
                 if (isset($_GET['product_id']) && ($_GET['product_id'] > 0)) {
                     $product_id = $_GET['product_id'];
@@ -72,8 +98,7 @@
                 break;
 
             case 'sanpham':
-                $list_products = load_all_product_client();
-                
+                $list_products = load_all_product_client();              
                 include 'client/shop.php';
                 break;
 
@@ -151,10 +176,13 @@
                             update_quantity_buy($quantity, $product_id);
                         }
                         unset($_SESSION['cart']);
+                        echo '<div class="alert-success" style="text-align: center; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #d4edda; background-color: #d4edda; color: #155724; border-radius: 5px;">
+                <span>Đặt hàng thành công! Vui lòng theo dõi tiến trình đơn hàng.</span><br />
+                <span>Mã đơn hàng của bạn là: ' . $order_id . '</span>
+            </div>';
                         echo '
-                        <span class="success" style="text-align: center; font-size: 24px; font-weight: 700;">Đặt hàng thành công! Quý khách vui lòng theo dõi tình trạng đơn hàng!</span>
                         <div class="pt-5">
-                        <h6 class="mb-0"><a href="index.php" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Tiếp tục mua sắm</a></h6>
+                        <h6 class="mb-0""><a href="index.php"class="text-body d-flex justify-content-center">Tiếp tục mua sắm</a></h6>
                         </div>
                         ';
                         
@@ -232,7 +260,7 @@
                                 }
                             }
                             // Bao gồm tệp giao diện đăng nhập
-                            include "client/user/dangnhap.php";
+                            include "./client/user/dangnhap.php";
                             break;
     
                         case 'laylaimk':
@@ -249,6 +277,14 @@
                                
                             }
                             include "client/user/quenmk.php";
+                            break;
+
+                        case 'tim_kiem':
+                            if(isset($_POST['tim_kiem'])){
+                                $tim_kiem = search($_POST['tim_kiem']);
+                                // var_dump($tim_kiem);
+                            }
+                            include "client/timkiem.php";
                             break;
     
                             case 'thoat':

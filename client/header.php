@@ -11,7 +11,9 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/LOGO SHOP.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
 
     <title>
         MVT Shop
@@ -45,9 +47,9 @@
         <header class="header_section">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
                 <a class="navbar-brand" href="index.php">
-                    <span>
-                        MVT
-                    </span>
+                    
+                        <img src="images/LOGO SHOP.png" alt="" style="width: 100%; height: 3vw;">
+                    
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -100,6 +102,7 @@
                                     <a class="dropdown-item bg-info text-white" href="admin/index.php">Đăng Nhập
                                         Admin</a>
                                     <?php endif; ?>
+                                    <a class="dropdown-item bg-info text-white" href="index.php?act=tracuu">Tra cứu đơn hàng</a>
                                     <a class="dropdown-item bg-info text-white" href="index.php?act=laylaimk">Quên Mật
                                         Khẩu</a>
                                     <a class="dropdown-item bg-info text-white" href="client/user/logout.php">Đăng
@@ -116,20 +119,23 @@
 
                         </ul>
 
-
-
-
-
-
-
                         <a href="index.php?act=cart">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                         </a>
-                        <form class="form-inline ">
-                            <button class="btn nav_search-btn" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
+                        <!-- <form action="index.php?act=tim_kiem" class="form-inline" method="post">
+                               
+                                <input type="search" name="tim_kiem">
+                                <input class="btn btn-info ms-2" type="submit" name="tim_kiem" value="Tìm kiếm">
+                        </form> -->
+
+                        <form action="index.php?act=tim_kiem" method="post" class="form-inline ">
+                            <input type="text" name="tim_kiem" placeholder="Nhập vào để tìm kiếm">
+                            <button class="btn btn-info" type="submit" >
+                                tìm Kiếm
                             </button>
                         </form>
+
+                        
                     </div>
                 </div>
             </nav>

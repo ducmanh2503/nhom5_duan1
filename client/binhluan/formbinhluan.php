@@ -1,5 +1,10 @@
 <?php
 session_start(); 
+if(!isset($_SESSION['account'])) {
+    // Chuyển hướng tới trang đăng nhập nếu chưa đăng nhập
+    header('Location: ../index.php?act=dangnhap');
+    exit();
+    }
 include "../../model/pdo.php";
 include "../../model/binhluan.php";
 $product_id = $_REQUEST['product_id'];

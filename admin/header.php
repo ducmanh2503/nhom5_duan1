@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/LOGO SHOP.png">
     <title>MVT Shop</title>
     <!-- Custom CSS -->
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
@@ -54,16 +54,12 @@
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                            <img style="width: 100%; height: 2.5vw;"src="assets/images/admin_logo.png" alt="homepage" class="light-logo" />
 
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span class="logo-text">
-                            <!-- dark Logo text -->
-                            <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
-
-                        </span>
+                        
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
