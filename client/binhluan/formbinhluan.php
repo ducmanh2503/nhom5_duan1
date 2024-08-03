@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); 
 include "../../model/pdo.php";
 include "../../model/binhluan.php";
 $product_id = $_REQUEST['product_id'];
@@ -7,22 +7,39 @@ $list_comment = load_all_comment();
 
 ?>
 <div class="col-lg-8 mb-4">
-    <div class="border rounded-2 px-3 py-2 bg-white">
+    <div class="border rounded-2 px-6 py-2 bg-white">
         <div>
 
             <div>
-                <table>
-                    <?php
+                <table border="1">
+                    <tr>
+                        <th>Tên tài khoản</th>
+                        <th>Nội dung</th>
 
-                foreach ($list_comment as $cm) {
-                    extract($cm);
-                    echo '<td>' . $user . '</td>';
-                    echo '<tr><td>' . $content . '</td>';
-                    echo '<td>' . $product_name . '</td>'; 
-                    echo '<td>' . $time . '</td></tr>';
-                }
+                        <th>Sản phẩm được bình luận</th>
 
-                ?>
+
+                        <th>Thời gian</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                                        foreach ($list_comment as $comment) {
+                                           
+
+                                    ?>
+                        <tr>
+                            <td><?php echo $comment['user']?></td>
+
+                            <td><?php echo $comment['content']?></td>
+
+                            <td><?php echo $comment['product_name']?></td>
+
+                            <td><?php echo $comment['time']?></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
 
                 </table>
             </div>
@@ -31,7 +48,7 @@ $list_comment = load_all_comment();
                     <input type="hidden" name="product_id" value="<?= $product_id ?>">
 
                     <input type="text" name="content">
-                    <input type="submit" name="gui" value="Gửi Bình Luận">
+                    <input style="background-color:red; color:white; " type="submit" name="gui" value="Gửi Bình Luận">
                 </form>
             </div>
 
