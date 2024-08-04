@@ -1,97 +1,90 @@
 <?php
-session_start(); 
-if(!isset($_SESSION['account'])) {
+session_start();
+if (!isset($_SESSION['account'])) {
     // Chuyển hướng tới trang đăng nhập nếu chưa đăng nhập
     header('Location: ../index.php?act=dangnhap');
     exit();
-    }
+}
 include "../../model/pdo.php";
 include "../../model/binhluan.php";
 $product_id = $_REQUEST['product_id'];
 $list_comment = load_all_comment();
 
 ?>
-<div class="col-lg-8 mb-4">
-    <div class="border rounded-2 px-6 py-2 bg-white">
-        <div>
+<!DOCTYPE html>
+<html lang="en">
 
-            <div>
-                <table>
-                    <tr>
-                        <th>Tên tài khoản</th>
-                        <th>Nội dung</th>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 
-                        <th>Sản phẩm được bình luận</th>
+<body>
+    <div class="container mt-5">
+        <div class="col-lg-8 mb-4 mx-auto">
+            <div class="border rounded-2 px-6 py-4 bg-white shadow">
+
+                <div>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Tên tài khoản</th>
+                                <th>Nội dung</th>
+
+                                <th>Sản phẩm được bình luận</th>
 
 
-                        <th>Thời gian</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                                        foreach ($list_comment as $comment) {
-                                           
+                                <th>Thời gian</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($list_comment as $comment) {
 
-                                    ?>
-                        <tr>
-                            <td><?php echo $comment['user']?></td>
 
-                            <td><?php echo $comment['content']?></td>
+                                ?>
+                            <tr>
+                                <td><?php echo $comment['user'] ?></td>
 
-                            <td><?php echo $comment['product_name']?></td>
+                                <td><?php echo $comment['content'] ?></td>
 
-                            <td><?php echo $comment['time']?></td>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+                                <td><?php echo $comment['product_name'] ?></td>
 
-                </table>
+                                <td><?php echo $comment['time'] ?></td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4">
+                    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+                        <input type="hidden" name="product_id" value="<?= $product_id ?>">
+
+                        <input type="text" name="content" required>
+                        <input style="background-color:red; color:white; " type="submit" name="gui"
+                            value="Gửi Bình Luận">
+                    </form>
+                </div>
+                <?php
+
+                if (isset($_POST['gui']) && ($_POST['gui'])) {
+                    $account_id = $_SESSION['account']['account_id'];
+                    $content = $_POST['content'];
+                    $product_id = $_POST['product_id'];
+
+                    $time = date('   d/m/Y');
+                    insert_comment($content, $time, $account_id, $product_id);
+                    header("Location: " . $_SERVER['HTTP_REFERER']);
+                }
+
+
+
+
+                ?>
             </div>
-            <div>
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-                    <input type="hidden" name="product_id" value="<?= $product_id ?>">
-
-                    <input type="text" name="content">
-                    <input class="btn btn-primary" type="submit" name="gui" value="Gửi Bình Luận">
-                </form>
-            </div>
-
-            <?php
-           
-           if (isset($_POST['gui']) && ($_POST['gui'])) {
-            $account_id = $_SESSION['account']['account_id'];
-            $content = $_POST['content'];
-            $product_id = $_POST['product_id'];
-           
-            $time = date('   d/m/Y');
-            insert_comment($account_id, $content, $product_id, $time);
-            header("Location: " . $_SERVER['HTTP_REFERER']);
-        } 
-
-        //    if (isset($_POST['gui']) && ($_POST['gui'])) {
-        //        // Kiểm tra xem người dùng đã đăng nhập chưa
-        //        if (isset($_SESSION['account'])) {
-        //            $user = $_SESSION['account']['account_id'];
-        //            $content = $_POST['content'];
-        //            $product_id = $_POST['product_id'];
-        //            $time = date('d/m/Y');
-                   
-        //            // Gọi hàm để chèn bình luận
-        //            insert_comment($user, $content, $product_id, $time);
-                   
-        //            // Chuyển hướng người dùng về trang trước đó
-        //            header("Location: " . $_SERVER['HTTP_REFERER']);
-        //            exit();
-        //        } else {
-        //            // Nếu người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
-        //            header("Location: http://localhost/tam2/admin/index.php?act=dangnhap");
-        //            exit();
-        //        }
-        //    }
-
-
-        ?>
         </div>
     </div>
-</div>
+</body>
+
+</html>
