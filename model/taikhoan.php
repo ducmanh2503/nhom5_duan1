@@ -21,10 +21,17 @@ function checkuser($user,$pass){
     return $check;
 }
 function checkemail($email){
-    $sql = "SELECT * FROM account WHERE email='".$email."'";
+    $sql = "SELECT * FROM account WHERE email='$email'";
     $email = pdo_query_one($sql);
     return $email;
 }
+
+function check_username($user){
+    $sql = "SELECT * FROM `account` WHERE `user` = '$user'";
+    $user = pdo_query_one($sql);
+    return $user;
+}
+
 function load_one_account($account_id) {
     $sql = "SELECT * FROM account WHERE account_id = $account_id";
     $account = pdo_query_one($sql);
