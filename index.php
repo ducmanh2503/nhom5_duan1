@@ -164,8 +164,6 @@
 
                     if($order_id) {
                         foreach ($cart as $item) {
-                            $price_total = 0;
-                            $price_ship = 30000;
                             $product_id = $item['product_id'];
                             $quantity = $item['quantity'];
                             $product_price = $item['product_price'] * $item['quantity'];
@@ -177,9 +175,9 @@
                         }
                         unset($_SESSION['cart']);
                         echo '<div class="alert-success" style="text-align: center; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #d4edda; background-color: #d4edda; color: #155724; border-radius: 5px;">
-                <span>Đặt hàng thành công! Vui lòng theo dõi tiến trình đơn hàng.</span><br />
-                <span>Mã đơn hàng của bạn là: ' . $order_id . '</span>
-            </div>';
+                        <span>Đặt hàng thành công! Vui lòng theo dõi tiến trình đơn hàng.</span><br />
+                        <span>Mã đơn hàng của bạn là: ' . $order_id . '</span>
+                        </div>';
                         echo '
                         <div class="pt-5">
                         <h6 class="mb-0""><a href="index.php"class="text-body d-flex justify-content-center">Tiếp tục mua sắm</a></h6>
@@ -200,11 +198,14 @@
                         $email = $_POST['email'];
                         $address = $_POST['address'];
                        
-                        
-                        insert_account($user, $password, $phone,$email,$address);
-                        $thongbao = ' <span style="color:red; margin-right: 10px;">Đăng ký thành công</span>
+                        $check_username = check_username($user);
+                        if (!$user == $check_username) {
+                            insert_account($user, $password, $phone,$email,$address);
+                            $thongbao = ' <span style="color:red; margin-right: 10px;">Đăng ký thành công</span>
                                             <a style="color:white; margin-left: 10px;" href="index.php?act=dangnhap">Nhấn để đăng nhập</a>';
-                        // header("Location:client/user/dangnhap.php");
+                        } else {
+                            $thongbao = '<span style="color:red; margin-right: 10px;">Tên tài khoản đã tồn tại!</span>';
+                        }
                    }
                    
                     include "client/user/dangky.php";

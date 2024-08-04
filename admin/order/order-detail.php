@@ -68,15 +68,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($list_order_details as $key => $order_details) {?>
+                                            <?php
+                                            include_once '../global.php';
+                                            foreach($list_order_details as $key => $order_details) {?>
                                             
                                             <tr>
                                                 <td class="text-center"><?php echo $key + 1 ?></td>
                                                 <td><?php echo $order_details['product_name'] ?></td>
                                                 <td class="text-center"><img src="./upload/<?php echo $order_details['product_image']?>" alt="" width="50px"></td>
                                                 <td class="text-center"><?php echo $order_details['quantity'] ?></td>
-                                                <td class="text-center"><?php echo number_format($order_details['product_price'], 0, ',', '.')?> đ</td>
-                                                <td class="text-center"> <?php echo number_format($order_details['product_price'] * $order_details['quantity'], 0, ',', '.')?> đ </td>
+                                                <td class="text-center"><?php echo number_format($price_ship + $order_details['product_price'], 0, ',', '.')?> đ</td>
+                                                <td class="text-center"> <?php echo number_format($price_ship + $order_details['product_price'] * $order_details['quantity'], 0, ',', '.') ?> đ </td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>
@@ -86,7 +88,7 @@
                             <div class="col-md-12">
                                 <div class="pull-right m-t-30 text-right">
                                 
-                                    <h3><b>Tổng : <?php echo number_format(total_price($list_order_details), 0, ',', '.') ?>đ</b></h3>
+                                    <h3><b>Tổng : <?php echo number_format($price_ship + total_price($list_order_details), 0, ',', '.') ?>đ</b></h3>
                                    
                                 </div>
                                 
