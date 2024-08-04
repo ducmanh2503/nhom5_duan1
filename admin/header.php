@@ -54,12 +54,13 @@
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img style="width: 100%; height: 2.5vw;"src="assets/images/admin_logo.png" alt="homepage" class="light-logo" />
+                            <img style="width: 100%; height: 2.5vw;" src="assets/images/admin_logo.png" alt="homepage"
+                                class="light-logo" />
 
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        
+
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -200,7 +201,8 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
                                     src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
+                                <a class="dropdown-item" href="../index.php?act=edit_taikhoan"><i
+                                        class="ti-user m-r-5 m-l-5"></i>
                                     My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
                                     My Balance</a>
