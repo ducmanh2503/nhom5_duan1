@@ -205,12 +205,9 @@
                                         class="ti-user m-r-5 m-l-5"></i>
                                     My Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../index.php?act=dangnhap"><i class="fa fa-power-off m-r-5 m-l-5"></i>
+                                <a class="dropdown-item" href="../index.php?act=dangxuat"><i class="fa fa-power-off m-r-5 m-l-5"></i>
                                     Logout</a>
                                 <div class="dropdown-divider"></div>
-                                <div class="p-l-30 p-10"><a href="javascript:void(0)"
-                                        class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
-                            </div>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
