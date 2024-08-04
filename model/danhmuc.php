@@ -35,10 +35,7 @@
     }
 
     function category_as_product($category_id){
-        $sql = "SELECT * FROM product 
-        JOIN category ON product.category_id = category.category_id 
-        WHERE product.category_id = $category_id";
-
+        $sql = "SELECT * FROM product JOIN category ON product.category_id = category.category_id WHERE product.category_id = $category_id";
         $show = pdo_query($sql);
         return $show;
     }

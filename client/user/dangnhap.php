@@ -15,112 +15,92 @@
 
 <body>
     <div class="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        <div class="preloader">
-            <div class="lds-ripple">
-                <div class="lds-pos"></div>
-                <div class="lds-pos"></div>
-            </div>
-        </div>
-
-
-
+    
+    
         <div>
-
             <div>
                 <?php
-           if(isset($_SESSION['account'])){
-            $account = $_SESSION['account'];
+                    if (isset($_SESSION['account'])) {
+                        $account = $_SESSION['account'];
                 ?>
-                <div>
-                    Xin Chào <strong>
-                        <? echo $account['user']?>
-                    </strong>
-                </div>
+                    <div>
+                        Xin Chào <strong>
+                            <? echo $account['user'] ?>
+                        </strong>
+                    </div>
 
-                <?php
+                    <?php
 
-}else{
-
-
-?>
+                } else {
 
 
+                    ?>
 
+                  <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark"style="height:100vh">
+                    
+                        <div class="auth-box bg-dark  border-secondary">
+                            <div id="loginform">
+                            
+                                <div class="text-center p-t-20 p-b-20">
+                                    <span class="db">
+                                        <h3 style="color:white;">Đăng Nhập</h3>
+                                    </span>
+                                </div>
 
+                                <!-- Form -->
+                                <form class="form-horizontal m-t-20" method="POST" id="loginform"
+                                    action="index.php?act=dangnhap">
+                                    <div class="row p-b-30">
+                                        <div class="col-12">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text bg-success text-white"
+                                                        id="basic-addon1"><i class="ti-user"></i></span>
+                                                </div>
+                                                <input type="text" name="user" class="form-control form-control-lg"
+                                                    placeholder="Tên Tài Khoản" aria-label="Username"
+                                                    aria-describedby="basic-addon1" required="">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text bg-warning text-white"
+                                                        id="basic-addon2"><i class="ti-pencil"></i></span>
+                                                </div>
+                                                <input type="text" name="pass" class="form-control form-control-lg"
+                                                    placeholder="Mật Khẩu" aria-label="Password"
+                                                    aria-describedby="basic-addon1" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row border-top border-secondary">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div style="margin-top: 16px" class="p-t-20">
+                                                    <a href="../index.php?act=laylaimk">
+                                                        <button class="btn btn-info" id="to-recover" type="button"><i
+                                                                class="fa fa-lock m-r-5"></i> Quên
+                                                            Mật Khẩu
+                                                            ?</button></a>
 
-
-                <!-- ============================================================== -->
-                <!-- Preloader - style you can find in spinners.css -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Login box.scss -->
-                <!-- ============================================================== -->
-                <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-                    <div class="auth-box bg-dark border-top border-secondary">
-                        <div id="loginform">
-                            <div class="text-center p-t-20 p-b-20">
-                                <span class="db">
-                                    <h3 style="color:white;">Đăng Nhập</h3>
-                                </span>
+                                                    <input name="dangnhap" value="Đăng Nhập"
+                                                        class="btn btn-success float-right" type="submit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="index.php"
+                                        class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back
+                                        to
+                                        home</a>
+                                </form>
                             </div>
 
-                            <!-- Form -->
-                            <form class="form-horizontal m-t-20" method="POST" id="loginform"
-                                action="index.php?act=dangnhap">
-                                <div class="row p-b-30">
-                                    <div class="col-12">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text bg-success text-white"
-                                                    id="basic-addon1"><i class="ti-user"></i></span>
-                                            </div>
-                                            <input type="text" name="user" class="form-control form-control-lg"
-                                                placeholder="Tên Tài Khoản" aria-label="Username"
-                                                aria-describedby="basic-addon1" required="">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text bg-warning text-white"
-                                                    id="basic-addon2"><i class="ti-pencil"></i></span>
-                                            </div>
-                                            <input type="text" name="pass" class="form-control form-control-lg"
-                                                placeholder="Mật Khẩu" aria-label="Password"
-                                                aria-describedby="basic-addon1" required="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row border-top border-secondary">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <div style="margin-top: 16px" class="p-t-20">
-                                                <a href="../index.php?act=laylaimk">
-                                                    <button class="btn btn-info" id="to-recover" type="button"><i
-                                                            class="fa fa-lock m-r-5"></i> Quên
-                                                        Mật Khẩu
-                                                        ?</button></a>
-
-                                                <input name="dangnhap" value="Đăng Nhập"
-                                                    class="btn btn-success float-right" type="submit">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="index.php"
-                                    class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back
-                                    to
-                                    home</a>
-                            </form>
                         </div>
-
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-        <?php }?>
+        <?php } ?>
 
     </div>
     <!-- ============================================================== -->
@@ -134,24 +114,24 @@
     <!-- This page plugin js -->
     <!-- ============================================================== -->
     <script>
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".preloader").fadeOut();
-    // ============================================================== 
-    // Login and Recover Password 
-    // ============================================================== 
-    $('#to-recover').on("click", function() {
-        $("#loginform").slideUp();
-        $("#recoverform").fadeIn();
-    });
-    $('#to-login').click(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+        $(".preloader").fadeOut();
+        // ============================================================== 
+        // Login and Recover Password 
+        // ============================================================== 
+        $('#to-recover').on("click", function () {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+        $('#to-login').click(function () {
 
-        $("#recoverform").hide();
-        $("#loginform").fadeIn();
-    });
+            $("#recoverform").hide();
+            $("#loginform").fadeIn();
+        });
     </script>
     <script>
-    document.getElementById("to-recover").onclick = function() {
-        window.location.href = "user/quenmk.php";
-    };
+        document.getElementById("to-recover").onclick = function () {
+            window.location.href = "user/quenmk.php";
+        };
     </script>
 </body>

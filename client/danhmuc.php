@@ -5,33 +5,31 @@
         Danh mục sản phẩm
       </h2>
     </div>
-    <div class="row">
-      <?php
-        foreach ($list_category as $category) {
-          if ($category['status'] == 'Active') {
-      ?>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="box">
-          
-            <div class="detail-box">
-              <h6>
-                <a href="index.php?act=category_as_product&category_id=<?php echo $category['category_id'] ?>"><?php echo $category['category_name']?></a>
+    <div class="row justify-content-center">
+      <div class="col-md-8"> <!-- Điều chỉnh kích thước cột -->
+        <table class="table border text-center" style="width: 100%; margin: 0 auto;"> <!-- Căn giữa và nhỏ lại -->
+          <thead>
+            <tr>
+              <th scope="col">STT</th>
+              <th scope="col">Tên danh mục</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $stt = 1; // Biến đếm cho số thứ tự
+            foreach ($list_category as $category) {
+              if ($category['status'] == 'Active') {
+            ?>
+            <tr>
+              <th scope="row"><?php echo $stt++; ?></th>
+              <td><a href="index.php?act=category_as_product&category_id=<?php echo $category['category_id'] ?>"><?php echo $category['category_name']?></a>
                 
-                <input type="hidden" value="<?php echo $category['status']?>">
-              </h6>
-            </div>
-          </a>
-        </div>
+              <input type="hidden" value="<?php echo $category['status']?>"></td>
+            </tr>
+            <?php }} ?>
+          </tbody>
+        </table>
       </div>
-      <?php
-          }
-        }
-      ?>
-    </div>
-    <div class="btn-box">
-      <a href="#">
-        Xem thêm
-      </a>
     </div>
   </div>
 </section>
