@@ -4,11 +4,11 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="p-t-30">
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html"
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php"
                         aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Bảng Điều
                             Khiển</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
+                        href="index.php?act=thongke" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
                             class="hide-menu">Thống Kê</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                         href="javascript:void(0)" aria-expanded="false"><i class="fas fa-table"></i><span
@@ -44,9 +44,6 @@
                         href="index.php?act=tonkho" aria-expanded="false"><i class="fas fa-warehouse"></i><span
                             class="hide-menu">Tồn Kho</span></a></li>
 
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="index.php?act=thuonghieu" aria-expanded="false"><i class="fas fa-trademark"></i><span
-                            class="hide-menu">Thương Hiệu</span></a></li>
 
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="index.php?act=list_binhluan" aria-expanded="false"><i
@@ -55,11 +52,6 @@
                         href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
                             class="hide-menu">Tài Khoản </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="index.php?act=dangnhap" class="sidebar-link"><i
-                                    class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Đăng Nhập </span></a>
-                        </li>
-                        <li class="sidebar-item"><a href="index.php?act=dangky" class="sidebar-link"><i
-                                    class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Đăng Ký </span></a></li>
                         <li class="sidebar-item"><a href="index.php?act=list_taikhoan" class="sidebar-link"><i
                                     class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Danh sách tài
                                     Khoản</span></a></li>

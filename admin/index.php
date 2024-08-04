@@ -206,6 +206,21 @@ $account = $_SESSION['account'];
 
 //Tài Khoản--------------------------------------------------------------------------------------------------------------------  
 
+        case "profile":
+            if (isset($_POST['btnUpdateacc']) && ($_POST['btnUpdateacc'])) {
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $phone_number = $_POST['phone'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $account_id = $_POST['account_id']; 
+                        
+                update_account_admin($phone_number, $email, $address, $account_id);  
+                $_SESSION['account']=checkuser($user,$pass);
+            }
+            include "account/profile.php";
+            break;
+
         case "list_taikhoan":
             $list_taikhoan = load_all_account();
             include "user/list.php";
@@ -260,6 +275,15 @@ $account = $_SESSION['account'];
                 }
                 $list_product_inventory = load_all_product();
             include "tonkho/list.php";
+            break;
+
+            case "thongke":
+                $list_accounts = load_all_account();
+                $list_products = load_all_product();
+                $list_orders = load_all_order();
+                $list_categories = load_all_category();
+                $list_brands = load_all_brand();
+            include "thongke/thongke.php";
             break;
 
             default:

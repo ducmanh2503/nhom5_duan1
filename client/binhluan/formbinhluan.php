@@ -16,7 +16,7 @@ $list_comment = load_all_comment();
         <div>
 
             <div>
-                <table border="1">
+                <table>
                     <tr>
                         <th>Tên tài khoản</th>
                         <th>Nội dung</th>
@@ -53,7 +53,7 @@ $list_comment = load_all_comment();
                     <input type="hidden" name="product_id" value="<?= $product_id ?>">
 
                     <input type="text" name="content">
-                    <input style="background-color:red; color:white; " type="submit" name="gui" value="Gửi Bình Luận">
+                    <input class="btn btn-primary" type="submit" name="gui" value="Gửi Bình Luận">
                 </form>
             </div>
 
