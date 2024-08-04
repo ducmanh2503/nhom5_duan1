@@ -18,11 +18,15 @@
                                 <div class="pull-left text-left">
                                     <address>
                                         <h3></h3>
-                                        <h4 class="font-bold">Tên khách hàng: </h4>
+                                        <h4 class="font-bold">Tên khách hàng: <?php if (!isset($_SESSION['account'])) {
+                                            echo $order['customer_name'];
+                                        } else {
+                                            echo $_SESSION['account']['user'];
+                                        } ?></h4>
                                         <p class="text-muted m-l-30 font-bold">Số điện thoại: +84
                                             <?php echo $order['customer_phone'] ?>
                                             <br /> Email:
-                                            <?php echo $order['customer_name'] ?>
+                                            <?php echo $order['customer_email'] ?>
                                             <br /> Địa chỉ nhận hàng:
                                             <?php echo $order['customer_address'] ?>
                                             <br /> Trạng thái đơn hàng:
@@ -79,7 +83,7 @@
                                                     đ
                                                 </td>
                                                 <td class="text-center">
-                                                    <?php echo number_format($order_details['product_price'] * $order_details['quantity'], 0, ',', '.')?>
+                                                    <?php echo number_format($price_ship + $order_details['product_price'] * $order_details['quantity'], 0, ',', '.')?>
                                                     đ
                                                 </td>
                                             </tr>
@@ -92,8 +96,11 @@
                                 <div class="pull-right m-t-30 text-right">
 
                                     <h3><b>Tổng :
-                                            <?php echo number_format(total_price($list_order_details), 0, ',', '.') ?>đ
+                                            <?php echo number_format($price_ship + total_price($list_order_details), 0, ',', '.') ?>đ
                                         </b></h3>
+                                        <div class="note_price">
+                                            <em>Giá đã bao gồm VAT + Ship</em>
+                                        </div>
 
                                 </div>
 

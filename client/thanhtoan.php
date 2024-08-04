@@ -42,21 +42,27 @@
                 <div class="col-6 mb-3">
                   <p class="mb-0">Họ & Tên</p>
                   <div class="form-outline">
-                    <input type="text" id="typeText" name="customer_name" placeholder="Bắt buộc" class="form-control" required />
+                    <input type="text" id="typeText" name="customer_name" placeholder="Bắt buộc" value="<?php if (isset($_SESSION['account'])) {
+                      echo $_SESSION['account']['user'];
+                    }?>" class="form-control" required />
                   </div>
                 </div>
 
                 <div class="col-6 mb-3">
                   <p class="mb-0">Số điện thoại</p>
                   <div class="form-outline">
-                    <input type="tel" id="typePhone" name="customer_phone" value="+84 " class="form-control" required />
+                    <input type="tel" id="typePhone" name="customer_phone" value="<?php if (isset($_SESSION['account'])) {
+                      echo $_SESSION['account']['phone_number'];
+                    }?>" class="form-control" required />
                   </div>
                 </div>
 
                 <div class="col-6 mb-3">
                   <p class="mb-0">Email</p>
                   <div class="form-outline">
-                    <input type="email" id="typeEmail" name="customer_email" placeholder="example@gmail.com" class="form-control" required />
+                    <input type="email" id="typeEmail" name="customer_email" value="<?php if (isset($_SESSION['account'])) {
+                      echo $_SESSION['account']['email'];
+                    }?>" placeholder="example@gmail.com" class="form-control" required />
                   </div>
                 </div>
               </div>
@@ -67,7 +73,9 @@
                 <div class="col-sm-8 mb-3">
                   <p class="mb-0">Địa chỉ</p>
                   <div class="form-outline">
-                    <input type="text" id="typeText" name="customer_address" placeholder="Bắt buộc" class="form-control" required />
+                    <input type="text" id="typeText" name="customer_address" value="<?php if (isset($_SESSION['account'])) {
+                      echo $_SESSION['account']['address'];
+                    }?>" placeholder="Bắt buộc" class="form-control" required />
                   </div>
                 </div>
 
@@ -132,6 +140,9 @@
             <div class="d-flex justify-content-between">
               <p class="mb-2">Tổng tiền:</p>
               <p class="mb-2 fw-bold"><?php echo number_format($total, 0, ',', '.')?>đ</p>
+            </div>
+            <div class="note_price">
+                <em>Giá đã bao gồm VAT + Ship</em>
             </div>
 
             <!-- <div class="input-group mt-3 mb-4">

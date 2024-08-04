@@ -16,8 +16,8 @@ function update_account($account_id, $user, $password, $phone_number, $email, $a
     pdo_execute($sql);
 }
 
-function update_account_admin($phone_number, $email, $address, $account_id){
-    $sql="UPDATE `account` SET `phone_number`='$phone_number',`email`='$email',`address`='$address' WHERE account_id = '$account_id'";
+function update_account_admin($user, $password, $phone_number, $email, $address, $account_id){
+    $sql="UPDATE `account` SET `user` = '$user', `password` = '$password', `phone_number`='$phone_number',`email`='$email',`address`='$address' WHERE account_id = '$account_id'";
     pdo_execute($sql);
 }
 function checkuser($user,$pass){

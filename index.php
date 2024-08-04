@@ -248,7 +248,7 @@
                     
                                 if (is_array($checkuser)) {
                                     $_SESSION['account'] = $checkuser;
-                                    if($_SESSION['account']['role_id']==1){
+                                    if($_SESSION['account']['role_id'] == 1){
                                         header("Location: ./admin/index.php");
                                     }
                                     else{
@@ -300,8 +300,7 @@
                             break;
 
                         case 'thoat':
-                            include "logout.php";
-                            
+                            include "client/user/logout.php";
                             break;
 
 
