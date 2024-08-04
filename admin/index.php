@@ -1,10 +1,11 @@
 <?php
 session_start();
-// Kiểm tra xem người dùng đã đăng nhập hay chưa
-if(!isset($_SESSION['account'])) {
-// Chuyển hướng tới trang đăng nhập nếu chưa đăng nhập
-header('Location: ../index.php?act=dangnhap');
-exit();
+
+// Kiểm tra xem người dùng đã đăng nhập và có quyền truy cập không
+if (!isset($_SESSION['account']) || $_SESSION['account']['role_id'] != 1) {
+    // Nếu không có quyền, chuyển hướng người dùng đến trang lỗi hoặc trang đăng nhập
+    header("Location: ../index.php");
+    exit();
 }
 
 $account = $_SESSION['account'];
@@ -207,14 +208,15 @@ $account = $_SESSION['account'];
         case "profile":
             if (isset($_POST['btnUpdateacc']) && ($_POST['btnUpdateacc'])) {
                 $user = $_POST['user'];
-                $pass = $_POST['pass'];
+                $password = $_POST['pass'];
                 $phone_number = $_POST['phone'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $account_id = $_POST['account_id']; 
                         
-                update_account_admin($phone_number, $email, $address, $account_id);  
-                $_SESSION['account']=checkuser($user,$pass);
+                update_account_admin($user, $password, $phone_number, $email, $address, $account_id);  
+                $_SESSION['account']=checkuser($user,$password);
+                $thongbao = '<span style="display:flex; justify-content: center; align-item:center;color: #28b779; font-size: 24px; font-weight: 700;">Thành công!</span>';
             }
             include "account/profile.php";
             break;

@@ -205,7 +205,7 @@
                                         class="ti-user m-r-5 m-l-5"></i>
                                     My Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../index.php?act=dangxuat"><i class="fa fa-power-off m-r-5 m-l-5"></i>
+                                <a class="dropdown-item" href="../client/user/logout.php"><i class="fa fa-power-off m-r-5 m-l-5"></i>
                                     Logout</a>
                                 <div class="dropdown-divider"></div>
                         </li>

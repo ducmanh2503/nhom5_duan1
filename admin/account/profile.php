@@ -1,31 +1,26 @@
-
-   
-    
-  
-    <div class="container-fluid">
+   <div class="container-fluid">
        
         <?php
                     if(isset($_SESSION['account'])){
                         $account = $_SESSION['account'];
-                      
                     }
                 ?>
         <div class="row justify-content-center align-items-center mb-5 mt-5" >
     <div class="card" style="width: 50%;">
-        <form action="index.php?act=update_taikhoan" method="POST" class="form-horizontal">
+        <form action="index.php?act=profile" method="POST" class="form-horizontal">
             <div class="card-body ">
                 <h4 class="card-title text-center">Thông Tin Tài Khoản</h4>
                 <?php if(is_array($_SESSION['account'])): ?>
                 <div class="form-group row">
                     <label for="user" class="col-sm-3 text-right control-label col-form-label">Tên Tài Khoản</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="user" name="user" disabled value="<?php echo $account['user'] ?>">
+                        <input type="text" class="form-control" id="user" name="user" value="<?php echo $account['user'] ?>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="pass" class="col-sm-3 text-right control-label col-form-label">Mật Khẩu</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="pass" name="pass" value="<?php echo $account['password'] ?>" disabled>
+                        <input type="password" class="form-control" id="pass" name="pass" value="<?php echo $account['password'] ?>">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -59,6 +54,13 @@
                     <?php endif; ?>
                 </div>
             </div>
+            <?php
+                if (isset($thongbao) && $thongbao) {
+                    echo $thongbao;
+                } else {
+                    echo "";
+                }
+            ?>
         </form>
     </div>
 </div>

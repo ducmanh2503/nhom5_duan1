@@ -73,6 +73,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="index.php?act=tracuu">
+                                Tra cứu
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="index.php?act=testimonial">
                                 Testimonial
                             </a>
@@ -98,11 +103,8 @@
                                     <?php if(isset($_SESSION['account'])): ?>
                                     <a class="dropdown-item bg-info text-white" href="index.php?act=update_taikhoan">Cập
                                         Nhật Tài Khoản</a>
-                                    <?php if($_SESSION['account']['role_id'] == 1): ?>
-                                    <a class="dropdown-item bg-info text-white" href="admin/index.php">Đăng Nhập
-                                        Admin</a>
+                                    <?php if($_SESSION['account']['role_id'] == 2): ?>
                                     <?php endif; ?>
-                                    <a class="dropdown-item bg-info text-white" href="index.php?act=tracuu">Tra cứu đơn hàng</a>
                                     <a class="dropdown-item bg-info text-white" href="index.php?act=laylaimk">Quên Mật
                                         Khẩu</a>
                                     <a class="dropdown-item bg-info text-white" href="client/user/logout.php">Đăng

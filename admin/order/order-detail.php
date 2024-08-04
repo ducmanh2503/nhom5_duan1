@@ -32,9 +32,17 @@
                                 <div class="pull-left text-left">
                                     <address>
                                         <h3></h3>
-                                        <h4 class="font-bold">Tên khách hàng:   </h4>
+                                        <h4 class="font-bold">Tên khách hàng: <?php if (!isset($order['customer_name'])) {
+                                                echo $order['user'];
+                                            } else {
+                                                echo $order['customer_name'];
+                                            }?></h4>
                                         <p class="text-muted m-l-30 font-bold">Số điện thoại:  +84  <?php echo $order['customer_phone'] ?>
-                                            <br /> Email: <?php echo $order['customer_name'] ?>
+                                            <br /> Email: <?php if (!isset($order['customer_email'])) {
+                                            echo $order['email'];
+                                            } else {
+                                                echo $order['customer_email'];
+                                            }?>
                                             <br /> Địa chỉ nhận hàng:  <?php echo $order['customer_address'] ?>
                                             <br /> Trạng thái đơn hàng: <?php if($order['order_status'] == 0) { ?> Chưa xử lý
                                                                         <?php } elseif($order['order_status'] == 1) { ?> Đã xử lý  
@@ -70,12 +78,12 @@
                                         <tbody>
                                             <?php
                                             include_once '../global.php';
-                                            foreach($list_order_details as $key => $order_details) {?>
-                                            
+                                            foreach($list_order_details as $key => $order_details) {
+                                                ?> 
                                             <tr>
                                                 <td class="text-center"><?php echo $key + 1 ?></td>
                                                 <td><?php echo $order_details['product_name'] ?></td>
-                                                <td class="text-center"><img src="./upload/<?php echo $order_details['product_image']?>" alt="" width="50px"></td>
+                                                <td class="text-center"><img src="upload/<?php echo $order_details['product_image']?>" alt="" width="50px"></td>
                                                 <td class="text-center"><?php echo $order_details['quantity'] ?></td>
                                                 <td class="text-center"><?php echo number_format($price_ship + $order_details['product_price'], 0, ',', '.')?> đ</td>
                                                 <td class="text-center"> <?php echo number_format($price_ship + $order_details['product_price'] * $order_details['quantity'], 0, ',', '.') ?> đ </td>
@@ -94,9 +102,6 @@
                                 
                                 <div class="clearfix"></div>
                                 <hr>
-                                <div class="text-right">
-                                    <button class="btn btn-danger" type="submit"> Proceed to payment </button>
-                                </div>
                             </div>
                             <form action="index.php?act=update_order" method="post">
                                 <select class="select2 form-control custom-select" id="" name="order_status" required="required">
