@@ -139,7 +139,7 @@
                   echo $chuaxuly;
                   ?>
                 </h5>
-                <small class="font-light">Chưa xử lý</small>
+                <small class="font-light">Đơn hàng chưa xử lý</small>
               </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
@@ -153,7 +153,7 @@
                   echo $dahuy;
                   ?>
                 </h5>
-                <small class="font-light">Đã hủy</small>
+                <small class="font-light">Đơn hàng đã hủy</small>
               </div>
             </div>
           </div>
