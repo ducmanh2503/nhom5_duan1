@@ -286,12 +286,19 @@
                             }
                             include "client/timkiem.php";
                             break;
-    
-                            case 'thoat':
-                                include "logout.php";
-                             
-                                break;
-    
+                       
+                        case 'category_as_product':
+                            if(isset($_GET['category_id'])){
+                                $show = category_as_product($_GET['category_id']);
+                            }
+                            include "./client/category_as_product.php";
+                            break;
+
+                        case 'thoat':
+                            include "logout.php";
+                            
+                            break;
+
 
             default:
                 include "client/home.php";
