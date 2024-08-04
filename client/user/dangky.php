@@ -14,29 +14,18 @@
 </head>
 
 <body>
+    
     <div class="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        <div class="preloader">
-            <div class="lds-ripple">
-                <div class="lds-pos"></div>
-                <div class="lds-pos"></div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
+        
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark"style="height:100vh;">
+                        
+            <div class="auth-box bg-dark border-secondary">
                 <div>
-                    <div class="text-center p-t-20 p-b-20">
+                    <div class="text-center p-t-20 p-b-20 mb-3">
                         <span class="db">
                             <h3 style="color:white;">Đăng Ký</h3>
                         </span>
+                        
                     </div>
                     <!-- Form -->
                     <form action="index.php?act=dangky" method="POST" class="form-horizontal m-t-20"
@@ -99,27 +88,6 @@
                                     <input type="text" class="form-control form-control-lg" placeholder=" Địa chỉ"
                                         name="address" aria-describedby="basic-addon1" required>
                                 </div>
-
-
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white" id="basic-addon2"><i
-                                                class="ti-pencil"></i></span>
-                                    </div>
-                                    <select name="role_id">
-                                        <?php
-                                foreach($listrole as $role){
-                                    extract($role);
-                                    echo '<option value="'.$role_id.'"> '.$role_name.' </option>';
-                                }
-                            ?>
-                                        <option value=""></option>
-                                    </select>
-                                </div>
-
-
-
                             </div>
                         </div>
                         <div class="row border-top border-secondary">
@@ -130,6 +98,13 @@
                                             type="submit">
 
                                     </div>
+                                   
+                                    <?php
+                                    
+                                        if(isset($thongbao)){
+                                            echo $thongbao;
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -141,36 +116,19 @@
 
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Login box.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
+   
     </div>
-    <!-- ============================================================== -->
-    <!-- All Required js -->
-    <!-- ============================================================== -->
+    
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugin js -->
-    <!-- ============================================================== -->
+    
     <script>
     $('[data-toggle="tooltip"]').tooltip();
     $(".preloader").fadeOut();
     </script>
+    
 </body>
 
 </html>

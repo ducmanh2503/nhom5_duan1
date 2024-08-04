@@ -197,12 +197,14 @@
                         $phone = $_POST['phone'];
                         $email = $_POST['email'];
                         $address = $_POST['address'];
-                        $role_id = $_POST['role_id'];
+                       
                         
-                        insert_account($user, $password, $phone,$email,$address,$role_id);
-                        $thongbao = "Thêm Thành Công";
+                        insert_account($user, $password, $phone,$email,$address);
+                        $thongbao = ' <span style="color:red; margin-right: 10px;">Đăng ký thành công</span>
+                                            <a style="color:white; margin-left: 10px;" href="index.php?act=dangnhap">Nhấn để đăng nhập</a>';
+                        // header("Location:client/user/dangnhap.php");
                    }
-                   $listrole =loadall_role();
+                   
                     include "client/user/dangky.php";
                     break;
     
@@ -247,13 +249,18 @@
                                 $checkuser = checkuser($user, $pass);
                     
                                 if (is_array($checkuser)) {
-                                    // Lưu thông tin người dùng vào session
                                     $_SESSION['account'] = $checkuser;
-                                    // Chuyển hướng đến trang chủ hoặc trang quản trị
-                                    header('Location: index.php');
-                                    exit(); // Đảm bảo không thực thi thêm mã sau chuyển hướng
+                                    if($_SESSION['account']['role_id']==1){
+                                        header("Location: ./admin/index.php");
+                                    }
+                                    else{
+                                        header("Location: index.php");
+                                    }
+                                    
+                                    
+                                    
                                 } else {
-                                    // Thông báo lỗi nếu thông tin đăng nhập không hợp lệ
+                                   
                                     $thongbao = "Tài Khoản Không Tồn Tại. Vui Lòng Kiểm Tra Lại Hoặc Đăng ký";
                                 }
                             }
