@@ -16,7 +16,7 @@ function load_all_order()
     $list_order = pdo_query($sql);
     return $list_order;
 
-}
+}   
 
 function load_order_like($order_id)
 {
@@ -53,6 +53,36 @@ function update_order($order_id, $order_status)
     $sql = "UPDATE `order` set order_status = '$order_status' where order_id = $order_id";
     pdo_execute($sql);
 
+}
+
+function count_status_orders_chuaXuLy() {
+    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 0";
+    $list_status_orders_chuaXuLy = pdo_query($sql);
+    return $list_status_orders_chuaXuLy;
+}
+
+function count_status_orders_daXuLy() {
+    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 1";
+    $list_status_orders_daXuLy = pdo_query($sql);
+    return $list_status_orders_daXuLy;
+}
+
+function count_status_orders_dangGiaoHang() {
+    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 2";
+    $list_status_orders_dangGiaoHang = pdo_query($sql);
+    return $list_status_orders_dangGiaoHang;
+}
+
+function count_status_orders_giaoThanhCong() {
+    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 3";
+    $list_status_orders_giaoThanhCong = pdo_query($sql);
+    return $list_status_orders_giaoThanhCong;
+}
+
+function count_status_orders_daHuy() {
+    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 4";
+    $list_status_orders_daHuy = pdo_query($sql);
+    return $list_status_orders_daHuy;
 }
 
 ?>

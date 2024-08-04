@@ -9,9 +9,7 @@ exit();
 
 $account = $_SESSION['account'];
 
-    if (!isset($_GET['act']) || $_GET['act'] != 'dangky' && $_GET['act'] != 'dangnhap' && $_GET['act'] != 'laylaimk'){
-        include "header.php";
-    }
+    include "header.php";
     include "../model/pdo.php";
     include "../model/danhmuc.php";
     include "../model/thuonghieu.php";
@@ -206,6 +204,21 @@ $account = $_SESSION['account'];
 
 //Tài Khoản--------------------------------------------------------------------------------------------------------------------  
 
+        case "profile":
+            if (isset($_POST['btnUpdateacc']) && ($_POST['btnUpdateacc'])) {
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $phone_number = $_POST['phone'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $account_id = $_POST['account_id']; 
+                        
+                update_account_admin($phone_number, $email, $address, $account_id);  
+                $_SESSION['account']=checkuser($user,$pass);
+            }
+            include "account/profile.php";
+            break;
+
         case "list_taikhoan":
             $list_taikhoan = load_all_account();
             include "user/list.php";
@@ -260,6 +273,21 @@ $account = $_SESSION['account'];
                 }
                 $list_product_inventory = load_all_product();
             include "tonkho/list.php";
+            break;
+
+            case "thongke":
+                $status = '';
+                $list_accounts = load_all_account();
+                $list_products = load_all_product();
+                $list_orders = load_all_order();
+                $list_categories = load_all_category();
+                $list_brands = load_all_brand();
+                $list_status_orders_chuaXuLy = count_status_orders_chuaXuLy();
+                $list_status_orders_daXuLy = count_status_orders_daXuLy();
+                $list_status_orders_dangGiaoHang = count_status_orders_dangGiaoHang();
+                $list_status_orders_giaoThanhCong = count_status_orders_giaoThanhCong();
+                $list_status_orders_daHuy = count_status_orders_daHuy();
+            include "thongke/thongke.php";
             break;
 
             default:

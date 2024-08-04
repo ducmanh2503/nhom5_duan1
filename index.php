@@ -211,11 +211,6 @@
                     include "client/user/dangky.php";
                     break;
     
-                    // case "list_taikhoan":
-                    //     $list_taikhoan = load_all_account();
-                    //     include "client/user/list.php";
-                    //     break;
-    
                     case "edit_taikhoan":
                         if (isset($_GET['account_id']) && ($_GET['account_id']) > 0) {
                           $account=load_one_account($_GET['account_id']);
@@ -268,8 +263,10 @@
                                 }
                             }
                             // Bao gồm tệp giao diện đăng nhập
-                            include "./client/user/dangnhap.php";
+                            include "client/user/dangnhap.php";
                             break;
+
+                            
     
                         case 'laylaimk':
                             if (isset($_POST['gui']) && ($_POST['gui'])) {

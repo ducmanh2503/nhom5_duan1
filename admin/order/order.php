@@ -58,14 +58,14 @@
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <?php if ($cart['order_status'] == 0) { ?>
-                                                        <span class="btn btn-danger">Chưa xử lý</span>
+                                                        <span class="btn btn-secondary">Chưa xử lý</span>
                                                     <?php } elseif ($cart['order_status'] == 1) { ?>
                                                         <span class="btn btn-info">Đã xử lý </span>
                                                     <?php } elseif ($cart['order_status'] == 2) { ?>
                                                         <span class="btn btn-warning">Đang giao Hàng </span>
                                                     <?php } elseif ($cart['order_status'] == 3) { ?>
                                                         <span class="btn btn-success">Giao hàng thành công </span>
-                                                    <?php } else { ?><span class="btn btn-secondary">Hủy đơn</span>
+                                                    <?php } else { ?><span class="btn btn-danger">Hủy đơn</span>
                                                     <?php } ?>
                                                 </div>
                                             </td>
