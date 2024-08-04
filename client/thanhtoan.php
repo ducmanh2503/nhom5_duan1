@@ -87,10 +87,8 @@
           <div class="p-4">
             <h6 class="text-dark my-4">Sản phẩm trong giỏ hàng</h6>
             <?php
+            include_once 'global.php';
               $quantity_total = 0;
-              $price_total = 0;
-              $price_ship = 30000;
-              $total = 0;
               foreach ($cart as $item) {
                 $img_c = $img_path . $item['product_image'];
                 if ($item['quantity'] > 4) {
