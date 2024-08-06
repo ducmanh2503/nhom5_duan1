@@ -48,35 +48,25 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        foreach ($list_product as $product) {
-                                            // echo "<pre>";
-                                            // print_r($product);
-                                            // echo "</pre>";
-                                            // var_dump($product_id);   
-                                            $product_id = $product['product_id'];
-                                            $status_text = ($product['status'] == 'Active') ? 'Hoạt động' : 'Ngưng hoạt động';
-                                            if ($product['quantity'] <= 0) {
-                                                update_status_inactive($product_id);
-                                                $status_text = 'Ngưng hoạt động';
-                                            }
-
-                                            if ($product['quantity'] > 0) {
-                                                update_status_active($product_id);
-                                                $status_text = 'Hoạt động';
-                                            }
+                                    foreach ($list_product as $product) {
+                                        // echo "<pre>";
+                                        // print_r($product);
+                                        // echo "</pre>";
+                                        // var_dump($product_id);
+                                        $product_status = ($product['status'] == 'Active') ? 'Hoạt động' : 'Ngưng hoạt động';
 
                                     ?>
-                                    <tr>
-                                        <td><?php echo $product['product_name']?></td>
-                                        <td><img src="upload/<?php echo $product['product_image']?>" alt="" style="max-width: 100px; max-height: 100px;"></td>
-                                        <td><?php echo $product['product_describe']?></td>
-                                        <td><?php echo number_format($product['product_price'], 0, ',', '.'); ?>đ</td>
-                                        <td><?php echo $product['color_name']?></td>
-                                        <td><?php echo $product['quantity']?></td>
-                                        <td><input type="button" class="btn <?php echo ($status_text == 'Ngưng hoạt động') ? 'btn-danger' : 'btn-success' ?>" value="<?php echo $status_text?>"></td>
-                                        <td><a href="index.php?act=edit_sanpham&id=<?php echo $product_id?>"><i class="fas fa-edit btn btn-info"></i></a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td><?php echo $product['product_name'] ?></td>
+                                            <td><img src="upload/<?php echo $product['product_image'] ?>" alt="" style="max-width: 100px; max-height: 100px;"></td>
+                                            <td><?php echo $product['product_describe'] ?></td>
+                                            <td><?php echo number_format($product['product_price'], 0, ',', '.'); ?>đ</td>
+                                            <td><?php echo $product['color_name'] ?></td>
+                                            <td><?php echo $product['quantity'] ?></td>
+                                            <td><input type="button" class="btn <?php echo ($product['status'] == 'Inactive') ? 'btn-danger' : 'btn-success' ?>" value="<?php echo $product_status ?>"></td>
+                                            <td><a href="index.php?act=edit_sanpham&id=<?php echo $product['product_id'] ?>"><i class="fas fa-edit btn btn-info"></i></a>
+                                            </td>
+                                        </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
