@@ -65,7 +65,7 @@
                                         <td><?php echo $email; ?></td>
                                         <td><?php echo $address; ?></td>
                                         <td><?php echo $role_name; ?></td>
-                                        <td><a href="index.php?act=edit_taikhoan&account_id=<?php echo $account_id; ?>"><i
+                                        <td><a href="../index.php?act=edit_taikhoan&account_id=<?php echo $account_id; ?>"><i
                                                     class="fas fa-edit btn btn-info"></i></a></td>
                                     </tr>
                                     <?php } ?>

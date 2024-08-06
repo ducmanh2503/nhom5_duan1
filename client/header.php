@@ -72,34 +72,52 @@
                                 Danh mục
                             </a>
                         </li>
+                        <?php
+                            if(!isset($_SESSION['account'])) {
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?act=tracuu">
-                                Tra cứu
+                                Tra Cứu
                             </a>
                         </li>
+                        <?php } else {
+                            echo '';
+                        }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?act=testimonial">
-                                Testimonial
+                                Tin Tức
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?act=contact">Contact Us</a>
+                            <a class="nav-link" href="index.php?act=contact">Liên Hệ</a>
                         </li>
                     </ul>
                     <div class="user_option">
 
 
-                        <ul>
-
+                        <ul class="mt-3">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     <span>
-                                        Login
+                                        <?php if (isset($_SESSION['account'])) {
+                                            echo 'Xin chao, '.$_SESSION['account']['user'];
+                                        } else {
+                                        }
+                                        ?>
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                    <?php
+                                        if (isset($_SESSION['account'])) {
+                                    ?>
+                                    <a class="dropdown-item bg-info text-white" href="index.php?act=tracuu">Tra cứu đơn hàng</a>
+                                    <?php } else {
+                                        echo '';
+                                    }
+                                    ?>
                                     <?php if(isset($_SESSION['account'])): ?>
                                     <a class="dropdown-item bg-info text-white" href="index.php?act=update_taikhoan">Cập
                                         Nhật Tài Khoản</a>
@@ -131,8 +149,8 @@
                         </form> -->
 
                         <form action="index.php?act=tim_kiem" method="post" class="form-inline ">
-                            <input type="text" name="tim_kiem" placeholder="Nhập vào để tìm kiếm">
-                            <button class="btn btn-info" type="submit" >
+                            <input class="form-control rounded" type="text" name="tim_kiem" placeholder="Nhập vào để tìm kiếm">
+                            <button class="btn btn-info ms-3" type="submit" >
                                 tìm Kiếm
                             </button>
                         </form>

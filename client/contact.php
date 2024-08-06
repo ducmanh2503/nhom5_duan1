@@ -2,7 +2,7 @@
     <div class="container px-0">
       <div class="heading_container ">
         <h2 class="">
-          Contact Us
+          Liên hệ với chúng tôi
         </h2>
       </div>
     </div>
@@ -18,20 +18,20 @@
         <div class="col-md-6 col-lg-5 px-0">
           <form action="#">
             <div>
-              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Họ tên" />
             </div>
             <div>
               <input type="email" placeholder="Email" />
             </div>
             <div>
-              <input type="text" placeholder="Phone" />
+              <input type="text" placeholder="Số điện thoại" />
             </div>
             <div>
-              <input type="text" class="message-box" placeholder="Message" />
+              <input type="text" class="message-box" placeholder="Tin nhắn" />
             </div>
             <div class="d-flex ">
               <button>
-                SEND
+                Gửi
               </button>
             </div>
           </form>

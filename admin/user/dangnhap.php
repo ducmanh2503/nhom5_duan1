@@ -15,7 +15,7 @@
 
 <body>
     <div class="main-wrapper">
-       
+
         <div class="preloader">
             <div class="lds-ripple">
                 <div class="lds-pos"></div>
@@ -33,7 +33,9 @@
                     foreach($checkuser as $user)
                 ?>
                 <div>
-                    Xin Chào <strong><?$user['user']?></strong>
+                    Xin Chào <strong>
+                        <?$user['user']?>
+                    </strong>
                 </div>
                 <div>
 
@@ -56,7 +58,7 @@
             
             ?>
 
-              
+
                 <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
                     <div class="auth-box bg-dark border-top border-secondary">
                         <div id="loginform">
@@ -84,7 +86,7 @@
                                                 <span class="input-group-text bg-warning text-white"
                                                     id="basic-addon2"><i class="ti-pencil"></i></span>
                                             </div>
-                                            <input type="text" name="pass" class="form-control form-control-lg"
+                                            <input type="password" name="pass" class="form-control form-control-lg"
                                                 placeholder="Mật Khẩu" aria-label="Password"
                                                 aria-describedby="basic-addon1" required="">
                                         </div>
@@ -119,31 +121,29 @@
                 <?php }?>
             </div>
         </div>
-        
+
     </div>
-    
+
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-   
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-   
     <script>
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".preloader").fadeOut();
-    
-    $('#to-recover').on("click", function() {
-        $("#loginform").slideUp();
-        $("#recoverform").fadeIn();
-    });
-    $('#to-login').click(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+        $(".preloader").fadeOut();
 
-        $("#recoverform").hide();
-        $("#loginform").fadeIn();
-    });
+        $('#to-recover').on("click", function () {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+        $('#to-login').click(function () {
+
+            $("#recoverform").hide();
+            $("#loginform").fadeIn();
+        });
     </script>
     <script>
-    document.getElementById("to-recover").onclick = function() {
-        window.location.href = "user/quenmk.php";
-    };
+        document.getElementById("to-recover").onclick = function () {
+            window.location.href = "user/quenmk.php";
+        };
     </script>
 </body>

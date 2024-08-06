@@ -146,7 +146,7 @@
                                     <option value="" disabled selected>Chọn trạng thái</option>
                                     <?php
                                     $status_options = array("Active" => "Hoạt động", "Inactive" => "Ngưng hoạt động");
-                                    var_dump($product['status']);
+                                    // var_dump($product['status']);
 
                                     foreach ($status_options as $key => $value) {
 
