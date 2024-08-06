@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Kiểm tra xem người dùng đã đăng nhập và có quyền truy cập không
 if (!isset($_SESSION['account']) || $_SESSION['account']['role_id'] != 1) {
     // Nếu không có quyền, chuyển hướng người dùng đến trang lỗi hoặc trang đăng nhập
@@ -225,6 +224,35 @@ $account = $_SESSION['account'];
             $list_taikhoan = load_all_account();
             include "user/list.php";
             break;
+            
+        case "edit_taikhoan":
+            if (isset($_GET['account_id']) && ($_GET['account_id']) > 0) {
+            $account=load_one_account($_GET['account_id']);
+            }
+            $listrole = loadall_role();
+            include "user/edit_taikhoan.php";
+            break;
+            
+            case "update_taikhoan":
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $account_id = $_POST['account_id'];
+                    $status = $_POST['status'];
+            
+                    // Tải lại thông tin tài khoản từ cơ sở dữ liệu để lấy các thông tin khác không thay đổi
+                    $account = load_one_account($account_id);
+                    $user = $account['user'];
+                    $pass = $account['password'];
+                    $phone_number = $account['phone_number'];
+                    $email = $account['email'];
+                    $address = $account['address'];
+            
+                    // Cập nhật chỉ giá trị status
+                    update_account($account_id, $user, $pass, $phone_number, $email, $address, $status);
+                }
+            
+                $list_taikhoan = load_all_account();
+                include "user/list.php";
+                break;
 
             /*---------------------------------------------Cart--------------------------------------------------*/
 
