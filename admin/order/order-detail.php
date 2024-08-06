@@ -47,7 +47,9 @@
                                             <br /> Trạng thái đơn hàng: <?php if($order['order_status'] == 0) { ?> Chưa xử lý
                                                                         <?php } elseif($order['order_status'] == 1) { ?> Đã xử lý  
                                                                         <?php } elseif($order['order_status'] == 2) { ?> Đang giao Hàng
-                                                                        <?php } elseif($order['order_status'] == 3) { ?> Giao hàng thành công
+                                                                        <?php } elseif($order['order_status'] == 3) { ?> Chưa thanh toán
+                                                                        <?php } elseif($order['order_status'] == 4) { ?> Đã thanh toán
+                                                                        <?php } elseif($order['order_status'] == 5) { ?> Giao hàng thành công
                                                                         <?php } else{ ?> Hủy đơn
                                                                         <?php } ?>
 
@@ -67,16 +69,17 @@
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">STT</th>
+                                            <th class="text-center">STT</th>
                                                 <th>Tên sản phẩm</th>
                                                 <th class="text-center">Ảnh</th>
+                                                <th class="text-center">Màu sắc</th>
                                                 <th class="text-center">Số Lượng</th>
                                                 <th class="text-center">Giá</th>
                                                 <th class="text-center">Thành tiền</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
+                                        <?php
                                             include_once '../global.php';
                                             foreach($list_order_details as $key => $order_details) {
                                                 ?> 
@@ -84,6 +87,7 @@
                                                 <td class="text-center"><?php echo $key + 1 ?></td>
                                                 <td><?php echo $order_details['product_name'] ?></td>
                                                 <td class="text-center"><img src="upload/<?php echo $order_details['product_image']?>" alt="" width="50px"></td>
+                                                <td><?php echo $order_details['color_name'] ?></td>
                                                 <td class="text-center"><?php echo $order_details['quantity'] ?></td>
                                                 <td class="text-center"><?php echo number_format($price_ship + $order_details['product_price'], 0, ',', '.')?> đ</td>
                                                 <td class="text-center"> <?php echo number_format($price_ship + $order_details['product_price'] * $order_details['quantity'], 0, ',', '.') ?> đ </td>
@@ -112,6 +116,10 @@
                                     } else if ($order['order_status'] == 2) {
                                         echo '<option value="2" selected hidden >Đang giao hàng</option>';
                                     } else if ($order['order_status'] == 3) {
+                                        echo '<option value="2" selected hidden >Chưa thanh toán</option>';
+                                    } else if ($order['order_status'] == 4) {
+                                        echo '<option value="2" selected hidden >Đã thanh toán</option>';
+                                    } else if ($order['order_status'] == 5) {
                                         echo '<option value="3" selected hidden >Giao hàng thành công</option>';
                                     } else {
                                         echo '<option value="4" selected hidden >Hủy</option>';
@@ -120,8 +128,10 @@
                                     <option value="0">Chưa xử lý</option>
                                     <option value="1">Đã xử lý</option>
                                     <option value="2">Đang giao hàng</option>
-                                    <option value="3">Giao hàng thành công</option>
-                                    <option value="4">Hủy</option>
+                                    <option value="3">Chưa thanh toán</option>
+                                    <option value="4">Đã thanh toán</option>
+                                    <option value="5">Giao hàng thành công</option>
+                                    <option value="6">Hủy</option>
                                 </select>
                                 <input type="hidden" value="<?php echo $order['order_id'] ?>" name="order_id">
                                 <input type="submit" class="btn btn-success" value="Cập nhật" name="btn-update" >
