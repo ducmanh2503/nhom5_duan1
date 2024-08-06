@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Kiểm tra xem người dùng đã đăng nhập và có quyền truy cập không
 if (!isset($_SESSION['account']) || $_SESSION['account']['role_id'] != 1) {
     // Nếu không có quyền, chuyển hướng người dùng đến trang lỗi hoặc trang đăng nhập
@@ -81,7 +80,7 @@ $account = $_SESSION['account'];
                     $product_describe = $_POST['product_describe'];
                     $category_id = $_POST['category_id'];
                     $brand_id = $_POST['brand_id'];
-                    
+                    $color_id = $_POST['color_id'];
                     $quantity = $_POST['quantity'];
 
                     $existing_product = get_product_by_name($product_name);
@@ -98,7 +97,7 @@ $account = $_SESSION['account'];
                         echo "Có lỗi xảy ra khi tải ảnh đại diện";
                     }
                     // Lấy product_id vừa chèn
-                    $product_id = insert_product($product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id);
+                    $product_id = insert_product($product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id);
 
                     // Xử lý tải lên nhiều ảnh cho thư viện ảnh
                     if (!empty(array_filter($_FILES['images']['name']))) {
@@ -120,6 +119,7 @@ $account = $_SESSION['account'];
                 // Load lại danh sách và thông tin cần thiết cho trang thêm sản phẩm
                 $list_category = load_all_category();
                 $list_brand = load_all_brand();
+                $list_color = load_all_color();
                 include "sanpham/add.php";
                 break;
 
@@ -134,7 +134,7 @@ $account = $_SESSION['account'];
                 }   
                 $list_category = load_all_category();
                 $list_brand = load_all_brand();
-               
+                $list_color = load_all_color();
                 include "sanpham/update.php";
                 break;
             
@@ -147,7 +147,7 @@ $account = $_SESSION['account'];
                     $product_price = $_POST['product_price'];
                     $product_describe = $_POST['product_describe'];
                     $status = $_POST['status'];
-                    
+                    $color_id = $_POST['color_id'];
                     $category_id = $_POST['category_id'];
                     $brand_id = $_POST['brand_id'];
 
@@ -162,7 +162,7 @@ $account = $_SESSION['account'];
                         $product = load_one_product($product_id);
                         $product_image = $product['product_image'];
                     }
-                    update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id); 
+                    update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $color_id); 
 
                     if (!empty(array_filter($_FILES['images']['name']))) {
                         $new_images = [];
@@ -224,6 +224,35 @@ $account = $_SESSION['account'];
             $list_taikhoan = load_all_account();
             include "user/list.php";
             break;
+            
+        case "edit_taikhoan":
+            if (isset($_GET['account_id']) && ($_GET['account_id']) > 0) {
+            $account=load_one_account($_GET['account_id']);
+            }
+            $listrole = loadall_role();
+            include "user/edit_taikhoan.php";
+            break;
+            
+            case "update_taikhoan":
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $account_id = $_POST['account_id'];
+                    $status = $_POST['status'];
+            
+                    // Tải lại thông tin tài khoản từ cơ sở dữ liệu để lấy các thông tin khác không thay đổi
+                    $account = load_one_account($account_id);
+                    $user = $account['user'];
+                    $pass = $account['password'];
+                    $phone_number = $account['phone_number'];
+                    $email = $account['email'];
+                    $address = $account['address'];
+            
+                    // Cập nhật chỉ giá trị status
+                    update_account($account_id, $user, $pass, $phone_number, $email, $address, $status);
+                }
+            
+                $list_taikhoan = load_all_account();
+                include "user/list.php";
+                break;
 
             /*---------------------------------------------Cart--------------------------------------------------*/
 

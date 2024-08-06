@@ -1,6 +1,9 @@
-
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
 <div class="page-wrapper">
-    
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -16,9 +19,16 @@
             </div>
         </div>
     </div>
-   
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
     <div class="container-fluid">
-       
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
         <div class="row">
             <div class="card" style="width: 100%;">
                 <form action="index.php?act=update_sanpham" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -80,7 +90,22 @@
                                     class="form-control" id="product_describe" name="product_describe" value="<?php echo $product['product_describe']?>"></textarea>
                             </div>
                         </div>
-                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right control-label col-form-label">Màu Sắc</label>
+                            <div class="col-md-9">
+                                <select class="select2 form-control custom-select" id="color_id" name="color_id"
+                                    style="width: 100%; height:36px;" required>
+                                    <option value="" disabled selected>Chọn màu</option>
+                                    <?php foreach ($list_color as $color) { ?>
+                                        <?php if ($color['color_id'] == $product['color_id']) { ?>
+                                            <option value="<?php echo $color['color_id']?>" selected><?php echo $color['color_name']?></option>
+                                            <?php } else { ?>
+                                                <option value="<?php echo $color['color_id']?>"><?php echo $color['color_name']?></option>
+                                            <?php } ?>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label class="col-sm-3 text-right control-label col-form-label">Danh Mục</label>
                             <div class="col-md-9">
@@ -143,7 +168,27 @@
                 </form>
             </div>
         </div>
-       
+        <!-- editor -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
     </div>
-   
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
 </div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
