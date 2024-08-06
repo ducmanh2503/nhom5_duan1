@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col-md-6 col-lg-3">
             <h6 class="text-center">
-              ABOUT US
+              Về chúng tôi
             </h6>
             <p class="text-center">
             Shop bán máy tính & phụ kiện MVT, đảm bảo uy tín, chất lượng, giá rẻ nhất thị trường. Mua ngay nào!
@@ -30,19 +30,19 @@
           <div class="col-md-6 col-lg-3">
             <div class="info_form ">
               <h5>
-                Newsletter
+                Kết nối
               </h5>
               <form action="#">
                 <input type="email" placeholder="Enter your email">
                 <button>
-                  Subscribe
+                  Đăng ký
                 </button>
               </form>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <h6>
-              NEED HELP
+              Cần giúp đỡ
             </h6>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
@@ -50,7 +50,7 @@
           </div>
           <div class="col-md-6 col-lg-3">
             <h6>
-              CONTACT US
+              Liên hệ
             </h6>
             <div class="info_link-box">
               <a href="">

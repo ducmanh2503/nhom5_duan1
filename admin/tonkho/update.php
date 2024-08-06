@@ -36,7 +36,7 @@
                     <div class="border-top" style="text-align: center;">
                         <div class="card-body">
                             <input type="hidden" name="product_id" value="<?php echo $quantity_product['product_id'] ?>">
-                            <input type="submit" value="Thêm" class="btn btn-success" id="btn_addquantity"
+                            <input type="submit" value="Cập Nhật" class="btn btn-success" id="btn_addquantity"
                                 name="btn_addquantity">
                         </div>
                     </div>

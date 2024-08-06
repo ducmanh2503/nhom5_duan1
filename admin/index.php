@@ -4,7 +4,7 @@ session_start();
 // Kiểm tra xem người dùng đã đăng nhập và có quyền truy cập không
 if (!isset($_SESSION['account']) || $_SESSION['account']['role_id'] != 1) {
     // Nếu không có quyền, chuyển hướng người dùng đến trang lỗi hoặc trang đăng nhập
-    header("Location: ../index.php");
+    header("Location: ../index.php?act=dangnhap");
     exit();
 }
 

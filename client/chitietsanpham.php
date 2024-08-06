@@ -107,8 +107,8 @@
                             
                             
                                 <?php  
-            extract($product);
-            ?>
+                                    extract($product);
+                                ?>
                                     <th class="py-2">
                                        <h3>Bình luận</h3>
                                     </th>

@@ -11,62 +11,55 @@ $product_id = $_REQUEST['product_id'];
 $list_comment = load_all_comment();
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<div>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Tên tài khoản</th>
+                <th>Nội dung</th>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-
-<body>
-    <div class="container mt-5">
-        <div class="col-lg-8 mb-4 mx-auto">
-            <div class="border rounded-2 px-6 py-4 bg-white shadow">
-
-                <div>
-                    <table class="table table-striped table-bordered">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Tên tài khoản</th>
-                                <th>Nội dung</th>
-
-                                <th>Sản phẩm được bình luận</th>
+                <th>Sản phẩm được bình luận</th>
 
 
-                                <th>Thời gian</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+                <th>Thời gian</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
                             foreach ($list_comment as $comment) {
 
 
                                 ?>
-                            <tr>
-                                <td><?php echo $comment['user'] ?></td>
+            <tr>
+                <td>
+                    <?php echo $comment['user'] ?>
+                </td>
 
-                                <td><?php echo $comment['content'] ?></td>
+                <td>
+                    <?php echo $comment['content'] ?>
+                </td>
 
-                                <td><?php echo $comment['product_name'] ?></td>
+                <td>
+                    <?php echo $comment['product_name'] ?>
+                </td>
 
-                                <td><?php echo $comment['time'] ?></td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="mt-4">
-                    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-                        <input type="hidden" name="product_id" value="<?= $product_id ?>">
+                <td>
+                    <?php echo $comment['time'] ?>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+<div class="mt-4">
+    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+        <input type="hidden" name="product_id" value="<?= $product_id ?>">
 
-                        <input type="text" name="content" required>
-                        <input style="background-color:red; color:white; " type="submit" name="gui"
-                            value="Gửi Bình Luận">
-                    </form>
-                </div>
-                <?php
+        <input class="form-control rounded" type="text" name="content" required>
+        <input class="btn btn-info ms-3 mt-3 mb-3" type="submit" name="gui" value="Gửi Bình Luận">
+    </form>
+</div>
+<?php
 
                 if (isset($_POST['gui']) && ($_POST['gui'])) {
                     $account_id = $_SESSION['account']['account_id'];
@@ -82,9 +75,3 @@ $list_comment = load_all_comment();
 
 
                 ?>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>
