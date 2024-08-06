@@ -30,32 +30,24 @@
 
         <div class="row">
             <div class="card" style="width: 100%;">
-                <form action="index.php?act=update_taikhoan" method="POST" class=" form-horizontal">
+                <form action="index.php?act=update_taikhoan" method="POST" class="form-horizontal">
                     <div class="card-body">
                         <h4 class="card-title">Thông Tin Tài Khoản</h4>
 
-
-
                         <div class="form-group row">
-                            <label for="user" class="col-sm-3 text-right control-label col-form-label">Tên
-                                Tài Khoản</label>
+                            <label for="user" class="col-sm-3 text-right control-label col-form-label">Tên Tài
+                                Khoản</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="user" name="user"
-                                    value="<?php echo $account['user']?>">
+                                    value="<?php echo $account['user'] ?>" readonly>
                             </div>
                         </div>
 
-
-
                         <div class="form-group row">
-                            <label for="pass" class="col-sm-3 text-right control-label col-form-label">Mật
-                                Khẩu</label>
+                            <label for="pass" class="col-sm-3 text-right control-label col-form-label">Mật Khẩu</label>
                             <div class="col-sm-9">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="pass" name="pass"
-                                        value="<?php echo $account['password']?>" aria-label="Recipient 's username"
-                                        aria-describedby="basic-addon2">
-                                </div>
+                                <input type="text" class="form-control" id="pass" name="pass"
+                                    value="<?php echo $account['password'] ?>" readonly>
                             </div>
                         </div>
 
@@ -63,22 +55,16 @@
                             <label for="phone" class="col-sm-3 text-right control-label col-form-label">Số điện
                                 thoại</label>
                             <div class="col-sm-9">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="phone" name="phone"
-                                        value="<?php echo $account['phone_number']?>" aria-label="Recipient 's username"
-                                        aria-describedby="basic-addon2">
-                                </div>
+                                <input type="text" class="form-control" id="phone" name="phone"
+                                    value="<?php echo $account['phone_number'] ?>" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-sm-3 text-right control-label col-form-label">Email</label>
                             <div class="col-sm-9">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="email" name="email"
-                                        value="<?php echo $account['email']?>" aria-label="Recipient 's username"
-                                        aria-describedby="basic-addon2">
-                                </div>
+                                <input type="text" class="form-control" id="email" name="email"
+                                    value="<?php echo $account['email'] ?>" readonly>
                             </div>
                         </div>
 
@@ -86,43 +72,26 @@
                             <label for="address" class="col-sm-3 text-right control-label col-form-label">Địa
                                 chỉ</label>
                             <div class="col-sm-9">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="address" name="address"
-                                        value="<?php echo $account['address']?>" aria-label="Recipient 's username"
-                                        aria-describedby="basic-addon2">
-                                </div>
+                                <input type="text" class="form-control" id="address" name="address"
+                                    value="<?php echo $account['address'] ?>" readonly>
                             </div>
                         </div>
 
-
-
-
-
-
                         <div class="form-group row">
-                            <label class="col-sm-3 text-right control-label col-form-label">Vai trò</label>
-                            <div class="col-md-9">
-                                <select class="select2 form-control custom-select" id="role_id" name="role_id"
-                                    style="width: 100%; height:36px;" required>
-                                    <option value="" disabled selected>Chọn vai trò</option>
-                                    <?php foreach ($listrole as $role) { ?>
-                                    <option value="<?php echo $role['role_id']?>"
-                                        <?php if ($role['role_id'] == $account['role_id']) echo 'selected'; ?>>
-                                        <?php echo $role['role_name']?> </option>
-                                    <?php } ?>
+                            <label for="status" class="col-sm-3 text-right control-label col-form-label">Trạng
+                                thái</label>
+                            <div class="col-sm-9">
+                                <select id="status" name="status" class="form-control">
+                                    <?php
+                                    $status_options = array("Active" => "Hoạt động", "Inactive" => "Ngưng hoạt động");
+                                    foreach ($status_options as $key => $value) {
+                                        $selected = ($key == $account['status']) ? 'selected' : '';
+                                        echo '<option value="' . $key . '" ' . $selected . '>' . $value . '</option>';
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
                     </div>
                     <div class="border-top" style="text-align: center;">
                         <div class="card-body">

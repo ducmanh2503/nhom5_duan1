@@ -229,9 +229,10 @@
                             $email = $_POST['email'];
                             $address = $_POST['address'];
                             $account_id = $_POST['account_id'];
+                            
                             // $role_id = $_POST['role_id'];   
                                    
-                            update_account($account_id, $user, $pass,$phone_number, $email, $address);  
+                            update_account_client($account_id, $user, $pass,$phone_number, $email, $address);  
                             $_SESSION['account']=checkuser($user,$pass);
                 
                           
