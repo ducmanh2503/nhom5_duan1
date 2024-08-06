@@ -217,6 +217,7 @@ if (isset($_GET['act'])) {
                     insert_account($user, $password, $phone, $email, $address);
                     $thongbao = ' <span style="color:red; margin-right: 10px;">Đăng ký thành công</span>
                                             <a style="color:white; margin-left: 10px;" href="index.php?act=dangnhap">Nhấn để đăng nhập</a>';
+
                 } else {
                     $thongbao = '<span style="color:red; margin-right: 10px;">Tên tài khoản đã tồn tại!</span>';
                 }
