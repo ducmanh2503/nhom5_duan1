@@ -217,7 +217,6 @@ if (isset($_GET['act'])) {
                     insert_account($user, $password, $phone, $email, $address);
                     $thongbao = ' <span style="color:red; margin-right: 10px;">Đăng ký thành công</span>
                                             <a style="color:white; margin-left: 10px;" href="index.php?act=dangnhap">Nhấn để đăng nhập</a>';
-
                 } else {
                     $thongbao = '<span style="color:red; margin-right: 10px;">Tên tài khoản đã tồn tại!</span>';
                 }
@@ -246,7 +245,7 @@ if (isset($_GET['act'])) {
                 $account_id = $_POST['account_id'];
                 // $role_id = $_POST['role_id'];   
 
-                update_account($account_id, $user, $pass, $phone_number, $email, $address);
+                update_account($account_id, $user, $pass, $phone_number, $email, $address, $status);
                 $_SESSION['account'] = checkuser($user, $pass);
             }
 
