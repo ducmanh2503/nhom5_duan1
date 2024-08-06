@@ -1,7 +1,4 @@
 <div class="page-wrapper">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -17,16 +14,7 @@
             </div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
     <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -40,7 +28,7 @@
                                         <th>Ảnh</th>
                                         <th>Mô Tả</th>
                                         <th>Giá</th>
-                                        <th>Màu Sắc</th>
+                                        
                                         <th>Số Lượng</th>
                                         <th>Trạng Thái</th>
                                         <th>Chức Năng</th>
@@ -64,14 +52,13 @@
                                                 update_status_active($product_id);
                                                 $status_text = 'Hoạt động';
                                             }
-
                                     ?>
                                     <tr>
                                         <td><?php echo $product['product_name']?></td>
                                         <td><img src="upload/<?php echo $product['product_image']?>" alt="" style="max-width: 100px; max-height: 100px;"></td>
                                         <td><?php echo $product['product_describe']?></td>
                                         <td><?php echo number_format($product['product_price'], 0, ',', '.'); ?>đ</td>
-                                        <td><?php echo $product['color_name']?></td>
+                                        
                                         <td><?php echo $product['quantity']?></td>
                                         <td><input type="button" class="btn <?php echo ($status_text == 'Ngưng hoạt động') ? 'btn-danger' : 'btn-success' ?>" value="<?php echo $status_text?>"></td>
                                         <td><a href="index.php?act=edit_sanpham&id=<?php echo $product_id?>"><i class="fas fa-edit btn btn-info"></i></a>
@@ -85,25 +72,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End PAge Content -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right sidebar -->
-        <!-- ============================================================== -->
-        <!-- .right-sidebar -->
-        <!-- ============================================================== -->
-        <!-- End Right sidebar -->
-        <!-- ============================================================== -->
+        </div> 
     </div>
-    <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
 </div>

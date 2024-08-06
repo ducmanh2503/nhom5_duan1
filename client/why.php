@@ -2,7 +2,7 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Why Shop With Us
+          Tại sao chọn chúng tôi
         </h2>
       </div>
       <div class="row">
@@ -97,11 +97,8 @@
             </div>
             <div class="detail-box">
               <h5>
-                Fast Delivery
+                Chuyển phát nhanh chóng
               </h5>
-              <p>
-                variations of passages of Lorem Ipsum available
-              </p>
             </div>
           </div>
         </div>
@@ -212,11 +209,8 @@
             </div>
             <div class="detail-box">
               <h5>
-                Free Shiping
+                Giảm giá vận chuyển
               </h5>
-              <p>
-                variations of passages of Lorem Ipsum available
-              </p>
             </div>
           </div>
         </div>
@@ -233,11 +227,8 @@
             </div>
             <div class="detail-box">
               <h5>
-                Best Quality
+                Chất lượng hàng đầu
               </h5>
-              <p>
-                variations of passages of Lorem Ipsum available
-              </p>
             </div>
           </div>
         </div>

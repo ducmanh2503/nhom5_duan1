@@ -43,7 +43,7 @@ function load_one_acc($account_id)
 
 function order_details($order_id)
 {
-    $sql = "SELECT * FROM order_details inner JOIN product ON order_details.product_id = product.product_id WHERE order_details.order_id = $order_id";
+    $sql = "SELECT * FROM order_details inner JOIN product ON order_details.product_id = product.product_id LEFT JOIN color ON order_details.color_id = color.color_id WHERE order_details.order_id = $order_id";
     $list_order_details = pdo_query($sql);
     return $list_order_details;
 }

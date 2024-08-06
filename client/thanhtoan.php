@@ -81,7 +81,7 @@
 
                 <div class="float-end">
                   <!-- <button class="btn btn-light border">Cancel</button> -->
-                  <input type="submit" class="btn btn-success shadow-0 border" name="btn_order" value="Tiếp Tục">
+                  <input type="submit" class="btn btn-success shadow-0 border mt-4" name="btn_order" value="Tiếp Tục">
                 </div>
               </div>
             </div>

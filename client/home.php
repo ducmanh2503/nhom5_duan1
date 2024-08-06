@@ -1,3 +1,47 @@
+<style>
+  .shop_section .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.shop_section .col-sm-6.col-md-4.col-lg-3 {
+  padding: 10px;
+  flex: 0 0 25%;
+  max-width: 25%;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.shop_section .box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shop_section .img-box img {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  margin-bottom: 15px;
+}
+
+.shop_section .detail-box {
+  flex-grow: 1;
+}
+
+.shop_section .new {
+  margin-top: 10px;
+}
+</style>
+
 <!-- shop section -->
 
 <section class="shop_section layout_padding">
