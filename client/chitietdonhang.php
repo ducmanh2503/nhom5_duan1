@@ -96,7 +96,7 @@
                                 <div class="pull-right m-t-30 text-right">
 
                                     <h3><b>Tổng :
-                                            <?php echo number_format($price_ship + total_price($list_order_details), 0, ',', '.') ?>đ
+                                            <?php echo number_format($order_details['total_money'], 0, ',', '.') ?>đ
                                         </b></h3>
                                         <div class="note_price">
                                             <em>Giá đã bao gồm VAT + Ship</em>

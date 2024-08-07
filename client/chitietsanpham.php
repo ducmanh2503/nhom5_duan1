@@ -70,7 +70,7 @@ $product_image = $img_path . $product['product_image'];
                                 foreach ($list_colors as $color) {
                                 ?>
                                     <div class="form-check">
-                                        <input class="form-check-input" name="color_id" type="radio" value="<?php echo $color['color_id'] ?>">
+                                        <input class="form-check-input color_id" name="color_id" type="radio" value="<?php echo $color['color_id'] ?>" checked>
                                         <label class="form-check-label" for="color_name">
                                             <?php echo $color['color_name'] ?>
                                         </label>
@@ -86,6 +86,7 @@ $product_image = $img_path . $product['product_image'];
                                 <div class="input-group mb-3" style="width: 170px;">
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
                                     <input type="hidden" value="<?php echo $product['quantity'] ?>">
+                                    <input type="hidden" name="price_sale" value="<?php echo $product['price_sale'] ?>">
                                     <input type="number" class="form-control text-center border border-secondary" min="1" max="4" value="1" name="quantity" aria-label="Example text with button addon" aria-describedby="button-addon1" />
                                 </div>
                             </div>
@@ -94,7 +95,7 @@ $product_image = $img_path . $product['product_image'];
                         <?php
                         if (!$product['quantity'] <= 0) {
                         ?>
-                            <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-primary shadow-0" name="btn_add">
+                            <input type="submit" value="Thêm vào giỏ hàng" onclick="validateForm()" class="btn btn-primary shadow-0" name="btn_add">
                         <?php } else { ?>
                             <em style="color: #d0021b;font-size: 32px; font-weight: 600;">Hết hàng</em>
                         <?php } ?>
@@ -143,47 +144,6 @@ $product_image = $img_path . $product['product_image'];
                             </tr>
                             </table>
                         </div>
-                        <div class="tab-pane fade mb-2" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-                            Tab content or sample information now <br />
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut
-                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse cillum
-                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui
-                            officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        </div>
-                        <div class="tab-pane fade mb-2" id="ex1-pills-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-                            Another tab content or sample information now <br />
-                            Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu
-                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia
-                            deserunt
-                            mollit anim id est laborum.
-                        </div>
-                        <div class="tab-pane fade mb-2" id="ex1-pills-4" role="tabpanel" aria-labelledby="ex1-tab-4">
-                            Some other tab content or sample information now <br />
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut
-                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse cillum
-                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui
-                            officia deserunt mollit anim id est laborum.
-                        </div>
                     </div>
                     <!-- Pills content -->
                 </div>
@@ -216,3 +176,20 @@ $product_image = $img_path . $product['product_image'];
         </div>
     </div>
 </section>
+<script>
+    function validateForm() {
+        const radios = document.querySelectorAll('.color_id');
+        let selected = false;
+        for (const radio of radios) {
+            if (radio.checked) {
+                selected = true;
+                break;
+            }
+        }
+        if (!selected) {
+            alert("Vui lòng chọn màu sắc trước khi thêm vào giỏ hàng.");
+            return false;
+        }
+        return true;
+    }
+</script>

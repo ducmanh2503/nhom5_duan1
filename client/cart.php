@@ -15,7 +15,7 @@ $quantity_item = count($cart);
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/LOGO SHOP.png" type="image/x-icon">
 
   <title>
     MVT Shop
@@ -64,6 +64,7 @@ $quantity_item = count($cart);
                     if ($item['quantity'] > 4) {
                       $item['quantity'] = 4;
                     }
+                    $product_id = $item['product_id'];
                     $product_price = $item['product_price'] * $item['quantity'];
                     $quantity_total += $item['quantity'];
                     $price_total += $product_price;
@@ -143,5 +144,5 @@ $quantity_item = count($cart);
 </script>
 <script src="js/custom.js"></script>
 <?php } else {
-                echo '<p style="font-size: 16px; font-bold: 600; text-align: center;">Vui lòng thêm sản phẩm vào giỏ hàng để thanh toán!</p>';
+                echo '<p style="font-size: 16px; font-bold: 600; text-align: center;">Giỏ hàng của bạn đang trống!</p>';
               }
