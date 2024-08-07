@@ -15,6 +15,7 @@ include_once "global.php";
 include_once "model/tonkho.php";
 include_once "model/taikhoan.php";
 include_once "model/role.php";
+include_once "model/voucher.php";
 include_once "model/total.php";
 
 
@@ -123,23 +124,26 @@ if (isset($_GET['act'])) {
             if (isset($_POST['btn_add'])) {
                 $color_id = $_POST['color_id'];
                 $quantity = $_POST['quantity'];
+                $price_sale = $_POST['price_sale'];
                 $product_id = $_POST['product_id'];
                 $product = add_cart($product_id);
-                $item = [
-                    'product_id' => $product['product_id'],
-                    'product_name' => $product['product_name'],
-                    'product_image' => $product['product_image'],
-                    'product_price' => $product['product_price'],
-                    'color_id' => $color_id,
-                    'quantity' => $quantity
+                    $item = [
+                        'product_id' => $product['product_id'],
+                        'product_name' => $product['product_name'],
+                        'product_image' => $product['product_image'],
+                        'product_price' => $product['product_price'],
+                        'price_sale' => $price_sale,
+                        'color_id' => $color_id,
+                        'quantity' => $quantity
+                    ];
 
-                ];
-                if (isset($_SESSION['cart'][$product_id])) {
-                    $_SESSION['cart'][$product_id]['quantity'] += $quantity;
-                } else {
-                    $_SESSION['cart'][$product_id] = $item;
+                    if (isset($_SESSION['cart'][$product_id])) {
+                        $_SESSION['cart'][$product_id]['quantity'] += $quantity;
+                    } else {
+                        $_SESSION['cart'][$product_id] = $item;
+                    }  
+                    // var_dump($item);
                 }
-            }
             include "client/cart.php";
             break;
 
@@ -163,6 +167,40 @@ if (isset($_GET['act'])) {
             }
             include "client/cart.php";
             break;
+<<<<<<< HEAD
+
+        case 'thanhtoan':
+            $list_vouchers = show_vouchers();              
+            if (isset($_POST['btn_order']) && ($_POST['btn_order'])) {
+                $customer_name = $_POST['customer_name'];
+                $customer_address = $_POST['customer_address'];
+                $customer_phone = $_POST['customer_phone'];
+                $customer_email = $_POST['customer_email'];
+
+                // Lấy dữ liệu giỏ hàng từ session, nếu không có thì khởi tạo mảng rỗng
+                $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+
+                // Lấy giá trị sale từ session
+                $sale = isset($_SESSION['sale']) ? $_SESSION['sale'] : 0;
+
+                // Chèn đơn hàng vào cơ sở dữ liệu và lấy mã đơn hàng vừa tạo
+                $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email);
+
+                if ($order_id) {
+                    foreach ($cart as $item) {
+                        $product_id = $item['product_id'];
+                        $color_id = $item['color_id'];
+                        $product_price = $item['product_price'];
+                        $item['price_sale'] = $sale;
+                        $quantity = $item['quantity'];
+                        $total_money = $product_price * $quantity + $sale + $price_ship;
+                        // var_dump($price_ship);
+
+
+                        // Chèn chi tiết đơn hàng vào cơ sở dữ liệu
+                        insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
+                        update_quantity_buy($quantity, $product_id);
+=======
             
                 
             case 'thanhtoan':
@@ -242,8 +280,15 @@ if (isset($_GET['act'])) {
                                     <h6 class="mb-0"><a href="index.php" class="text-body d-flex justify-content-center">Tiếp tục mua sắm</a></h6>
                                 </div>';
                         }
+>>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
                     }
                 }
+<<<<<<< HEAD
+            }
+        include "client/thanhtoan.php";
+        break;
+
+=======
                 include "client/thanhtoan.php";
                 break;
             
@@ -256,6 +301,7 @@ if (isset($_GET['act'])) {
             
             
             
+>>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
 
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
