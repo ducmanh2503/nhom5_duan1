@@ -70,7 +70,7 @@ $product_image = $img_path . $product['product_image'];
                                 foreach ($list_colors as $color) {
                                 ?>
                                     <div class="form-check">
-                                        <input class="form-check-input" name="color_id" type="radio" value="<?php echo $color['color_id'] ?>">
+                                        <input class="form-check-input" name="color_id" type="radio" value="<?php echo $color['color_id'] ?>" checked>
                                         <label class="form-check-label" for="color_name">
                                             <?php echo $color['color_name'] ?>
                                         </label>

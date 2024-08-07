@@ -138,12 +138,23 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
                       <input type="text" id="typeText" name="customer_address" value="<?php if (isset($_SESSION['account'])) {
                                                                                         echo $_SESSION['account']['address'];
                                                                                       } ?>" placeholder="Bắt buộc" class="form-control" required />
+                                                                                      
                     </div>
+
+                                                <!--Thanh toán-->
+                  </div>
+                  <div class="form-check">
+                      <input type="radio" name="payment" id="radio1" value="tien_mat" checked>
+                      <label class="form-check-label" for="radio1">Tiền mặt</label>                                                                
+                  </div>
+                  <div class="form-check">
+                      <input type="radio" name="payment" id="radio1" value="vn_pay" checked>
+                      <label class="form-check-label" for="radio1">VNpay</label>                                                                
                   </div>
 
                   <div class="float-end">
                     <!-- <button class="btn btn-light border">Cancel</button> -->
-                    <input type="submit" class="btn btn-success shadow-0 border mt-4" name="btn_order" value="Tiếp Tục">
+                    <input type="submit" class="btn btn-success shadow-0 border mt-4" id="redirect" name="redirect" value="Tiếp Tục">
                   </div>
                 </div>
               </div>
