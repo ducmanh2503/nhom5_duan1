@@ -108,11 +108,33 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
                   <div class="col-sm-8 mb-3">
                     <p class="mb-0">Địa chỉ</p>
                     <div class="form-outline">
+<<<<<<< HEAD
                       <input type="text" id="typeText" name="customer_address" value="<?php if (isset($_SESSION['account'])) { echo $_SESSION['account']['address']; } ?>" placeholder="Bắt buộc" class="form-control" required />
+=======
+                      <input type="text" id="typeText" name="customer_address" value="<?php if (isset($_SESSION['account'])) {
+                                                                                        echo $_SESSION['account']['address'];
+                                                                                      } ?>" placeholder="Bắt buộc" class="form-control" required />
+                                                                                      
+>>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
                     </div>
+
+                                                <!--Thanh toán-->
+                  </div>
+                  <div class="form-check">
+                      <input type="radio" name="payment" id="radio1" value="tien_mat" checked>
+                      <label class="form-check-label" for="radio1">Tiền mặt</label>                                                                
+                  </div>
+                  <div class="form-check">
+                      <input type="radio" name="payment" id="radio1" value="vn_pay" checked>
+                      <label class="form-check-label" for="radio1">VNpay</label>                                                                
                   </div>
                   <div class="float-end">
+<<<<<<< HEAD
                     <input type="submit" class="btn btn-success shadow-0 border mt-4" name="btn_order" value="Tiếp Tục">
+=======
+                    <!-- <button class="btn btn-light border">Cancel</button> -->
+                    <input type="submit" class="btn btn-success shadow-0 border mt-4" id="redirect" name="redirect" value="Tiếp Tục">
+>>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
                   </div>
                 </div>
               </div>

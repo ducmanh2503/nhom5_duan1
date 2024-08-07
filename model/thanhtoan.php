@@ -1,8 +1,14 @@
 <?php
-function insert_order($customer_name, $customer_address, $customer_phone, $customer_email)
+function insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $code_cart)
 {
-    $sql = "INSERT INTO `order`(`customer_name`, `customer_address`, `customer_phone`, `customer_email`) VALUES (?, ?, ?, ?)";
-    $last_id = pdo_execute_last_id($sql, $customer_name, $customer_address, $customer_phone, $customer_email);
+    $sql = "INSERT INTO `order`(`customer_name`, `customer_address`, `customer_phone`, `customer_email`, `code_cart`) VALUES (?, ?, ?, ?, ?)";
+    $last_id = pdo_execute_last_id($sql, $customer_name, $customer_address, $customer_phone, $customer_email, $code_cart);
+    return $last_id;
+}
+
+function insert_vnpay($vnp_amount, $vnp_bankcode, $vnp_banktranno, $vnp_cardtype, $vnp_orderinfo, $vnp_paydate, $vnp_tmncode, $vnp_transactionno, $code_cart) {
+    $sql = "INSERT INTO `vnpay` (`vnp_amount`, `vnp_bankcode`, `vnp_banktranno`, `vnp_cardtype`, `vnp_orderinfo`, `vnp_paydate`, `vnp_tmncode`, `vnp_transactionno`, `code_cart`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $last_id = pdo_execute_last_id($sql, $vnp_amount, $vnp_bankcode, $vnp_banktranno, $vnp_cardtype, $vnp_orderinfo, $vnp_paydate, $vnp_tmncode, $vnp_transactionno, $code_cart);
     return $last_id;
 }
 

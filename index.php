@@ -19,6 +19,7 @@ include_once "model/voucher.php";
 include_once "model/total.php";
 
 
+
 $list_products = load_all_product_client();
 $list_categories = load_all_category();
 
@@ -166,6 +167,7 @@ if (isset($_GET['act'])) {
             }
             include "client/cart.php";
             break;
+<<<<<<< HEAD
 
         case 'thanhtoan':
             $list_vouchers = show_vouchers();              
@@ -198,23 +200,108 @@ if (isset($_GET['act'])) {
                         // Chèn chi tiết đơn hàng vào cơ sở dữ liệu
                         insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
                         update_quantity_buy($quantity, $product_id);
+=======
+            
+                
+            case 'thanhtoan':
+                if (isset($_POST['redirect']) && $_POST['redirect']) {
+                    $customer_name = $_POST['customer_name'];
+                    $customer_address = $_POST['customer_address'];
+                    $customer_phone = $_POST['customer_phone'];
+                    $customer_email = $_POST['customer_email'];
+                    $payment_method = $_POST['payment']; 
+                    $code_cart = rand(1, 1000);
+                    $_SESSION['code_cart'] = $code_cart;
+            
+                    $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+                    $price_ship = 0; 
+            
+                    if ($payment_method == 'vn_pay') {
+                        $price_total = 0;
+                        foreach ($cart as $item) {
+                            $product_price = $item['product_price'] * $item['quantity'];
+                            $price_total += $product_price;
+                        }
+                        $total_money = $price_total + $price_ship;
+                        $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $code_cart);
+                        
+                        if ($order_id) {
+                            foreach ($cart as $item) {
+                                $product_id = $item['product_id'];
+                                $quantity = $item['quantity'];
+                                $color_id = $item['color_id'];
+                                $product_price = $item['product_price'] * $item['quantity'];
+            
+                                insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
+                                update_quantity_buy($quantity, $product_id);
+                            }
+                            $vnp_amount = $total_money; 
+                            $vnp_bankcode = 'VNBANK'; 
+                            $vnp_banktranno = '9704198526191432198'; 
+                            $vnp_cardtype = ''; 
+                            $vnp_orderinfo = 'Đơn hàng mã số: ' . $code_cart; 
+                            $vnp_paydate = date('YmdHis'); 
+                            $vnp_tmncode = ''; 
+                            $vnp_transactionno = ''; 
+            
+                            insert_vnpay($vnp_amount, $vnp_bankcode, $vnp_banktranno, $vnp_cardtype, $vnp_orderinfo, $vnp_paydate, $vnp_tmncode, $vnp_transactionno, $code_cart);
+            
+                            // Chuyển hướng đến trang xử lý thanh toán VNPay
+                            $_SESSION['order_id'] = $order_id;
+                            $_SESSION['total_money'] = $total_money; 
+                            header("Location: client/xulythanhtoan.php");
+                            exit();
+                        }
+                    } else {
+                        // Thanh toán bằng tiền mặt
+                        $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $code_cart);
+            
+                        if ($order_id) {
+                            $price_total = 0;
+                            foreach ($cart as $item) {
+                                $product_id = $item['product_id'];
+                                $quantity = $item['quantity'];
+                                $color_id = $item['color_id'];
+                                $product_price = $item['product_price'] * $item['quantity'];
+                                $price_total += $product_price;
+                                $total_money = $price_total + $price_ship;
+            
+                                insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
+                                update_quantity_buy($quantity, $product_id);
+                            }
+                            unset($_SESSION['cart']);
+                            $order_details_now = order_details($order_id);
+                            echo '<div class="alert-success" style="text-align: center; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #d4edda; background-color: #d4edda; color: #155724; border-radius: 5px;">
+                                    <span>Đặt hàng thành công! Vui lòng theo dõi tiến trình đơn hàng.</span><br />
+                                    <span>Mã đơn hàng của bạn là: ' . $code_cart . '</span>
+                                </div>';
+                            echo '
+                                <div class="pt-5">
+                                    <h6 class="mb-0"><a href="index.php" class="text-body d-flex justify-content-center">Tiếp tục mua sắm</a></h6>
+                                </div>';
+                        }
+>>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
                     }
-                    unset($_SESSION['cart']);
-                    $order_details_now = order_details($order_id);
-                    echo '<div class="alert-success" style="text-align: center; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #d4edda; background-color: #d4edda; color: #155724; border-radius: 5px;">
-                        <span>Đặt hàng thành công! Vui lòng theo dõi tiến trình đơn hàng.</span><br />
-                        <span>Mã đơn hàng của bạn là: ' . $order_id . '</span>
-                        </div>';
-                    echo '
-                        <div class="pt-5">
-                        <h6 class="mb-0""><a href="index.php"class="text-body d-flex justify-content-center">Tiếp tục mua sắm</a></h6>
-                        </div>
-                        ';
                 }
+<<<<<<< HEAD
             }
         include "client/thanhtoan.php";
         break;
 
+=======
+                include "client/thanhtoan.php";
+                break;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+>>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
 
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
