@@ -320,10 +320,21 @@ if (isset($_GET['act'])) {
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $account_id = $_POST['account_id'];
-                // $role_id = $_POST['role_id'];   
+                // $role_id = $_POST['role_id'];
 
-                update_account($account_id, $user, $pass, $phone_number, $email, $address, $status);
+                $target_dir = 'images/';
+                $avatar = "";
+                if ($_FILES['avatar']['name']) {
+                    $avatar = $_FILES['avatar']['name'];
+                    $target_file = $target_dir . basename($_FILES['avatar']['name']);
+                    move_uploaded_file($_FILES['avatar']['tmp_name'], $target_file);
+                } else {
+
+                }
+                $avatar = $target_dir . $avatar;
+                update_account($account_id, $avatar, $user, $pass, $phone_number, $email, $address);
                 $_SESSION['account'] = checkuser($user, $pass);
+                $thongbao = '<span style="color: #28b779; text-align: center; font-size: 24px; font-weight: 700;">Cập nhật thành công!</span>';
             }
 
             include "client/user/edit_taikhoan.php";

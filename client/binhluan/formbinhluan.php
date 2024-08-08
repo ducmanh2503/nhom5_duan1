@@ -75,7 +75,7 @@ ob_end_flush();
                         <div class="d-flex flex-row align-items-center commented-user">
                             <div class="d-flex flex-row add-comment-section mt-4 mb-1">
                                 <img class="img-fluid img-responsive rounded-circle"
-                                    src="<?php echo $comment['avatar'] ?>" width="38">
+                                    src="<?php echo $comment['avatar'] ?>" width="40" height="40" style="border-radius: 50%; object-fit: cover;">
                             </div>
                             <h5 class="ml-2 mr-3 mt-4"> <?= $comment['user'] ?></h5>
                             <span class="mb-1 ml-5 mt-3 "><?= $comment['time'] ?></span>
