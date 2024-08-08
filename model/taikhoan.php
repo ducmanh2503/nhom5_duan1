@@ -12,6 +12,11 @@ function load_avatar_account()
     $avatar_account = pdo_query_value($sql);
     return $avatar_account;
 }
+function load_avatar_account_bl($account_id) {
+    $sql =  "SELECT `avatar` FROM account WHERE account_id=$account_id ";
+    $avatar_account = pdo_query($sql);
+    return $avatar_account;
+}
 
 function insert_account($user, $password, $phone_number, $email, $address)
 {
