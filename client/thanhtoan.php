@@ -180,7 +180,7 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
                 $product_price = $item['product_price'];
                 $quantity_product = $item['quantity'];
                 $total_price = $product_price * $quantity_product;
-                $total += $total_price + $sale; // Cộng dồn tổng tiền
+                $total += $total_price; // Cộng dồn tổng tiền
                 // var_dump($item);
               ?>
                 <div class="d-flex align-items-center mb-4">
@@ -238,7 +238,7 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
                 </div>
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Thành tiền:</p>
-                  <p class="mb-2 fw-bold"><?php echo number_format($total + $price_ship, 0, ',', '.') ?>đ</p>
+                  <p class="mb-2 fw-bold"><?php echo number_format($total + $price_ship + $sale, 0, ',', '.') ?>đ</p>
                 </div>
                 <div class="note_price">
                   <em class="text-muted">Giá đã bao gồm VAT + Ship</em>
