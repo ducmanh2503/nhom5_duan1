@@ -6,8 +6,10 @@ $product_image = $img_path . $product['product_image'];
         <div class="row gx-5">
             <aside class="col-lg-6">
                 <div class="border rounded-4 mb-3 d-flex justify-content-center">
-                    <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="<?php echo $product_image ?>">
-                        <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="<?php echo $product_image ?>" />
+                    <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image"
+                        href="<?php echo $product_image ?>">
+                        <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit"
+                            src="<?php echo $product_image ?>" />
                     </a>
                 </div>
                 <div class="d-flex justify-content-center mb-3">
@@ -15,9 +17,10 @@ $product_image = $img_path . $product['product_image'];
                     foreach ($gallery_img as $img) {
                         $img_g = $img_path . $img['images'];
                     ?>
-                        <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="<?php echo $img_g ?>" class="item-thumb">
-                            <img width="60" height="60" class="rounded-2" src="<?php echo $img_g ?>" />
-                        </a>
+                    <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image"
+                        href="<?php echo $img_g ?>" class="item-thumb">
+                        <img width="60" height="60" class="rounded-2" src="<?php echo $img_g ?>" />
+                    </a>
                     <?php } ?>
                 </div>
                 <!-- thumbs-wrap.// -->
@@ -69,12 +72,13 @@ $product_image = $img_path . $product['product_image'];
                                 <?php
                                 foreach ($list_colors as $color) {
                                 ?>
-                                    <div class="form-check">
-                                        <input class="form-check-input" name="color_id" type="radio" value="<?php echo $color['color_id'] ?>" checked>
-                                        <label class="form-check-label" for="color_name">
-                                            <?php echo $color['color_name'] ?>
-                                        </label>
-                                    </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="color_id" type="radio"
+                                        value="<?php echo $color['color_id'] ?>" checked>
+                                    <label class="form-check-label" for="color_name">
+                                        <?php echo $color['color_name'] ?>
+                                    </label>
+                                </div>
                                 <?php } ?>
                             </dd>
                         </div>
@@ -87,7 +91,9 @@ $product_image = $img_path . $product['product_image'];
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
                                     <input type="hidden" value="<?php echo $product['quantity'] ?>">
                                     <input type="hidden" name="price_sale" value="<?php echo $product['price_sale'] ?>">
-                                    <input type="number" class="form-control text-center border border-secondary" min="1" max="4" value="1" name="quantity" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                                    <input type="number" class="form-control text-center border border-secondary"
+                                        min="1" max="4" value="1" name="quantity"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1" />
                                 </div>
                             </div>
                         </div>
@@ -95,9 +101,9 @@ $product_image = $img_path . $product['product_image'];
                         <?php
                         if (!$product['quantity'] <= 0) {
                         ?>
-                            <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-primary shadow-0" name="btn_add">
+                        <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-primary shadow-0" name="btn_add">
                         <?php } else { ?>
-                            <em style="color: #d0021b;font-size: 32px; font-weight: 600;">Hết hàng</em>
+                        <em style="color: #d0021b;font-size: 32px; font-weight: 600;">Hết hàng</em>
                         <?php } ?>
                         <!-- <a href="index.php?act=add_cart&product_id=" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Thêm vào giỏ hàng </a> -->
                         <!-- <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i
@@ -118,31 +124,27 @@ $product_image = $img_path . $product['product_image'];
                     <!-- Pills navs -->
 
                     <div class="tab-content" id="ex1-content">
-                        <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                        <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel"
+                            aria-labelledby="ex1-tab-1">
 
 
 
                             <?php
                             extract($product);
                             ?>
-                            <th class="py-2">
-                                <h3>Bình luận</h3>
-                            </th>
-                            <td class="py-2">
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-                                </script>
-                                <script>
-                                    $(document).ready(function() {
-                                        $("#binhluan").load("client/binhluan/formbinhluan.php", {
-                                            product_id: <?= $product_id ?>
-                                        });
-                                    });
-                                </script>
-                                <div id="binhluan"></div>
-                            </td>
+                            <h3>Bình luận</h3>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+                            </script>
+                            <script>
+                            $(document).ready(function() {
+                                $("#binhluan").load("client/binhluan/formbinhluan.php", {
+                                    product_id: <?= $product_id ?>
+                                });
+                            });
+                            </script>
+                            <div id="binhluan"></div>
 
-                            </tr>
-                            </table>
+
                         </div>
                     </div>
                     <!-- Pills content -->
@@ -157,17 +159,21 @@ $product_image = $img_path . $product['product_image'];
                             foreach ($listProduct_sameType as $product_sameType) {
                                 $img_prst = $img_path . $product_sameType['product_image'];
                             ?>
-                                <div class="d-flex mb-3">
-                                    <a href="index.php?act=chitietsanpham&product_id=<?php echo $product_sameType['product_id'] ?>" class="me-3">
-                                        <img src="<?php echo $img_prst ?>" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                            <div class="d-flex mb-3">
+                                <a href="index.php?act=chitietsanpham&product_id=<?php echo $product_sameType['product_id'] ?>"
+                                    class="me-3">
+                                    <img src="<?php echo $img_prst ?>" style="min-width: 96px; height: 96px;"
+                                        class="img-md img-thumbnail" />
+                                </a>
+                                <div class="info">
+                                    <a href="index.php?act=chitietsanpham&product_id=<?php echo $product_sameType['product_id'] ?>"
+                                        class="nav-link mb-1">
+                                        <?php echo $product_sameType['product_name'] ?>
                                     </a>
-                                    <div class="info">
-                                        <a href="index.php?act=chitietsanpham&product_id=<?php echo $product_sameType['product_id'] ?>" class="nav-link mb-1">
-                                            <?php echo $product_sameType['product_name'] ?>
-                                        </a>
-                                        <strong class="text-dark"><?php echo number_format($product_sameType['product_price'], 0, ',', '.') ?>đ</strong>
-                                    </div>
+                                    <strong
+                                        class="text-dark"><?php echo number_format($product_sameType['product_price'], 0, ',', '.') ?>đ</strong>
                                 </div>
+                            </div>
                             <?php } ?>
                         </div>
                     </div>
