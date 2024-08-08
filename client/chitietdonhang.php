@@ -58,7 +58,7 @@
                                                 <th class="text-center">Ảnh</th>
                                                 <th class="text-center">Số Lượng</th>
                                                 <th class="text-center">Giá</th>
-                                                <th class="text-center">Thành tiền(đã khuyến mãigit)</th>
+                                                <th class="text-center">Thành tiền(đã khuyến mãi)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
