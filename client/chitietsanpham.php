@@ -70,11 +70,7 @@ $product_image = $img_path . $product['product_image'];
                                 foreach ($list_colors as $color) {
                                 ?>
                                     <div class="form-check">
-<<<<<<< HEAD
-                                        <input class="form-check-input color_id" name="color_id" type="radio" value="<?php echo $color['color_id'] ?>" checked>
-=======
                                         <input class="form-check-input" name="color_id" type="radio" value="<?php echo $color['color_id'] ?>" checked>
->>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
                                         <label class="form-check-label" for="color_name">
                                             <?php echo $color['color_name'] ?>
                                         </label>
@@ -99,7 +95,7 @@ $product_image = $img_path . $product['product_image'];
                         <?php
                         if (!$product['quantity'] <= 0) {
                         ?>
-                            <input type="submit" value="Thêm vào giỏ hàng" onclick="validateForm()" class="btn btn-primary shadow-0" name="btn_add">
+                            <input type="submit" value="Thêm vào giỏ hàng" class="btn btn-primary shadow-0" name="btn_add">
                         <?php } else { ?>
                             <em style="color: #d0021b;font-size: 32px; font-weight: 600;">Hết hàng</em>
                         <?php } ?>
@@ -180,20 +176,3 @@ $product_image = $img_path . $product['product_image'];
         </div>
     </div>
 </section>
-<script>
-    function validateForm() {
-        const radios = document.querySelectorAll('.color_id');
-        let selected = false;
-        for (const radio of radios) {
-            if (radio.checked) {
-                selected = true;
-                break;
-            }
-        }
-        if (!selected) {
-            alert("Vui lòng chọn màu sắc trước khi thêm vào giỏ hàng.");
-            return false;
-        }
-        return true;
-    }
-</script>

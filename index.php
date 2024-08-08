@@ -20,6 +20,7 @@ include_once "model/total.php";
 
 
 
+
 $list_products = load_all_product_client();
 $list_categories = load_all_category();
 
@@ -167,43 +168,10 @@ if (isset($_GET['act'])) {
             }
             include "client/cart.php";
             break;
-<<<<<<< HEAD
-
-        case 'thanhtoan':
-            $list_vouchers = show_vouchers();              
-            if (isset($_POST['btn_order']) && ($_POST['btn_order'])) {
-                $customer_name = $_POST['customer_name'];
-                $customer_address = $_POST['customer_address'];
-                $customer_phone = $_POST['customer_phone'];
-                $customer_email = $_POST['customer_email'];
-
-                // Lấy dữ liệu giỏ hàng từ session, nếu không có thì khởi tạo mảng rỗng
-                $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
-
-                // Lấy giá trị sale từ session
-                $sale = isset($_SESSION['sale']) ? $_SESSION['sale'] : 0;
-
-                // Chèn đơn hàng vào cơ sở dữ liệu và lấy mã đơn hàng vừa tạo
-                $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email);
-
-                if ($order_id) {
-                    foreach ($cart as $item) {
-                        $product_id = $item['product_id'];
-                        $color_id = $item['color_id'];
-                        $product_price = $item['product_price'];
-                        $item['price_sale'] = $sale;
-                        $quantity = $item['quantity'];
-                        $total_money = $product_price * $quantity + $sale + $price_ship;
-                        // var_dump($price_ship);
-
-
-                        // Chèn chi tiết đơn hàng vào cơ sở dữ liệu
-                        insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
-                        update_quantity_buy($quantity, $product_id);
-=======
             
                 
             case 'thanhtoan':
+                $list_vouchers = show_vouchers();
                 if (isset($_POST['redirect']) && $_POST['redirect']) {
                     $customer_name = $_POST['customer_name'];
                     $customer_address = $_POST['customer_address'];
@@ -223,14 +191,16 @@ if (isset($_GET['act'])) {
                             $price_total += $product_price;
                         }
                         $total_money = $price_total + $price_ship;
-                        $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $code_cart);
+                        $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $order_id);
                         
                         if ($order_id) {
                             foreach ($cart as $item) {
                                 $product_id = $item['product_id'];
-                                $quantity = $item['quantity'];
                                 $color_id = $item['color_id'];
-                                $product_price = $item['product_price'] * $item['quantity'];
+                                $product_price = $item['product_price'];
+                                $item['price_sale'] = $sale;
+                                $quantity = $item['quantity'];  
+                                $total_money = $product_price * $quantity + $sale + $price_ship;
             
                                 insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
                                 update_quantity_buy($quantity, $product_id);
@@ -244,7 +214,7 @@ if (isset($_GET['act'])) {
                             $vnp_tmncode = ''; 
                             $vnp_transactionno = ''; 
             
-                            insert_vnpay($vnp_amount, $vnp_bankcode, $vnp_banktranno, $vnp_cardtype, $vnp_orderinfo, $vnp_paydate, $vnp_tmncode, $vnp_transactionno, $code_cart);
+                            insert_vnpay($vnp_amount, $vnp_bankcode, $vnp_banktranno, $vnp_cardtype, $vnp_orderinfo, $vnp_paydate, $vnp_tmncode, $vnp_transactionno, $order_id);
             
                             // Chuyển hướng đến trang xử lý thanh toán VNPay
                             $_SESSION['order_id'] = $order_id;
@@ -254,17 +224,32 @@ if (isset($_GET['act'])) {
                         }
                     } else {
                         // Thanh toán bằng tiền mặt
+
+                        // Lấy dữ liệu giỏ hàng từ session, nếu không có thì khởi tạo mảng rỗng
+                        $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+
+                        // Lấy giá trị sale từ session
+                        $sale = isset($_SESSION['sale']) ? $_SESSION['sale'] : 0;
+
+                        // Chèn đơn hàng vào cơ sở dữ liệu và lấy mã đơn hàng vừa tạo
                         $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $code_cart);
-            
+                        
+                        
                         if ($order_id) {
                             $price_total = 0;
                             foreach ($cart as $item) {
                                 $product_id = $item['product_id'];
-                                $quantity = $item['quantity'];
                                 $color_id = $item['color_id'];
-                                $product_price = $item['product_price'] * $item['quantity'];
-                                $price_total += $product_price;
-                                $total_money = $price_total + $price_ship;
+                                $product_price = $item['product_price'];
+                                $item['price_sale'] = $sale;
+                                $quantity = $item['quantity'];
+                                $price_ship = 30000;
+                                $total_money = $product_price * $quantity + $sale + $price_ship;
+
+                                // var_dump($item);
+
+
+                                // Chèn chi tiết đơn hàng vào cơ sở dữ liệu
             
                                 insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
                                 update_quantity_buy($quantity, $product_id);
@@ -273,22 +258,15 @@ if (isset($_GET['act'])) {
                             $order_details_now = order_details($order_id);
                             echo '<div class="alert-success" style="text-align: center; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #d4edda; background-color: #d4edda; color: #155724; border-radius: 5px;">
                                     <span>Đặt hàng thành công! Vui lòng theo dõi tiến trình đơn hàng.</span><br />
-                                    <span>Mã đơn hàng của bạn là: ' . $code_cart . '</span>
+                                    <span>Mã đơn hàng của bạn là: ' . $order_id . '</span>
                                 </div>';
                             echo '
                                 <div class="pt-5">
                                     <h6 class="mb-0"><a href="index.php" class="text-body d-flex justify-content-center">Tiếp tục mua sắm</a></h6>
                                 </div>';
                         }
->>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
                     }
                 }
-<<<<<<< HEAD
-            }
-        include "client/thanhtoan.php";
-        break;
-
-=======
                 include "client/thanhtoan.php";
                 break;
             
@@ -301,7 +279,6 @@ if (isset($_GET['act'])) {
             
             
             
->>>>>>> 9d360682f9f549122e6936bab1ca384c0269ed28
 
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
