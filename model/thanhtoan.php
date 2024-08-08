@@ -1,8 +1,8 @@
 <?php
-function insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $code_cart)
+function insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $order_id)
 {
-    $sql = "INSERT INTO `order`(`customer_name`, `customer_address`, `customer_phone`, `customer_email`, `code_cart`) VALUES (?, ?, ?, ?, ?)";
-    $last_id = pdo_execute_last_id($sql, $customer_name, $customer_address, $customer_phone, $customer_email, $code_cart);
+    $sql = "INSERT INTO `order`(`customer_name`, `customer_address`, `customer_phone`, `customer_email`, `order_id`) VALUES (?, ?, ?, ?, ?)";
+    $last_id = pdo_execute_last_id($sql, $customer_name, $customer_address, $customer_phone, $customer_email, $order_id);
     return $last_id;
 }
 

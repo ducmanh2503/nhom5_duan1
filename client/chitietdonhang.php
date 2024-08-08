@@ -58,7 +58,7 @@
                                                 <th class="text-center">Ảnh</th>
                                                 <th class="text-center">Số Lượng</th>
                                                 <th class="text-center">Giá</th>
-                                                <th class="text-center">Thành tiền</th>
+                                                <th class="text-center">Thành tiền(đã khuyến mãi)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -83,7 +83,7 @@
                                                     đ
                                                 </td>
                                                 <td class="text-center">
-                                                    <?php echo number_format($price_ship + $order_details['product_price'] * $order_details['quantity'], 0, ',', '.')?>
+                                                    <?php echo number_format($order_details['total_money'] * $order_details['quantity'], 0, ',', '.')?>
                                                     đ
                                                 </td>
                                             </tr>
