@@ -20,10 +20,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-3">
-            <h6 class="text-center">
+            <h6>
               Về chúng tôi
             </h6>
-            <p class="text-center">
+            <p >
             Shop bán máy tính & phụ kiện MVT, đảm bảo uy tín, chất lượng, giá rẻ nhất thị trường. Mua ngay nào!
             </p>
           </div>
@@ -42,10 +42,17 @@
           </div>
           <div class="col-md-6 col-lg-3">
             <h6>
-              Cần giúp đỡ
+              Hỗ trợ - Dịch vụ
             </h6>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+            Chính sách và hướng dẫn mua hàng trả góp <br>
+            Hướng dẫn mua hàng và chính sách vận chuyển <br>
+            Tra cứu đơn hàng <br>
+            Chính sách đổi mới và bảo hành <br>
+            Dịch vụ bảo hành mở rộng <br>
+            Chính sách bảo mật <br>
+            Chính sách giải quyết khiếu nại <br>
+            Quy chế hoạt động <br>
             </p>
           </div>
           <div class="col-md-6 col-lg-3">
