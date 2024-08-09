@@ -1,5 +1,4 @@
 <div class="page-wrapper">
-
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -15,7 +14,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="container-fluid">
         <div class="row">
@@ -37,13 +35,10 @@
                                     </tr>
                                 </thead>
 
-
                                 <tbody>
                                     <?php foreach ($order as $cart) { ?>
                                         <tr>
-
-                                            <td><?php echo $cart['order_id']?></td>
-                                            
+                                            <td><?php echo $cart['order_id']?></td>                                       
                                             <td><?php
                                                 if(isset($cart['user_id']) && $cart['user_id']!=""){
                                                     echo $cart['user'];
@@ -51,8 +46,8 @@
                                                 else{
                                                     echo $cart['customer_name'];
                                                 }
-                                            ?></td>
-                                           
+                                                ?>
+                                            </td>                                         
                                             <td><?php echo $cart['customer_address'] ?></td>
 
                                             <td>
@@ -73,30 +68,21 @@
                                                     <?php } ?>
                                                 </div>
                                             </td>
-
-
-                                            </>
+                                         
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <a href="index.php?act=order_detail&order_id=<?php echo $cart['order_id'] ?>"
                                                         title="Xem chi tiết" class="fas fa-edit btn btn-info"></a>
                                                 </div>
-
                                             </td>
-
-
                                         </tr>
                                     <?php } ?>
-
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>

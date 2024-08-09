@@ -16,7 +16,7 @@ include "../../model/binhluan.php";
 include "../../model/taikhoan.php";
 
 $product_id = $_REQUEST ['product_id'];
-$list_comment = load_all_comment();
+$list_comment = load_all_comment($product_id);
 
 $account_id=$_SESSION['account']['account_id'];
 $avatar_account = load_avatar_account_bl($account_id);

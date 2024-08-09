@@ -5,7 +5,6 @@
         <button class="btn btn-outline-success my-2 my-sm-0" name="btn_tracuu" type="submit">Tra cứu</button>
     </form>
 </nav>
-
 <div class="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -30,13 +29,10 @@
                                         </tr>
                                     </thead>
 
-
                                     <tbody>
                                         <?php foreach ($order_like as $row) { ?>
                                             <tr>
-
                                                 <td><?php echo $row['order_id'] ?></td>
-
                                                 <td><?php
                                                     if (isset($row['user_id']) && $row['user_id'] != "") {
                                                         echo $row['user'];
@@ -44,9 +40,7 @@
                                                         echo $row['customer_name'];
                                                     }
                                                     ?></td>
-
                                                 <td><?php echo $row['customer_address'] ?></td>
-
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <?php if ($row['order_status'] == 0) { ?>
@@ -60,25 +54,17 @@
                                                         <?php } else { ?><span class="btn btn-secondary">Hủy đơn</span>
                                                         <?php } ?>
                                                     </div>
-                                                </td>
-
-
-                                                </>
+                                                </td>                                               
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href="index.php?act=chitietdonhang&order_id=<?php echo $row['order_id'] ?>" title="Xem chi tiết" class="btn btn-info"><i class="bi bi-search"></i></a>
                                                     </div>
-
                                                 </td>
-
-
                                             </tr>
                                         <?php } ?>
-
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     <?php } else { ?>
                         <div class="card-body">
@@ -97,15 +83,12 @@
                                         </tr>
                                     </thead>
 
-
                                     <tbody>
                                         <?php foreach ($order_like_name as $name) {
                                             // var_dump($name); 
                                         ?>
                                             <tr>
-
                                                 <td><?php echo $name['order_id'] ?></td>
-
                                                 <td><?php
                                                     if (isset($name['user_id']) && $name['user_id'] != "") {
                                                         echo $name['user'];
@@ -113,9 +96,7 @@
                                                         echo $name['customer_name'];
                                                     }
                                                     ?></td>
-
                                                 <td><?php echo $name['customer_address'] ?></td>
-
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <?php if ($name['order_status'] == 0) { ?>
@@ -129,31 +110,21 @@
                                                         <?php } else { ?><span class="btn btn-secondary">Hủy đơn</span>
                                                         <?php } ?>
                                                     </div>
-                                                </td>
-
-
-                                                </>
+                                                </td>                                       
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href="index.php?act=chitietdonhang&order_id=<?php echo $name['order_id'] ?>" title="Xem chi tiết" class="btn btn-info"><i class="bi bi-search"></i></a>
                                                     </div>
-
                                                 </td>
-
-
                                             </tr>
                                         <?php } ?>
-
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     <?php } ?>
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>

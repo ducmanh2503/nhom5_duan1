@@ -27,7 +27,7 @@ if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
 
-            //Danh mục--------------------------------------------------------------------------------------------------------------------
+//Danh mục--------------------------------------------------------------------------------------------------------------------
 
         case "list_danhmuc":
             $list_category = load_all_category();
@@ -68,20 +68,17 @@ if (isset($_GET['act'])) {
             break;
 
 
-            //Sản phẩm--------------------------------------------------------------------------------------------------------------------            
+//Sản phẩm--------------------------------------------------------------------------------------------------------------------            
 
         case "add_sanpham":
             if (isset($_POST['btn_addpro']) && ($_POST['btn_addpro'])) {
-
                 // Xử lý dữ liệu sản phẩm
                 $product_name = $_POST['product_name'];
                 $product_price = $_POST['product_price'];
                 $product_describe = $_POST['product_describe'];
                 $category_id = $_POST['category_id'];
                 $brand_id = $_POST['brand_id'];
-
                 $quantity = $_POST['quantity'];
-
                 $existing_product = get_product_by_name($product_name);
                 if ($existing_product) {
                     $thongbao = '<span style="color: #ff0000; text-align: center; font-size: 24px; font-weight: 700;">Sản phẩm đã tồn tại!</span>';
@@ -137,8 +134,6 @@ if (isset($_GET['act'])) {
             include "sanpham/update.php";
             break;
 
-
-
         case "update_sanpham":
             if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
                 $product_id = $_POST['product_id'];
@@ -183,9 +178,9 @@ if (isset($_GET['act'])) {
             include "sanpham/list.php";
             break;
 
-            //Bình Luận--------------------------------------------------------------------------------------------------------------------  
+//Bình Luận--------------------------------------------------------------------------------------------------------------------  
         case "list_binhluan":
-            $list_comment = load_all_comment();
+            $list_comment = load_all_comment_admin();
             include "binhluan/list.php";
             break;
 
@@ -200,7 +195,7 @@ if (isset($_GET['act'])) {
             break;
 
 
-            //Tài Khoản--------------------------------------------------------------------------------------------------------------------  
+//Tài Khoản--------------------------------------------------------------------------------------------------------------------  
 
         case "profile":
             if (isset($_POST['btnUpdateacc']) && ($_POST['btnUpdateacc'])) {
@@ -252,7 +247,7 @@ if (isset($_GET['act'])) {
             include "user/list.php";
             break;
 
-            /*---------------------------------------------Cart--------------------------------------------------*/
+/*---------------------------------------------Cart--------------------------------------------------*/
 
         case "list_cart":
             $order = load_all_order();
@@ -267,7 +262,6 @@ if (isset($_GET['act'])) {
                 // $acc = load_one_acc($acc_id);
                 $list_order_details = order_details($_GET['order_id']);
             }
-
             include "order/order-detail.php";
             break;
 
@@ -280,7 +274,8 @@ if (isset($_GET['act'])) {
             $order = load_all_order();
             include "order/order.php";
             break;
-            /*---------------------------------------------Inventory--------------------------------------------------*/
+            
+/*---------------------------------------------Inventory--------------------------------------------------*/
         case "tonkho":
             $list_product_inventory = load_all_product();
             include "tonkho/list.php";

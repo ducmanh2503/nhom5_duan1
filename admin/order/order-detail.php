@@ -1,4 +1,3 @@
-
 <div id="main-wrapper">
     <div class="page-wrapper">
         <div class="page-breadcrumb">
@@ -18,17 +17,13 @@
         </div>
 
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-body printableArea">
-                      
-                        
+                    <div class="card card-body printableArea"> 
                         <h3><b> Mã Đơn hàng : <?php echo $order['order_id'] ?></b> <span class="pull-right"></span></h3>
                         <hr>
                         <div class="row">
-                            <div class="col-md-12">
-                               
+                            <div class="col-md-12">                              
                                 <div class="pull-left text-left">
                                     <address>
                                         <h3></h3>
@@ -51,16 +46,8 @@
                                                                         <?php } elseif($order['order_status'] == 4) { ?> Đã thanh toán
                                                                         <?php } elseif($order['order_status'] == 5) { ?> Giao hàng thành công
                                                                         <?php } else{ ?> Hủy đơn
-                                                                        <?php } ?>
-
-                                            
-                                            
-                                            
-                                        </p>
-                                        
-                                        <!-- <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> 23rd Jan
-                                            2018</p>
-                                        <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2018</p> -->
+                                                                        <?php } ?>          
+                                        </p>                           
                                     </address>
                                 </div>
                             </div>
@@ -99,11 +86,8 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="pull-right m-t-30 text-right">
-                                
-                                    <h3><b>Tổng : <?php echo number_format($price_ship + total_price($list_order_details), 0, ',', '.') ?>đ</b></h3>
-                                   
-                                </div>
-                                
+                                    <h3><b>Tổng : <?php echo number_format($price_ship + total_price($list_order_details), 0, ',', '.') ?>đ</b></h3> 
+                                </div>                              
                                 <div class="clearfix"></div>
                                 <hr>
                             </div>
@@ -139,11 +123,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            
+            </div>   
         </div>
-
     </div>
-
 </div>

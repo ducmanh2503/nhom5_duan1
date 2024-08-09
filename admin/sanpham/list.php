@@ -1,5 +1,4 @@
-<div class="page-wrapper">
-    
+<div class="page-wrapper"> 
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -16,8 +15,7 @@
         </div>
     </div>
     
-    <div class="container-fluid">
-        
+    <div class="container-fluid">     
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -44,14 +42,12 @@
                                         // echo "</pre>";
                                         // var_dump($product_id);
                                         $product_status = ($product['status'] == 'Active') ? 'Hoạt động' : 'Ngưng hoạt động';
-
                                     ?>
                                         <tr>
                                             <td><?php echo $product['product_name'] ?></td>
                                             <td><img src="upload/<?php echo $product['product_image'] ?>" alt="" style="max-width: 100px; max-height: 100px;"></td>
                                             <td><?php echo $product['product_describe'] ?></td>
                                             <td><?php echo number_format($product['product_price'], 0, ',', '.'); ?>đ</td>
-                                            
                                             <td><?php echo $product['quantity'] ?></td>
                                             <td><input type="button" class="btn <?php echo ($product['status'] == 'Inactive') ? 'btn-danger' : 'btn-success' ?>" value="<?php echo $product_status ?>"></td>
                                             <td><a href="index.php?act=edit_sanpham&id=<?php echo $product['product_id'] ?>"><i class="fas fa-edit btn btn-info"></i></a>
@@ -61,12 +57,9 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
-        </div>
-        
-    </div>
-   
+        </div>        
+    </div>  
 </div>
