@@ -46,10 +46,6 @@ if (isset($_GET['act'])) {
             include 'client/contact.php';
             break;
 
-        case 'testimonial':
-            include 'client/testimonial.php';
-            break;
-
         case 'cart':
             include 'client/cart.php';
             break;
@@ -169,66 +165,22 @@ if (isset($_GET['act'])) {
                 
             case 'thanhtoan':
                 $list_vouchers = show_vouchers();
-                if (isset($_POST['redirect']) && $_POST['redirect']) {
+                if (isset($_POST['btn-thanhtoan']) && $_POST['btn-thanhtoan']) {
                     $customer_name = $_POST['customer_name'];
                     $customer_address = $_POST['customer_address'];
                     $customer_phone = $_POST['customer_phone'];
                     $customer_email = $_POST['customer_email'];
-                    $payment_method = $_POST['payment']; 
                     $code_cart = rand(1, 1000);
-                    $_SESSION['code_cart'] = $code_cart;
-            
+                    $_SESSION['code_cart'] = $code_cart;           
                     $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
-                    $price_ship = 0; 
-            
-                    if ($payment_method == 'vn_pay') {
-                        $price_total = 0;
-                        foreach ($cart as $item) {
-                            $product_price = $item['product_price'] * $item['quantity'];
-                            $price_total += $product_price;
-                        }
-                        $total_money = $price_total + $price_ship;
-                        $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $order_id);
-                        
-                        if ($order_id) {
-                            foreach ($cart as $item) {
-                                $product_id = $item['product_id'];
-                                $color_id = $item['color_id'];
-                                $product_price = $item['product_price'];
-                                $item['price_sale'] = $sale;
-                                $quantity = $item['quantity'];  
-                                $total_money = $product_price * $quantity + $sale + $price_ship;
-            
-                                insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
-                                update_quantity_buy($quantity, $product_id);
-                            }
-                            $vnp_amount = $total_money; 
-                            $vnp_bankcode = 'VNBANK'; 
-                            $vnp_banktranno = '9704198526191432198'; 
-                            $vnp_cardtype = ''; 
-                            $vnp_orderinfo = 'Đơn hàng mã số: ' . $code_cart; 
-                            $vnp_paydate = date('YmdHis'); 
-                            $vnp_tmncode = ''; 
-                            $vnp_transactionno = ''; 
-            
-                            insert_vnpay($vnp_amount, $vnp_bankcode, $vnp_banktranno, $vnp_cardtype, $vnp_orderinfo, $vnp_paydate, $vnp_tmncode, $vnp_transactionno, $order_id);
-            
-                            // Chuyển hướng đến trang xử lý thanh toán VNPay
-                            $_SESSION['order_id'] = $order_id;
-                            $_SESSION['total_money'] = $total_money; 
-                            header("Location: client/xulythanhtoan.php");
-                            exit();
-                        }
-                    } else {
-                        // Thanh toán bằng tiền mặt
+                    $price_ship = 0;           
+                     // Thanh toán bằng tiền mặt
                         // Lấy dữ liệu giỏ hàng từ session, nếu không có thì khởi tạo mảng rỗng
                         $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                         // Lấy giá trị sale từ session
                         $sale = isset($_SESSION['sale']) ? $_SESSION['sale'] : 0;
                         // Chèn đơn hàng vào cơ sở dữ liệu và lấy mã đơn hàng vừa tạo
                         $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $code_cart);
-                        
-                        
                         if ($order_id) {
                             $price_total = 0;
                             foreach ($cart as $item) {
@@ -255,20 +207,17 @@ if (isset($_GET['act'])) {
                                     <h6 class="mb-0"><a href="index.php" class="text-body d-flex justify-content-center">Tiếp tục mua sắm</a></h6>
                                 </div>';
                         }
-                    }
                 }
                 include "client/thanhtoan.php";
                 break;        
 
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
-
                 $user = $_POST['user'];
                 $password = $_POST['pass'];
                 $phone = $_POST['phone'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
-
                 $check_username = check_username($user);
                 if (!$user == $check_username) {
                     insert_account($user, $password, $phone, $email, $address);
@@ -278,7 +227,6 @@ if (isset($_GET['act'])) {
                     $thongbao = '<span style="color:red; margin-right: 10px;">Tên tài khoản đã tồn tại!</span>';
                 }
             }
-
             include "client/user/dangky.php";
             break;
 
@@ -314,7 +262,6 @@ if (isset($_GET['act'])) {
                 $_SESSION['account'] = checkuser($user, $pass);
                 $thongbao = '<span style="color: #28b779; text-align: center; font-size: 24px; font-weight: 700;">Cập nhật thành công!</span>';
             }
-
             include "client/user/edit_taikhoan.php";
             break;
 
@@ -371,7 +318,6 @@ if (isset($_GET['act'])) {
         case 'thoat':
             include "client/user/logout.php";
             break;
-
 
         default:
             include "client/home.php";
