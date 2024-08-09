@@ -1,9 +1,4 @@
-<!-- Page wrapper  -->
-<!-- ============================================================== -->
 <div class="page-wrapper">
-  <!-- ============================================================== -->
-  <!-- Bread crumb and right sidebar toggle -->
-  <!-- ============================================================== -->
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
@@ -18,17 +13,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- ============================================================== -->
-  <!-- End Bread crumb and right sidebar toggle -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Container fluid  -->
-  <!-- ============================================================== -->
+  </div> 
   <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
     <div class="row">
       <div class="col-12">
         <div class="card">
@@ -42,12 +28,8 @@
                 <th scope="col">Tương tác</th>
               </tr>
             </thead>
-
-            <tbody>
-              
-            <?php 
-            
-
+            <tbody>             
+            <?php           
               foreach($list_category as $category){
                 $status_text = ($category['status'] == 'Active') ? 'Hoạt động' : 'Ngưng hoạt động';
             ?>
@@ -55,14 +37,14 @@
               <th scope="row"><?php echo $category['category_id']?>
               </th>
               <td><?php echo $category['category_name']?></td>
+
               <?php
                 if ($category['status'] == 'Active') { ?>
                   <td><input type="submit" class="btn btn-success" value="<?php echo $status_text ?>"></td>
                 <?php }else{ ?>
                   <td><input type="submit" class="btn btn-danger" value="<?php echo $status_text ?>"></td>
-                  <?php } ?>
-                
-              
+                  <?php } ?>    
+
               </td>
               <td><a href="index.php?act=edit_danhmuc&category_id=<?php echo $category['category_id'] ?>"><i class="fas fa-edit btn btn-info"></i></a>
               </td>
@@ -71,17 +53,6 @@
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End PAge Content -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right sidebar -->
-    <!-- ============================================================== -->
-    <!-- .right-sidebar -->
-    <!-- ============================================================== -->
-    <!-- End Right sidebar -->
-    <!-- ============================================================== -->
   </div>

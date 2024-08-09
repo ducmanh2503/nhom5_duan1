@@ -18,9 +18,6 @@ include_once "model/role.php";
 include_once "model/voucher.php";
 include_once "model/total.php";
 
-
-
-
 $list_products = load_all_product_client();
 $list_categories = load_all_category();
 
@@ -62,7 +59,7 @@ if (isset($_GET['act'])) {
             include "client/danhmuc.php";
             break;
 
-            //Danh mục-------------------------------------------------------------------------------
+//Danh mục---------------------------------------------------------------------------------------------
 
         case 'tracuu':
             $order_like = [];
@@ -224,13 +221,10 @@ if (isset($_GET['act'])) {
                         }
                     } else {
                         // Thanh toán bằng tiền mặt
-
                         // Lấy dữ liệu giỏ hàng từ session, nếu không có thì khởi tạo mảng rỗng
                         $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
-
                         // Lấy giá trị sale từ session
                         $sale = isset($_SESSION['sale']) ? $_SESSION['sale'] : 0;
-
                         // Chèn đơn hàng vào cơ sở dữ liệu và lấy mã đơn hàng vừa tạo
                         $order_id = insert_order($customer_name, $customer_address, $customer_phone, $customer_email, $code_cart);
                         
@@ -245,12 +239,8 @@ if (isset($_GET['act'])) {
                                 $quantity = $item['quantity'];
                                 $price_ship = 30000;
                                 $total_money = $product_price * $quantity + $sale + $price_ship;
-
                                 // var_dump($item);
-
-
-                                // Chèn chi tiết đơn hàng vào cơ sở dữ liệu
-            
+                                // Chèn chi tiết đơn hàng vào cơ sở dữ liệu          
                                 insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
                                 update_quantity_buy($quantity, $product_id);
                             }
@@ -268,17 +258,7 @@ if (isset($_GET['act'])) {
                     }
                 }
                 include "client/thanhtoan.php";
-                break;
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                break;        
 
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
@@ -310,8 +290,6 @@ if (isset($_GET['act'])) {
             include "client/user/edit_taikhoan.php";
             break;
 
-
-
         case "update_taikhoan":
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $user = $_POST['user'];
@@ -340,30 +318,26 @@ if (isset($_GET['act'])) {
             include "client/user/edit_taikhoan.php";
             break;
 
-        case "dangnhap":
-            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-                $checkuser = checkuser($user, $pass);
-
-                if (is_array($checkuser)) {
-                    $_SESSION['account'] = $checkuser;
-                    if ($_SESSION['account']['role_id'] == 1) {
-                        header("Location: ./admin/index.php");
+            case "dangnhap":
+                if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $checkuser = checkuser($user, $pass);
+            
+                    if (is_array($checkuser)) {
+                        $_SESSION['account'] = $checkuser;
+                        if ($_SESSION['account']['role_id'] == 1) {
+                            header("Location: ./admin/index.php");
+                        } else {
+                            header("Location: index.php");
+                        }
                     } else {
-                        header("Location: index.php");
+                        $thongbao = "Tài khoản hoặc mật khẩu không chính xác. Vui lòng thử lại.";
                     }
-                } else {
-
-                    $thongbao = "Tài Khoản Không Tồn Tại. Vui Lòng Kiểm Tra Lại Hoặc Đăng ký";
                 }
-            }
-            // Bao gồm tệp giao diện đăng nhập
-            include "client/user/dangnhap.php";
-            break;
-
-
-
+                include "client/user/dangnhap.php";
+                break;
+  
         case 'laylaimk':
             if (isset($_POST['gui']) && ($_POST['gui'])) {
 
