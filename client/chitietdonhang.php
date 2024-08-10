@@ -33,10 +33,11 @@
                                             <?php if($order['order_status'] == 0) { ?> Chưa xử lý
                                             <?php } elseif($order['order_status'] == 1) { ?> Đã xử lý
                                             <?php } elseif($order['order_status'] == 2) { ?> Đang giao Hàng
-                                            <?php } elseif($order['order_status'] == 3) { ?> Giao hàng thành công
+                                            <?php } elseif($order['order_status'] == 3) { ?> Chưa thanh toán
+                                            <?php } elseif($order['order_status'] == 4) { ?> Đã thanh toán
+                                            <?php } elseif($order['order_status'] == 5) { ?> Giao hàng thành công
                                             <?php } else{ ?> Hủy đơn
                                             <?php } ?>
-
 
 
 
@@ -72,9 +73,8 @@
                                                 <td>
                                                     <?php echo $order_details['product_name'] ?>
                                                 </td>
-                                                <td class="text-center"><img
-                                                        src="<?php echo $img_ctdh?>"
-                                                        alt="" width="50px"></td>
+                                                <td class="text-center"><img src="<?php echo $img_ctdh?>" alt=""
+                                                        width="50px"></td>
                                                 <td class="text-center">
                                                     <?php echo $order_details['quantity'] ?>
                                                 </td>
@@ -98,9 +98,9 @@
                                     <h3><b>Tổng :
                                             <?php echo number_format($order_details['total_money'], 0, ',', '.') ?>đ
                                         </b></h3>
-                                        <div class="note_price">
-                                            <em>Giá đã bao gồm VAT + Ship</em>
-                                        </div>
+                                    <div class="note_price">
+                                        <em>Giá đã bao gồm VAT + Ship</em>
+                                    </div>
 
                                 </div>
 
