@@ -93,3 +93,4 @@ function count_status_orders_daHuy()
     $list_status_orders_daHuy = pdo_query($sql);
     return $list_status_orders_daHuy;
 }
+?>

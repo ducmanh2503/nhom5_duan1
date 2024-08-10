@@ -265,15 +265,60 @@ if (isset($_GET['act'])) {
             include "order/order-detail.php";
             break;
 
-        case "update_order":
-            if (isset($_POST['btn-update'])) {
-                $order_id = $_POST['order_id'];
-                $order_status = $_POST['order_status'];
-                update_order($order_id, $order_status);
-            }
-            $order = load_all_order();
-            include "order/order.php";
-            break;
+            case "update_order":
+                include_once '../mail/sendmail.php';
+    if (isset($_POST['btn-update'])) {
+        $order_id = $_POST['order_id'];
+        $order_status = $_POST['order_status'];
+
+        // Cập nhật trạng thái đơn hàng
+        update_order($order_id, $order_status);
+
+        // Lấy thông tin đơn hàng để gửi email
+        $order = load_one_order($order_id);
+
+        // Gửi email thông báo
+        $recipientEmail = isset($order['customer_email']) ? $order['customer_email'] : $order['email'];
+        $recipientName = isset($order['customer_name']) ? $order['customer_name'] : $order['user'];
+        $subject = 'Cập nhật trạng thái đơn hàng';
+        $bodyContent = 'Trạng thái đơn hàng của bạn đã được cập nhật thành: ';
+
+        switch ($order_status) {
+            case 0:
+                $bodyContent .= 'Chưa xử lý';
+                break;
+            case 1:
+                $bodyContent .= 'Đã xử lý';
+                break;
+            case 2:
+                $bodyContent .= 'Đang giao hàng';
+                break;
+            case 3:
+                $bodyContent .= 'Chưa thanh toán';
+                break;
+            case 4:
+                $bodyContent .= 'Đã thanh toán';
+                break;
+            case 5:
+                $bodyContent .= 'Giao hàng thành công';
+                break;
+            case 6:
+                $bodyContent .= 'Hủy đơn hàng';
+                break;
+            default:
+                $bodyContent .= 'Trạng thái không xác định';
+                break;
+        }
+
+        // Gọi hàm để gửi email
+        sendStatusOrder($recipientEmail, $recipientName, $subject, $bodyContent);
+    }
+
+    // Tải lại danh sách đơn hàng sau khi cập nhật
+    $order = load_all_order();
+    include "order/order.php";
+    break;
+
             
 /*---------------------------------------------Inventory--------------------------------------------------*/
         case "tonkho":
