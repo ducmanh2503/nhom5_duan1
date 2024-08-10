@@ -1,18 +1,23 @@
 <?php
 
-function insert_product($product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id)
+function insert_product($product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id)
 {
-    $sql = "INSERT INTO `product`(`product_name`, `product_price`, `product_image`, `product_describe`, `category_id`, `brand_id`) VALUES (?, ?, ?, ?, ?, ?)";
-    $last_id = pdo_execute_last_id($sql, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id);
+    $sql = "INSERT INTO `product`(`product_name`, `product_price`, `product_image`, `product_describe`, `category_id`, `brand_id`, `color_id`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $last_id = pdo_execute_last_id($sql, $product_name, $product_price, $product_image, $product_describe, $category_id, $brand_id, $color_id);
     return $last_id;
 }
 
 function get_product_by_name($product_name)
 {
-    $sql = "SELECT * FROM product WHERE product_name = '$product_name'";
+    $sql = "SELECT * FROM `product` WHERE `product_name` = '$product_name'";
     return pdo_query_one($sql);
 }
 
+function get_product_by_color($color_id)
+{
+    $sql = "SELECT * FROM `color` WHERE `color_id` = '$color_id'";
+    return pdo_query_one($sql);
+}
 
 
 function load_all_product()
@@ -31,7 +36,7 @@ function load_all_product_client()
 
 function load_one_product($product_id)
 {
-    $sql = "SELECT * FROM product INNER JOIN inventory on inventory.product_id = product.product_id INNER JOIN brand on product.brand_id = brand.brand_id WHERE product.product_id = $product_id";
+    $sql = "SELECT * FROM `product` INNER JOIN `color` on product.color_id= color.color_id INNER JOIN `inventory` on inventory.product_id = product.product_id INNER JOIN `brand` on product.brand_id = brand.brand_id WHERE product.product_id = $product_id";
     $product = pdo_query_one($sql);
     return $product;
 }
@@ -49,11 +54,10 @@ function load_all_product_same_type($product_id)
     return $listProduct_sameType;
 }
 
-function update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id)
-{
-    $sql = "UPDATE `product` SET `product_name`=?,`product_price`=?,`product_image`=?,`product_describe`=?,`status`=?,`category_id`=?,`brand_id`=? WHERE product_id = ?";
-    pdo_execute($sql, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $product_id);
-}
+function update_product($product_id, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $color_id) {
+        $sql = "UPDATE `product` SET `product_name`=?,`product_price`=?,`product_image`=?,`product_describe`=?,`status`=?,`category_id`=?,`brand_id`=?,`color_id`=? WHERE product_id = ?";
+        pdo_execute($sql, $product_name, $product_price, $product_image, $product_describe, $status, $category_id, $brand_id, $color_id, $product_id);
+    }
 
 function show_pro()
 {

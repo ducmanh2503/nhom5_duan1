@@ -64,13 +64,14 @@
                                                 <th class="text-center">Màu sắc</th>
                                                 <th class="text-center">Số Lượng</th>
                                                 <th class="text-center">Giá</th>
-                                                <th class="text-center">Thành tiền</th>
+                                                <th class="text-center">Thành tiền(đã bao gồm khuyến mãi)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             include_once '../global.php';
                                             foreach($list_order_details as $key => $order_details) {
+                                                // var_dump($order_details);
                                                 ?>
                                             <tr>
                                                 <td class="text-center"><?php echo $key + 1 ?></td>
@@ -81,10 +82,10 @@
                                                 <td><?php echo $order_details['color_name'] ?></td>
                                                 <td class="text-center"><?php echo $order_details['quantity'] ?></td>
                                                 <td class="text-center">
-                                                    <?php echo number_format($price_ship + $order_details['product_price'], 0, ',', '.')?>
+                                                    <?php echo number_format($order_details['product_price'], 0, ',', '.')?>
                                                     đ</td>
                                                 <td class="text-center">
-                                                    <?php echo number_format($price_ship + $order_details['product_price'] * $order_details['quantity'], 0, ',', '.') ?>
+                                                    <?php echo number_format($order_details['product_price'] * $order_details['quantity'], 0, ',', '.') ?>
                                                     đ </td>
                                             </tr>
                                             <?php } ?>
@@ -95,8 +96,11 @@
                             <div class="col-md-12">
                                 <div class="pull-right m-t-30 text-right">
                                     <h3><b>Tổng :
-                                            <?php echo number_format($price_ship + total_price($list_order_details), 0, ',', '.') ?>đ</b>
+                                            <?php echo number_format($order_details['total_money'], 0, ',', '.') ?>đ</b>
                                     </h3>
+                                    <div class="note_price">
+                                        <em>Giá đã bao gồm VAT + Ship</em>
+                                    </div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <hr>

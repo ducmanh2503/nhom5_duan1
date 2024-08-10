@@ -69,18 +69,8 @@ $product_image = $img_path . $product['product_image'];
 
                             <dt class="col-3">Màu Sắc</dt>
                             <dd class="col-9">
-                                <?php
-                                foreach ($list_colors as $color) {
-                                ?>
-                                <div class="form-check">
-                                    <input class="form-check-input" name="color_id" type="radio"
-                                        value="<?php echo $color['color_id'] ?>" checked>
-                                    <label class="form-check-label" for="color_name">
-                                        <?php echo $color['color_name'] ?>
-                                    </label>
-                                </div>
-                                <?php } ?>
-                            </dd>
+                            <?php echo $product['color_name']?>
+                        </dd>
                         </div>
 
                         <hr />
@@ -91,6 +81,7 @@ $product_image = $img_path . $product['product_image'];
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
                                     <input type="hidden" value="<?php echo $product['quantity'] ?>">
                                     <input type="hidden" name="price_sale" value="<?php echo $product['price_sale'] ?>">
+                                    <input type="hidden" name="color_id" value="<?php echo $product['color_id'] ?>">
                                     <input type="number" class="form-control text-center border border-secondary"
                                         min="1" max="4" value="1" name="quantity"
                                         aria-label="Example text with button addon" aria-describedby="button-addon1" />

@@ -65,6 +65,7 @@
                                         <tbody>
                                             <?php foreach($list_order_details as $key => $order_details) {
                                                 $img_ctdh = $img_path . $order_details['product_image'];
+                                                // var_dump($order_details);
                                                 ?>
                                             <tr>
                                                 <td class="text-center">
@@ -83,7 +84,7 @@
                                                     đ
                                                 </td>
                                                 <td class="text-center">
-                                                    <?php echo number_format($order_details['total_money'] * $order_details['quantity'], 0, ',', '.')?>
+                                                    <?php echo number_format($order_details['product_price'] * $order_details['quantity'], 0, ',', '.')?>
                                                     đ
                                                 </td>
                                             </tr>

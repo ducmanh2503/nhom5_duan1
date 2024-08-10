@@ -260,7 +260,7 @@ if (isset($_GET['act'])) {
 
                 }
                 $avatar = $target_dir . $avatar;
-                update_account($account_id, $avatar, $user, $pass, $phone_number, $email, $address);
+                update_account_client($account_id, $avatar, $user, $pass, $phone_number, $email, $address);
                 $_SESSION['account'] = checkuser($user, $pass);
                 $thongbao = '<span style="color: #28b779; text-align: center; font-size: 24px; font-weight: 700;">Cập nhật thành công!</span>';
             }
@@ -272,11 +272,14 @@ if (isset($_GET['act'])) {
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
                     $checkuser = checkuser($user, $pass);
+
             
                     if (is_array($checkuser)) {
                         $_SESSION['account'] = $checkuser;
                         if ($_SESSION['account']['role_id'] == 1) {
                             header("Location: ./admin/index.php");
+                        } else if($_SESSION['account']['status'] != 'Active') {
+                            $thongbao = "Tài khoản của bạn bị vô hiệu hóa.";
                         } else {
                             header("Location: index.php");
                         }

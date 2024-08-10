@@ -25,14 +25,14 @@ values('$user','$password','$phone_number','$email','$address')";
     pdo_execute($sql);
 }
 
-function update_account($account_id, $avatar, $user, $pass, $phone_number, $email, $address)
-{
-    $sql = "UPDATE account SET `avatar` = ?, `user` = ?, `password` = ?, `phone_number` = ?, `email` = ?, `address` = ? WHERE account_id = ?";
-    pdo_execute($sql, $avatar, $user, $pass, $phone_number, $email, $address, $account_id);
+function update_account($account_id, $user, $pass, $phone_number, $email, $address, $status) {
+    $sql = "UPDATE account SET user = ?, password = ?, phone_number = ?, email = ?, address = ?, status = ? WHERE account_id = ?";
+    pdo_execute($sql, $user, $pass, $phone_number, $email, $address, $status, $account_id);
 }
-function update_account_client($account_id, $user, $password, $phone_number, $email, $address)
+
+function update_account_client($account_id, $avatar, $user, $pass, $phone_number, $email, $address)
 {
-    $sql = "update account set user='$user', password='$password',phone_number='$phone_number',  email='$email', address='$address' where account_id='$account_id'";
+    $sql = "update account set avatar='$avatar', user='$user', password='$pass',phone_number='$phone_number', email='$email', address='$address' where account_id='$account_id'";
     pdo_execute($sql);
 }
 

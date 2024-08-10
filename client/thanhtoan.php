@@ -51,6 +51,7 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
             <?php foreach ($order_details_now as $key => $now) {
               $img_ctdh = $img_path . $now['product_image'];
               // var_dump($total_money);
+              // var_dump($now['total_money']);
             ?>
               <tr>
                 <td class="text-center"><?php echo $key + 1 ?></td>
@@ -58,7 +59,7 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
                 <td class="text-center"><img src="<?php echo $img_ctdh ?>" alt="" width="50px"></td>
                 <td class="text-center"><?php echo $now['quantity'] ?></td>
                 <td class="text-center"><?php echo number_format($now['product_price'], 0, ',', '.') ?>đ</td>
-                <td class="text-center"><?php echo number_format($price_ship + $now['product_price'] * $now['quantity'], 0, ',', '.')?>đ</td>
+                <td class="text-center"><?php echo number_format($now['product_price'] * $now['quantity'], 0, ',', '.')?>đ</td>
               </tr>
             <?php } ?>
           </tbody>
@@ -75,7 +76,8 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
       <div class="clearfix"></div>
       <hr>
     </div>
-  <?php } else { ?>
+  <?php } else { 
+    ?>
     <div class="container">
       <div class="row">
         <div class="col-xl-8 col-lg-8 mb-4 d-flex justify-content-center">
@@ -139,6 +141,7 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
             <div class="p-4">
               <h6 class="text-dark my-4">Sản phẩm trong giỏ hàng</h6>
               <?php
+              $sale -= 100000;
                 if (isset($_POST['btn_submit']) && ($_POST['btn_submit'])) {
                                       $voucher_id = $_POST['voucher'];
                                       $sale = $_POST['sale'];
@@ -256,5 +259,3 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
 <script src="js/bootstrap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="js/custom.js"></script>
-
-            
