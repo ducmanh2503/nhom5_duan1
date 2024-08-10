@@ -84,11 +84,7 @@
                             echo '';
                         }
                         ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?act=testimonial">
-                                Tin Tức
-                            </a>
-                        </li>
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?act=contact">Liên Hệ</a>
                         </li>

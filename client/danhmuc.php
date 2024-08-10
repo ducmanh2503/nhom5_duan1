@@ -6,8 +6,8 @@
       </h2>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-8"> <!-- Điều chỉnh kích thước cột -->
-        <table class="table border text-center" style="width: 100%; margin: 0 auto;"> <!-- Căn giữa và nhỏ lại -->
+      <div class="col-md-8"> 
+        <table class="table border text-center" style="width: 100%; margin: 0 auto;"> 
           <thead>
             <tr>
               <th scope="col">STT</th>
