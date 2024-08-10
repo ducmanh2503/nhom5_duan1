@@ -99,6 +99,22 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-sm-3 text-right control-label col-form-label">Màu Sắc</label>
+                            <div class="col-md-9">
+                                <select class="select2 form-control custom-select" id="color_id" name="color_id"
+                                    style="width: 100%; height:36px;" required>
+                                    <option value="" disabled selected>Chọn màu sắc</option>
+                                    <?php foreach ($list_color as $color) { ?>
+                                        <?php if ($color['color_id'] == $product['color_id']) {?>
+                                            <option value="<?php echo $color['color_id']?>" selected><?php echo $color['color_name']?></option>
+                                        <?php } else { ?>
+                                            <option value="<?php echo $color['color_id']?>"><?php echo $color['color_name']?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-3 text-right control-label col-form-label">Thương Hiệu</label>
                             <div class="col-md-9">
                                 <select class="select2 form-control custom-select" id="brand_id" name="brand_id"

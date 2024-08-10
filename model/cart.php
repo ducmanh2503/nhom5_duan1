@@ -80,16 +80,30 @@ function count_status_orders_dangGiaoHang()
     return $list_status_orders_dangGiaoHang;
 }
 
-function count_status_orders_giaoThanhCong()
+function count_status_orders_chuaThanhToan()
 {
     $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 3";
+    $list_status_orders_chuaThanhToan = pdo_query($sql);
+    return $list_status_orders_chuaThanhToan;
+}
+
+function count_status_orders_daThanhToan()
+{
+    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 4";
+    $list_status_orders_daThanhToan = pdo_query($sql);
+    return $list_status_orders_daThanhToan;
+}
+
+function count_status_orders_giaoThanhCong()
+{
+    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 5";
     $list_status_orders_giaoThanhCong = pdo_query($sql);
     return $list_status_orders_giaoThanhCong;
 }
 
 function count_status_orders_daHuy()
 {
-    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 4";
+    $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 6";
     $list_status_orders_daHuy = pdo_query($sql);
     return $list_status_orders_daHuy;
 }

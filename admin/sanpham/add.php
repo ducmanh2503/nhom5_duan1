@@ -109,6 +109,20 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-sm-3 text-right control-label col-form-label">Màu Sắc</label>
+                            <div class="col-md-9">
+                                <select class="select2 form-control custom-select" id="color_id" name="color_id"
+                                    style="width: 100%; height:36px;" required>
+                                    <option value="" disabled selected>Chọn màu sắc</option>
+                                    <?php foreach ($list_color as $color) { ?>
+                                    <option value="<?php echo $color['color_id']?>">
+                                        <?php echo $color['color_name']?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-3 text-right control-label col-form-label">Thương Hiệu</label>
                             <div class="col-md-9">
                                 <select class="select2 form-control custom-select" id="brand_id" name="brand_id"
@@ -122,13 +136,13 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
                     <div class="border-top" style="text-align: center;">
                         <div class="card-body">
                             <input type="submit" value="Thêm sản phẩm" class="btn btn-success" id="btn_addpro"
                                 name="btn_addpro">
                         </div>
                     </div>
+                </div>
                 </form>
                 <?php
                     if (isset($thongbao) != "") {
