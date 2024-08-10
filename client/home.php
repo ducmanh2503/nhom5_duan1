@@ -48,12 +48,24 @@
             <h2>
                 Sản phẩm mới
             </h2>
+            <?php
+      $active_categories = array();
+      foreach ($list_categories as $category) {
+        if ($category['status'] != 'Inactive') {
+          $active_categories[] = $category['category_id'];
+      ?>
+          <input type="hidden" value="<?php echo $category['category_name'] ?>">
+      <?php
+        }
+      }
+      ?>
         </div>
         <div class="row">
             <?php
       foreach ($list_products as $product) {
         // var_dump($product);
         $product_img = $img_path . $product['product_image'];
+        if ($product['status'] != 'Inactive') {
       ?>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="box">
@@ -79,8 +91,10 @@
                     </a>
                 </div>
             </div>
-            <?php } ?>
-        </div>
+            <?php } else {
+                echo '';
+            } } ?>
+        </div> 
 
     </div>
 </section>
