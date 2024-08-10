@@ -50,6 +50,7 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
           <tbody>
             <?php foreach ($order_details_now as $key => $now) {
               $img_ctdh = $img_path . $now['product_image'];
+              // var_dump($total_money);
             ?>
               <tr>
                 <td class="text-center"><?php echo $key + 1 ?></td>

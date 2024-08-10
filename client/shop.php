@@ -53,8 +53,8 @@
     <div class="row">
       <?php
       $active_categories = array();
-      foreach ($list_category as $category) {
-        if ($category['status'] == 'Active') {
+      foreach ($list_categories as $category) {
+        if ($category['status'] != 'Inactive') {
           $active_categories[] = $category['category_id'];
       ?>
           <input type="hidden" value="<?php echo $category['category_name'] ?>">
@@ -92,9 +92,6 @@
         }
       }
       ?>
-    </div>
-    <div class="btn-box">
-      <a href="#">Xem thêm</a>
     </div>
   </div>
 </section>

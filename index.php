@@ -26,7 +26,7 @@ if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
         case 'sanpham':
-            $list_category = load_all_category();
+            $list_categories = load_all_category();
             include 'client/shop.php';
             break;
 
@@ -189,9 +189,11 @@ if (isset($_GET['act'])) {
                                 $product_price = $item['product_price'];
                                 $item['price_sale'] = $sale;
                                 $quantity = $item['quantity'];
+                                $price_total += $product_price * $quantity;
                                 $price_ship = 30000;
-                                $total_money = $product_price * $quantity + $sale + $price_ship;
-                                // var_dump($item);
+                                $total_money = $price_total + $sale + $price_ship;
+                                // var_dump($cart);
+
                                 // Chèn chi tiết đơn hàng vào cơ sở dữ liệu          
                                 insert_order_details($order_id, $product_id, $color_id, $quantity, $product_price, $total_money);
                                 update_quantity_buy($quantity, $product_id);

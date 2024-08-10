@@ -85,11 +85,15 @@
                                     style="width: 100%; height:36px;" required>
                                     <option value="" disabled selected>Chọn loại sản phẩm</option>
                                     <?php foreach ($list_category as $category) { ?>
+                                        <?php
+                                            if ($category['status'] != 'Inactive') {   
+                                        ?>
                                         <?php if ($category['category_id'] == $product['category_id']) {?>
                                             <option value="<?php echo $category['category_id']?>" selected><?php echo $category['category_name']?></option>
                                         <?php } else { ?>
                                             <option value="<?php echo $category['category_id']?>"><?php echo $category['category_name']?></option>
                                         <?php } ?>
+                                    <?php } ?>
                                     <?php } ?>
                                 </select>
                             </div>
