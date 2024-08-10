@@ -80,8 +80,6 @@ function count_status_orders_dangGiaoHang()
     return $list_status_orders_dangGiaoHang;
 }
 
-
-
 function count_status_orders_giaoThanhCong()
 {
     $sql = "SELECT COUNT(*) FROM `order` WHERE `order_status` = 3";
