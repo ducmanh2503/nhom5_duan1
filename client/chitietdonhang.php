@@ -108,6 +108,23 @@
                                 <div class="clearfix"></div>
                                 <hr>
                             </div>
+                            <?php
+                                if ($order['order_status'] == 0) {
+                            ?>
+                            <form action="index.php?act=update_status_client" method="post">
+                                <select class="select2 form-control custom-select" id="" name="order_status"
+                                    required="required">
+                                    <?php if ($order['order_status'] == 0) {
+                                        echo '<option value="6" selected hidden >Hủy</option>';
+                                    }
+                                    ?>
+                                </select>
+                                <input type="hidden" value="<?php echo $order['order_id'] ?>" name="order_id">
+                                <input type="submit" class="btn btn-success" value="Cập nhật" name="btn_cancel">
+                            </form>
+                            <?php } else { ?>
+                                
+                                <?php } ?>
                         </div>
                     </div>
                 </div>
