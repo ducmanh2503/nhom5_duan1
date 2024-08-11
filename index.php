@@ -88,7 +88,20 @@ if (isset($_GET['act'])) {
                 // $acc = load_one_acc($acc_id);
                 $list_order_details = order_details($_GET['order_id']);
             }
+            include "client/chitietdonhang.php";
+            break;
 
+            case "update_status_client":
+            if (isset($_POST['btn_cancel']) && ($_POST['btn_cancel'])) {
+                $order_id = $_POST['order_id'];
+                $order_status = $_POST['order_status'];
+                // var_dump($order_status);
+                // die();
+
+                update_order($order_id, $order_status);
+            }
+            $order = load_one_order($order_id);
+            $list_order_details = order_details($order_id);
             include "client/chitietdonhang.php";
             break;
 

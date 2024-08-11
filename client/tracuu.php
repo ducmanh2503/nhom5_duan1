@@ -113,10 +113,8 @@
                                                 <?php } elseif ($name['order_status'] == 2) { ?>
                                                 <span class="btn btn-warning">Đang giao Hàng </span>
                                                 <?php } elseif ($name['order_status'] == 3) { ?>
-                                                <span class="btn btn-dark">Chưa Thanh Toán </span>
+                                                <span class="btn btn-success">Giao hàng thất bại </span>
                                                 <?php } elseif ($name['order_status'] == 4) { ?>
-                                                <span class="btn btn-success">Đã Thanh Toán </span>
-                                                <?php } elseif ($name['order_status'] == 5) { ?>
                                                 <span class="btn btn-success">Giao hàng thành công </span>
                                                 <?php } else { ?><span class="btn btn-secondary">Hủy đơn</span>
                                                 <?php } ?>
