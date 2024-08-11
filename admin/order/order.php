@@ -59,10 +59,8 @@
                                                     <?php } elseif ($cart['order_status'] == 2) { ?>
                                                         <span class="btn btn-warning">Đang giao Hàng </span>
                                                     <?php } elseif ($cart['order_status'] == 3) { ?>
-                                                        <span class="btn btn-dark">Chưa thanh toán </span>
+                                                        <span class="btn btn-danger">Giao hàng thất bại </span>
                                                     <?php } elseif ($cart['order_status'] == 4) { ?>
-                                                        <span class="btn btn-success">Đã thanh toán </span>
-                                                    <?php } elseif ($cart['order_status'] == 5) { ?>
                                                         <span class="btn btn-success">Giao hàng thành công </span>
                                                     <?php } else { ?><span class="btn btn-danger">Hủy đơn</span>
                                                     <?php } ?>

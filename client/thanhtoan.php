@@ -141,7 +141,7 @@ $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
             <div class="p-4">
               <h6 class="text-dark my-4">Sản phẩm trong giỏ hàng</h6>
               <?php
-              $sale -= 100000;
+              $sale = $sale - 100000;
                 if (isset($_POST['btn_submit']) && ($_POST['btn_submit'])) {
                                       $voucher_id = $_POST['voucher'];
                                       $sale = $_POST['sale'];
