@@ -120,28 +120,14 @@
               <div class="bg-primary p-10 text-white text-center m-2">
                 <i class="fa fa-credit-card font-16"></i>
                 <?php
-                  $dathanhtoan = $list_status_orders_daThanhToan[0]["COUNT(*)"];
+                  $giaothatbai = $list_status_orders_giaoThatBai[0]["COUNT(*)"];
                 ?>
                 <h5 class="m-b-0 m-t-5">
                   <?php
-                  echo $dathanhtoan;
+                  echo $giaothatbai;
                   ?>
                 </h5>
-                <small class="font-light">Đơn hàng đã thanh toán</small>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3">
-              <div class="bg-dark p-10 text-white text-center m-2">
-                <i class="fa fa-hourglass-half font-16"></i>
-                <?php
-                  $chuathanhtoan = $list_status_orders_chuaThanhToan[0]["COUNT(*)"];
-                ?>
-                <h5 class="m-b-0 m-t-5">
-                  <?php
-                  echo $chuathanhtoan;
-                  ?>
-                </h5>
-                <small class="font-light">Đơn hàng chưa thanh toán</small>
+                <small class="font-light">Đơn hàng thất bại</small>
               </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">

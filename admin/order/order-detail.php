@@ -115,22 +115,35 @@
                                     } else if ($order['order_status'] == 2) {
                                         echo '<option value="2" selected hidden >Đang giao hàng</option>';
                                     } else if ($order['order_status'] == 3) {
-                                        echo '<option value="3" selected hidden >Chưa thanh toán</option>';
+                                        echo '<option value="4" selected hidden >Giao thất bại</option>';
                                     } else if ($order['order_status'] == 4) {
-                                        echo '<option value="4" selected hidden >Đã thanh toán</option>';
-                                    } else if ($order['order_status'] == 5) {
                                         echo '<option value="5" selected hidden >Giao hàng thành công</option>';
                                     } else {
                                         echo '<option value="6" selected hidden >Hủy</option>';
                                     }
                                     ?>
-                                    <option value="0">Chưa xử lý</option>
-                                    <option value="1">Đã xử lý</option>
+                                    <?php
+                                        if ($order['order_status'] == 0) {
+                                    ?>
+                                        <option value="0">Chưa xử lý</option>
+                                        <option value="1">Đã xử lý</option>
+                                        <!-- <option value="2" disabled >Đang giao hàng</option>
+                                        <option value="3" disabled >Chưa thanh toán</option>
+                                        <option value="4" disabled >Đã thanh toán</option>
+                                        <option value="5" disabled >Giao hàng thành công</option> -->
+                                        <option value="6">Hủy</option>
+                                    <?php } 
+                                    
+                                    else if ($order['order_status'] == 1){    
+                                    ?>
                                     <option value="2">Đang giao hàng</option>
-                                    <option value="3">Chưa thanh toán</option>
-                                    <option value="4">Đã thanh toán</option>
-                                    <option value="5">Giao hàng thành công</option>
-                                    <option value="6">Hủy</option>
+                                    <?php } else if ($order['order_status'] == 2) {?>
+                                    <option value="3">Giao hàng thất bại</option>
+                                    <option value="4">Giao hàng thành công</option>
+                                    <?php } else if ($order['order_status'] == 4 || ($order['order_status'] == 5)) {
+                                        echo '';
+                                        ?>
+                                    <?php } ?>
                                 </select>
                                 <input type="hidden" value="<?php echo $order['order_id'] ?>" name="order_id">
                                 <input type="submit" class="btn btn-success" value="Cập nhật" name="btn-update">

@@ -24,18 +24,17 @@ include "../model/tonkho.php";
 include "header.php";
 
 $status = '';
-            $list_accounts = load_all_account();
-            $list_products = load_all_product();
-            $list_orders = load_all_order();
-            $list_categories = load_all_category();
-            $list_brands = load_all_brand();
-            $list_status_orders_chuaXuLy = count_status_orders_chuaXuLy();
-            $list_status_orders_daXuLy = count_status_orders_daXuLy();
-            $list_status_orders_dangGiaoHang = count_status_orders_dangGiaoHang();
-            $list_status_orders_chuaThanhToan = count_status_orders_chuaThanhToan();
-            $list_status_orders_daThanhToan = count_status_orders_daThanhToan();
-            $list_status_orders_giaoThanhCong = count_status_orders_giaoThanhCong();
-            $list_status_orders_daHuy = count_status_orders_daHuy();
+$list_accounts = load_all_account();
+$list_products = load_all_product();
+$list_orders = load_all_order();
+$list_categories = load_all_category();
+$list_brands = load_all_brand();
+$list_status_orders_chuaXuLy = count_status_orders_chuaXuLy();
+$list_status_orders_daXuLy = count_status_orders_daXuLy();
+$list_status_orders_dangGiaoHang = count_status_orders_dangGiaoHang();
+$list_status_orders_giaoThatBai = count_status_orders_giaoThatBai();
+$list_status_orders_giaoThanhCong = count_status_orders_giaoThanhCong();
+$list_status_orders_daHuy = count_status_orders_daHuy();
 
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -371,8 +370,7 @@ if (isset($_GET['act'])) {
             $list_status_orders_chuaXuLy = count_status_orders_chuaXuLy();
             $list_status_orders_daXuLy = count_status_orders_daXuLy();
             $list_status_orders_dangGiaoHang = count_status_orders_dangGiaoHang();
-            $list_status_orders_chuaThanhToan = count_status_orders_chuaThanhToan();
-            $list_status_orders_daThanhToan = count_status_orders_daThanhToan();
+            $list_status_orders_giaoThatBai = count_status_orders_giaoThatBai();
             $list_status_orders_giaoThanhCong = count_status_orders_giaoThanhCong();
             $list_status_orders_daHuy = count_status_orders_daHuy();
             include "thongke/thongke.php";
